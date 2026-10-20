@@ -114,6 +114,10 @@ def _rule_fast_path(text: str, snapshot: dict[str, Any]) -> dict[str, Any] | Non
         return None
     if kind == "status" and any(word in text for word in ("为什么", "怎么", "如何", "比较", "区别", "适合", "建议")):
         return None
+    # A read parse of a sentence that carries write vocabulary means the rules missed the write; ask the model.
+    if kind == "status" and (PRICE_RE.search(text) or COUPON_RE.search(text) or SWITCH_RE.search(text)
+                             or re.search(r"调|改|降|涨|券", text)):
+        return None
     explicit = _target_product(text, snapshot["products"]) is not None or bool(action.get("reference"))
     if kind in {"switch_product", "update_price", "issue_coupon"} and (explicit or any(w in text for w in ("上一款", "前一款"))):
         return action
@@ -176,7 +180,7 @@ def _rule_action_body(text: str, snapshot: dict[str, Any]) -> dict[str, Any]:
         if not product or amount is None or not quantity_match:
             return {"type": "clarify", "question": "请注明商品、券面额和张数，例如：给面霜发 10 元券 20 张。"}
         return {"type": "issue_coupon", "sku": product["sku"], "amount_cents": amount, "quantity": int(quantity_match.group(1))}
-    if any(word in text for word in ("改价", "价格改", "降到", "涨到", "改成")) and ("价" in text or "元" in text):
+    if PRICE_RE.search(text) and ("价" in text or "元" in text):
         amount = _first_amount(text)
         if not product or amount is None:
             return {"type": "clarify", "question": "请注明商品和新价格，例如：把面霜价格改成 119 元。"}

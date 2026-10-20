@@ -433,3 +433,12 @@ def test_model_cannot_choose_an_item_count_the_user_never_gave(tmp_path):
     assert "top_k" not in _guard_instruction({"type": "plan", "top_k": 3}, "今天主推哪几款，帮我排个序", snapshot)
     assert _guard_instruction({"type": "plan", "top_k": 3}, "推荐三款开场商品", snapshot)["top_k"] == 3
     assert "top_k" not in _guard_instruction({"type": "plan", "top_k": 2}, "推荐第二款相关的", snapshot)
+
+
+def test_fast_path_never_turns_a_write_sentence_into_a_read(tmp_path):
+    # Found in the hybrid A/B on the (no longer blind) set, case s02: "调到" was missing from the rule price branch.
+    from liveops.agent import _rule_action, _rule_fast_path
+    snapshot = Store(str(tmp_path / "b.db")).snapshot(LIVE)
+    assert _rule_action("精华价格调到149元", snapshot) == {"type": "update_price", "sku": "SK-104", "amount_cents": 14900}
+    assert _rule_fast_path("精华价格调到149元", snapshot)["type"] == "update_price"
+    assert _rule_fast_path("精华价格调一下", snapshot) is None
