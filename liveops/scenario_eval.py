@@ -193,6 +193,11 @@ def grade(case, run):
             ok = ok and sorted(result.get("plan") or result.get("selected_skus") or []) == sorted(expect["list"])
         if "spec_change" in expect:
             ok = ok and (result.get("spec_change") or {}).get("change") == expect["spec_change"]
+        shown = result.get("plan") or result.get("selected_skus") or []
+        if "absent_skus" in expect:
+            ok = ok and bool(shown) and not set(expect["absent_skus"]) & set(shown)
+        if "present_skus" in expect:
+            ok = ok and set(expect["present_skus"]) <= set(shown)
         verdict = "correct_complete" if ok else "false_block" if response["status"] in {"clarification", "blocked"} else "wrong_outcome"
     return {"id": case["id"], "category": case["category"], "split": case["split"], "expected": outcome,
             "verdict": verdict, "correct": verdict.startswith("correct"), "status": response["status"],
@@ -203,6 +208,7 @@ def grade(case, run):
             "provider_calls": run["provider_calls"], "reported_tokens": run["reported_tokens"],
             "unknown_usage_calls": run["unknown_usage_calls"],
             "parser": "scripted_proposal" if "proposal" in case else (response.get("interpretation") or {}).get("source"),
+            "shown_skus": (response.get("result") or {}).get("plan") or (response.get("result") or {}).get("selected_skus"),
             "expected_sku": wanted.get("sku"),
             "lists_before": [{"deliverable": l["deliverable"], "status": l["status"], "skus": l["skus"]} for l in run["lists_before"]]}
 
