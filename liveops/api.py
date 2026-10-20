@@ -142,7 +142,8 @@ def create_app(db_path: str | None = None, checkpoint_path: str | None = None,
         return {"status": "ok", "mode": "model" if os.getenv("LIVEOPS_LLM_MODEL") else "offline", "coupon_backend": backend,
                 "intent_model": os.getenv("LIVEOPS_LLM_MODEL") or None,
                 "writer_model": os.getenv("LIVEOPS_SPECIALIST_MODEL") or None,
-                "advice_generation": bool(os.getenv("LIVEOPS_LLM_MODEL") and os.getenv("LIVEOPS_LLM_BASE_URL"))}
+                "advice_generation": bool(os.getenv("LIVEOPS_LLM_MODEL") and os.getenv("LIVEOPS_LLM_BASE_URL")),
+                "model_circuit": __import__("liveops.model_budget", fromlist=["breaker"]).breaker.status()}
 
     @app.get("/api/state/{live_id}")
     def state(live_id: str):

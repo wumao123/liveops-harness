@@ -87,6 +87,8 @@ def test_missing_usage_is_unknown_not_free(harness, monkeypatch, fault):
 
 
 def test_nested_retries_are_visible(harness, monkeypatch):
+    # Counts every nested retry, so the circuit breaker must not short-circuit here (it is tested separately).
+    monkeypatch.setattr("liveops.model_budget.breaker.failures", 20)
     monkeypatch.setattr("liveops.specialists.httpx.post", lambda *a, **k: response("error", status=500))
     plan = harness.create(LIVE, "叠加重试测试", top_k=3)
     harness.run(LIVE, plan["run_id"])

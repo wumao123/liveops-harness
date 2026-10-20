@@ -60,6 +60,8 @@ _CODE_STRATEGY: dict[str, RecoveryStrategy] = {
     "OUTPUT_CONTRACT": "stop", "SKILL_CONTRACT": "stop", "ACTION_CONTRACT": "stop", "HOOK_FAILED": "stop",
     "WORKER_FAILED": "retry_with_backoff", "SPECIALIST_NETWORK": "retry_with_backoff",
     "SPECIALIST_TRANSIENT": "retry_with_backoff", "MODEL_NETWORK": "retry_with_backoff",
+    # Circuit open: this call falls back now; a later attempt may succeed once the cooldown ends.
+    "MODEL_CIRCUIT_OPEN": "retry_with_backoff",
     "STALE_CAMPAIGN": "refresh_or_replan", "APPROVAL_EXPIRED": "refresh_or_replan",
     "REMOTE_TIMEOUT": "reconcile", "REMOTE_NOT_VISIBLE": "reconcile", "REMOTE_PENDING": "reconcile",
     "REMOTE_UNCERTAIN": "manual_review", "REMOTE_QUERY_UNAVAILABLE": "manual_review",

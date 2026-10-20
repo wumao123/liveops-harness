@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import json
+import os
+import threading
 import time
 import uuid
 from contextlib import contextmanager
 from contextvars import ContextVar
+from urllib.parse import urlsplit
 
 import httpx
 
@@ -101,17 +104,109 @@ def model_scope(budget: ModelBudget, live_id: str, scope_id: str, limits: dict |
         _scope.reset(token)
 
 
-def provider_post(url: str, *, phase: str, **kwargs):
-    scope = _scope.get()
-    if scope is None:
+class CircuitBreaker:
+    """Per provider host: after N consecutive transport failures, skip the provider for a cooldown.
+
+    Only transport-level failures count (network/timeout, 429, 5xx); a 400 or bad JSON means the provider is up.
+    Open state raises MODEL_CIRCUIT_OPEN before any budget is reserved, so callers fall back at once.
+    Half-open lets exactly one probe through; its result closes or reopens the circuit.
+    """
+
+    def __init__(self, failures: int | None = None, cooldown_seconds: float | None = None):
+        # `is None`, not `or`: an explicit 0 must be rejected, not silently replaced by the default.
+        self.failures = int(os.getenv("LIVEOPS_BREAKER_FAILURES", "3")) if failures is None else failures
+        self.cooldown = (float(os.getenv("LIVEOPS_BREAKER_COOLDOWN_SECONDS", "30"))
+                         if cooldown_seconds is None else cooldown_seconds)
+        if not 1 <= self.failures <= 20 or not 1 <= self.cooldown <= 600:
+            raise ValueError("breaker limits out of range")
+        self._lock = threading.Lock()
+        self._hosts: dict[str, dict] = {}
+
+    def _state(self, host: str) -> dict:
+        return self._hosts.setdefault(host, {"failures": 0, "opened_at": None, "probing": False, "opened_count": 0})
+
+    def before(self, host: str) -> None:
+        with self._lock:
+            state = self._state(host)
+            if state["opened_at"] is None:
+                return
+            if time.monotonic() - state["opened_at"] < self.cooldown or state["probing"]:
+                raise BusinessError("MODEL_CIRCUIT_OPEN", "模型服务连续失败，已暂时改用规则和模板；稍后自动重试")
+            state["probing"] = True
+
+    def record(self, host: str, ok: bool) -> None:
+        with self._lock:
+            state = self._state(host)
+            state["probing"] = False
+            if ok:
+                state.update(failures=0, opened_at=None)
+                return
+            state["failures"] += 1
+            if state["opened_at"] is not None or state["failures"] >= self.failures:
+                state["opened_at"] = time.monotonic()
+                state["opened_count"] += 1
+
+    def release(self, host: str) -> None:
+        """A call that ended for a non-provider reason (budget, bug) neither proves nor disproves health."""
+        with self._lock:
+            self._state(host)["probing"] = False
+
+    def status(self) -> dict:
+        with self._lock:
+            now = time.monotonic()
+            return {host: {"state": "closed" if s["opened_at"] is None
+                           else "half_open" if now - s["opened_at"] >= self.cooldown else "open",
+                           "consecutive_failures": s["failures"], "opened_count": s["opened_count"]}
+                    for host, s in self._hosts.items()}
+
+    def reset(self) -> None:
+        with self._lock:
+            self._hosts.clear()
+
+
+breaker = CircuitBreaker()
+_ORIGINAL_POST = httpx.post
+_client: httpx.Client | None = None
+_client_lock = threading.Lock()
+
+
+def _send(url: str, **kwargs):
+    """Reuse one keep-alive pool. Tests and recorded experiments replace httpx.post; that seam is honored."""
+    global _client
+    if httpx.post is not _ORIGINAL_POST:
         return httpx.post(url, **kwargs)
-    budget, live_id, scope_id, limits = scope
-    call_id = budget.reserve(live_id, scope_id, limits, kwargs.get("json", {}), phase)
+    with _client_lock:
+        if _client is None:
+            _client = httpx.Client(limits=httpx.Limits(max_connections=20, max_keepalive_connections=10))
+    return _client.post(url, **kwargs)
+
+
+def provider_post(url: str, *, phase: str, **kwargs):
+    host = urlsplit(url).netloc or url
+    breaker.before(host)
+    scope = _scope.get()
+    call_id = None
+    if scope is not None:
+        budget, live_id, scope_id, limits = scope
+        try:
+            call_id = budget.reserve(live_id, scope_id, limits, kwargs.get("json", {}), phase)
+        except BusinessError:
+            breaker.release(host)
+            raise
     started = time.monotonic()
     try:
-        response = httpx.post(url, **kwargs)
-    except Exception:
-        budget.finish(call_id, elapsed_ms=round((time.monotonic()-started)*1000, 2), failed=True)
+        response = _send(url, **kwargs)
+    except httpx.RequestError:
+        breaker.record(host, ok=False)
+        if call_id:
+            budget.finish(call_id, elapsed_ms=round((time.monotonic()-started)*1000, 2), failed=True)
         raise
-    budget.finish(call_id, response, elapsed_ms=round((time.monotonic()-started)*1000, 2), failed=response.status_code >= 400)
+    except Exception:
+        breaker.release(host)
+        if call_id:
+            budget.finish(call_id, elapsed_ms=round((time.monotonic()-started)*1000, 2), failed=True)
+        raise
+    breaker.record(host, ok=not (response.status_code == 429 or response.status_code >= 500))
+    if call_id:
+        budget.finish(call_id, response, elapsed_ms=round((time.monotonic()-started)*1000, 2), failed=response.status_code >= 400)
     return response
