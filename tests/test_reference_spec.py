@@ -376,3 +376,60 @@ def test_model_scene_constraint_is_checked_against_named_products_and_write_talk
         plan = say(client, "推荐三款开场商品")
     assert first["interpretation"]["scene_constraint"]["exclude_skus"] == ["SK-104"]
     assert "SK-104" not in plan["result"]["plan"] and len(plan["result"]["plan"]) == 3
+
+
+@pytest.mark.parametrize("instruction,kind,sku", [
+    ("把卸妆巾挂上来", "switch_product", "SK-105"),
+    ("精华换上来讲", "switch_product", "SK-104"),
+    ("面霜来一波券，面额12元，发25张", "issue_coupon", "SK-102"),
+])
+def test_write_vocabulary_is_shared_by_parser_and_guard(tmp_path, instruction, kind, sku):
+    # Found by the blind set: the guard rejected phrasings the model had parsed correctly.
+    from liveops.agent import _rule_action
+    snapshot = Store(str(tmp_path / "b.db")).snapshot(LIVE)
+    model = {"type": kind, "sku": sku, **({"amount_cents": 1200, "quantity": 25} if kind == "issue_coupon" else {})}
+    assert _guard_instruction(model, instruction, snapshot)["type"] == kind
+    assert _rule_action(instruction, snapshot)["type"] == kind
+
+
+def test_return_to_previous_switches_but_topic_talk_does_not(tmp_path):
+    from liveops.agent import _rule_action
+    snapshot = Store(str(tmp_path / "b.db")).snapshot(LIVE)
+    snapshot["live"]["previous_sku"] = "SK-105"
+    assert _rule_action("回到上一款", snapshot) == {"type": "switch_product", "sku": "SK-105"}
+    assert _guard_instruction({"type": "switch_product", "sku": "SK-102"}, "回到面霜的话题", snapshot)["type"] == "clarify"
+    assert _guard_instruction({"type": "update_price", "sku": "SK-102", "amount_cents": 10900},
+                              "面霜降到109元，顺便来张5元券20张", snapshot)["type"] == "clarify"
+
+
+def test_rule_fast_path_skips_the_model_only_for_unambiguous_parses(tmp_path, monkeypatch):
+    from liveops.agent import _rule_fast_path
+    snapshot = Store(str(tmp_path / "b.db")).snapshot(LIVE)
+    assert _rule_fast_path("把面霜价格改成119元", snapshot)["type"] == "update_price"
+    assert _rule_fast_path("给面霜发10元券20张", snapshot)["type"] == "issue_coupon"
+    assert _rule_fast_path("面霜现在还剩多少货", snapshot)["type"] == "status"
+    # Hedged, pronoun, comparison and open-ended turns go to the model.
+    for text in ("如果明天给面霜发10元券20张呢", "它改成119元", "比较面霜和精华", "帮我做选品计划", "给第二款写口播"):
+        assert _rule_fast_path(text, snapshot) is None
+
+    app = create_app(str(tmp_path / "a.db"), str(tmp_path / "c.db"))
+    monkeypatch.setenv("LIVEOPS_LLM_BASE_URL", "https://model.invalid/v1")
+    monkeypatch.setenv("LIVEOPS_LLM_MODEL", "fixture")
+    calls = []
+    monkeypatch.setattr("liveops.agent._llm_action", lambda *a: calls.append(a) or {"action": None, "attempts": 0, "error": None})
+    with TestClient(app) as client:
+        fast = say(client, "把面霜价格改成119元")
+        slow = say(client, "面霜适合干皮吗")
+    assert fast["status"] == "pending_approval" and fast["interpretation"]["source"] == "rule_fast_path"
+    assert len(calls) == 1 and slow["interpretation"]["source"] != "rule_fast_path"
+    monkeypatch.setenv("LIVEOPS_INTENT_ROUTING", "nonsense")
+    with pytest.raises(ValueError):
+        from liveops.agent import intent_routing
+        intent_routing()
+
+
+def test_model_cannot_choose_an_item_count_the_user_never_gave(tmp_path):
+    snapshot = Store(str(tmp_path / "b.db")).snapshot(LIVE)
+    assert "top_k" not in _guard_instruction({"type": "plan", "top_k": 3}, "今天主推哪几款，帮我排个序", snapshot)
+    assert _guard_instruction({"type": "plan", "top_k": 3}, "推荐三款开场商品", snapshot)["top_k"] == 3
+    assert "top_k" not in _guard_instruction({"type": "plan", "top_k": 2}, "推荐第二款相关的", snapshot)

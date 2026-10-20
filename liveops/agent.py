@@ -86,6 +86,42 @@ def _scene_constraint(raw: Any, text: str, snapshot: dict[str, Any]) -> dict[str
     return {k: v for k, v in picked.items() if v} or None
 
 
+# One write-intent vocabulary shared by the rule parser and the guard. "回到" is only accepted with
+# 上一款-style targets, so "回到面霜的话题" stays a discussion.
+SWITCH_RE = re.compile(r"切到|切回|切换|切品|上架|开始讲|换成|换到|换上|切上来|挂上来|回到(?:上一款|前一款|刚才那款)")
+PRICE_RE = re.compile(r"改价|价格改|改到|改成|降到|涨到|调到")
+COUPON_RE = re.compile(r"发.*券|发券|来.{0,3}券|券.*发\s*\d+\s*张")
+
+
+def intent_routing() -> str:
+    # hybrid: unambiguous rule parses skip the model; model_only: every turn asks the model first.
+    routing = os.getenv("LIVEOPS_INTENT_ROUTING", "hybrid")
+    if routing not in {"hybrid", "model_only"}:
+        raise ValueError("LIVEOPS_INTENT_ROUTING must be hybrid or model_only")
+    return routing
+_HEDGE = ("如果", "要是", "明天", "等会", "建议", "合适吗", "考虑", "先别", "不要", "不执行", "能不能", "取消", "吗", "是否",
+          "为什么", "怎么", "如何", "比较", "区别", "?", "？")
+
+
+def _rule_fast_path(text: str, snapshot: dict[str, Any]) -> dict[str, Any] | None:
+    """Skip the model only when the rule parse is unambiguous; every result still goes through the same guard."""
+    if any(word in text for word in ("它", "这款", "这个商品")):
+        return None
+    action = _rule_action(text, snapshot)
+    kind = action.get("type")
+    # A question mark is normal for a stock query; hedges only matter when the parse is a write.
+    if kind != "status" and any(word in text for word in _HEDGE):
+        return None
+    if kind == "status" and any(word in text for word in ("为什么", "怎么", "如何", "比较", "区别", "适合", "建议")):
+        return None
+    explicit = _target_product(text, snapshot["products"]) is not None or bool(action.get("reference"))
+    if kind in {"switch_product", "update_price", "issue_coupon"} and (explicit or any(w in text for w in ("上一款", "前一款"))):
+        return action
+    if kind == "status" and explicit and any(w in text for w in ("库存", "价格", "多少", "还剩", "还有")):
+        return action
+    return None
+
+
 def _is_prepare(text: str) -> bool:
     return (any(word in text for word in ("备播", "多智能体", "批量", "三款", "3款"))
             and any(word in text for word in ("准备", "手卡", "审核", "生成", "方案")))
@@ -134,7 +170,7 @@ def _rule_action_body(text: str, snapshot: dict[str, Any]) -> dict[str, Any]:
     # "准备手卡，开播后再发券" is a preparation request; the deferred write is listed in its spec, not parsed as a write.
     if _is_prepare(text) and any(word in text for word in ("开播后", "之后", "稍后", "再发", "再改", "再切")):
         return {"type": "prepare", "top_k": 3}
-    if "发券" in text or "优惠券" in text or re.search(r"发\s*\d+(?:\.\d+)?\s*元券", text):
+    if "优惠券" in text or COUPON_RE.search(text):
         amount = _first_amount(text)
         quantity_match = re.search(r"(\d+)\s*张", text)
         if not product or amount is None or not quantity_match:
@@ -145,7 +181,7 @@ def _rule_action_body(text: str, snapshot: dict[str, Any]) -> dict[str, Any]:
         if not product or amount is None:
             return {"type": "clarify", "question": "请注明商品和新价格，例如：把面霜价格改成 119 元。"}
         return {"type": "update_price", "sku": product["sku"], "amount_cents": amount}
-    if any(word in text for word in ("切到", "切回", "切品", "上架", "讲解")) and product:
+    if (SWITCH_RE.search(text) or "讲解" in text) and product:
         return {"type": "switch_product", "sku": product["sku"]}
     if _is_prepare(text):
         return {"type": "prepare", "top_k": 3}
@@ -189,6 +225,9 @@ def _guard_instruction(action: dict[str, Any], text: str, snapshot: dict[str, An
         budget = _first_amount(text)
         if budget is not None:
             action = {**action, "max_price_cents": budget}
+    if kind in {"plan", "prepare"} and "top_k" in action and not re.search(r"(?<!第)[一二三四五12345]\s*款", text):
+        # Like amounts, the item count must come from the user; otherwise the deliverable's default applies.
+        action = {k: v for k, v in action.items() if k != "top_k"}
     if kind in {"plan", "prepare"}:
         # A stated exclusion survives history trimming; naming the product in this turn overrides it.
         named = _named_skus(text, snapshot["products"])
@@ -212,10 +251,8 @@ def _guard_instruction(action: dict[str, Any], text: str, snapshot: dict[str, An
     if kind in {"update_price", "issue_coupon", "switch_product"}:
         if any(word in text for word in ("如果", "要是", "明天", "等会", "建议", "合适吗", "考虑", "先别", "不要", "不执行", "能不能", "取消", "吗", "是否")):
             return {"type": "advise"}
-        intent_patterns = {"switch_product": r"切到|切回|切换|切品|上架|开始讲|换成|换到",
-                           "update_price": r"改价|价格改|改到|改成|降到|涨到|调到",
-                           "issue_coupon": r"发.*券|发券"}
-        if not re.search(intent_patterns[kind], text):
+        intent_patterns = {"switch_product": SWITCH_RE, "update_price": PRICE_RE, "issue_coupon": COUPON_RE}
+        if not intent_patterns[kind].search(text):
             return {"type": "clarify", "question": "这是一条执行指令吗？请明确商品和要执行的操作，我不会把普通讨论当成授权。"}
         if _target_product(text, snapshot["products"]) is None and not any(word in text for word in ("它", "这款", "当前", "上一款", "前一款")) and not has_reference(text):
             return {"type": "clarify", "question": "要操作哪一款商品？请提供商品名称或 SKU。"}
@@ -232,7 +269,7 @@ def _guard_instruction(action: dict[str, Any], text: str, snapshot: dict[str, An
             quantity = re.search(r"(\d+)\s*张", text)
             if quantity is None or action.get("quantity") != int(quantity[1]):
                 return {"type": "clarify", "question": "准备发多少张券？请明确张数，我不会自动猜成一张。"}
-        if re.search(r"(?:改价|价格改|改成|降到)", text) and re.search(r"(?:发券|发.*元券)", text):
+        if PRICE_RE.search(text) and COUPON_RE.search(text):
             return {"type": "clarify", "question": "改价和发券请分开发起，每个操作分别核对并审批。"}
     return action
 
@@ -448,7 +485,8 @@ class LiveAgent:
     def _interpret(self, state: AgentState) -> AgentState:
         instruction = state["instruction"]
         snapshot = state["snapshot"]
-        model_attempt = _llm_action(instruction, snapshot)
+        fast = _rule_fast_path(instruction, snapshot) if intent_routing() == "hybrid" else None
+        model_attempt = {"action": None, "attempts": 0, "error": None} if fast else _llm_action(instruction, snapshot)
         if model_attempt["error"]:
             self.store.record_event(state["live_id"], state["command_id"], "model_fallback", {
                 "code": model_attempt["error"]["code"],
@@ -456,7 +494,8 @@ class LiveAgent:
             })
         action = model_attempt["action"] or _rule_action(instruction, snapshot)
         interpretation = {
-            "source": "model" if model_attempt["action"] else "offline_fallback" if model_attempt["error"] else "offline",
+            "source": ("rule_fast_path" if fast else "model" if model_attempt["action"]
+                       else "offline_fallback" if model_attempt["error"] else "offline"),
             "attempts": model_attempt["attempts"],
             "fallback_error": model_attempt["error"],
         }

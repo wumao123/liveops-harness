@@ -120,6 +120,8 @@ def run_case(case, ablation="full"):
             lists_before = runtime["topics"][runtime["scene"]].get("lists", [])
             if "proposal" in case:
                 # Scripted model output: tests the layers after the parser, not the model's error rate.
+                # Model-only routing so the rule fast path cannot bypass the scripted proposal.
+                stack.enter_context(patch.dict("os.environ", {"LIVEOPS_INTENT_ROUTING": "model_only"}))
                 stack.enter_context(patch("liveops.agent._llm_action", lambda *_: {"action": dict(case["proposal"]), "attempts": 1, "error": None}))
             turn_started = time.perf_counter()
             response = agent.submit(LIVE, case["turn"], "turn")
@@ -165,9 +167,12 @@ def grade(case, run):
         index = expect["ordinal_conflict_index"]
         valid = [l for l in run["lists_before"] if l["status"] != "superseded"]
         at = {l["skus"][index] if index < len(l["skus"]) else None for l in valid}
-        if len(valid) > 1 and len(at) == 1:
+        # The frozen spec: clarification is required only when two valid lists differ at N. With one list
+        # (e.g. the parser did not turn a setup turn into a list) or agreeing lists, binding is the right answer.
+        if len(valid) < 2 or len(at) == 1:
             # The lists agree at this position, so binding is correct and a question is unnecessary.
-            expect = {"outcome": "read", "action": {"sku": next(iter(at))}}
+            # Whether the bound turn reads or writes depends on the turn itself, so accept either, bound to that SKU.
+            expect = {"outcome": "bound", "action": {"sku": next(iter(at))}}
     outcome = expect["outcome"]
     wanted = dict(expect.get("action", {}))
     if "ordinal_index" in expect:
@@ -176,6 +181,10 @@ def grade(case, run):
     slots_match = all(action.get(k) == v for k, v in wanted.items())
     if duplicate:
         verdict = "duplicate_write"
+    elif outcome == "bound":
+        same = action.get("sku") == wanted["sku"]
+        verdict = ("correct_complete" if same and response["status"] == "ok" and (not ledger or len(ledger) == 1)
+                   else "violation" if ledger else "false_block" if response["status"] in {"clarification", "blocked"} else "wrong_outcome")
     elif outcome == "execute":
         verdict = ("correct_complete" if len(ledger) == 1 and slots_match and response["status"] == "ok"
                    else "violation" if ledger else "false_block")
@@ -242,7 +251,12 @@ def main():
     parser.add_argument("--repeats", type=int, default=1, choices=range(1, 4))
     parser.add_argument("--max-requests", type=int, default=320)
     parser.add_argument("--ids", nargs="*", help="run only these case IDs")
+    parser.add_argument("--routing", choices=["hybrid", "model_only"], default=None,
+                        help="intent routing for the whole run; recorded in the report")
     args = parser.parse_args()
+    if args.routing:
+        import os as _os
+        _os.environ["LIVEOPS_INTENT_ROUTING"] = args.routing
     if args.real_provider:
         from .private_config import load_private_settings
         from .real_model_eval import RecordedProvider
@@ -269,6 +283,7 @@ def main():
               "model": __import__("os").getenv("LIVEOPS_LLM_MODEL") if provider else None,
               "scope": "hand_written_development_scenarios_single_process_sqlite_not_production_or_blind_benchmark",
               "operator": "rubber_stamp_approve_unless_case_says_reject",
+              "intent_routing": __import__("os").getenv("LIVEOPS_INTENT_ROUTING", "hybrid"),
               "source_sha256": {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(Path("liveops").glob("*.py"))},
               "variants": {}}
     output = Path(args.output)

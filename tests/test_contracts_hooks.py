@@ -133,6 +133,8 @@ def test_model_cannot_swap_the_named_product_on_a_write(tmp_path):
 
 
 def test_swapped_sku_from_model_never_reaches_approval(tmp_path, monkeypatch):
+    # Model-only routing, so the swapped model output is what reaches the guard.
+    monkeypatch.setenv("LIVEOPS_INTENT_ROUTING", "model_only")
     monkeypatch.setenv("LIVEOPS_LLM_BASE_URL", "https://model.invalid/v1")
     monkeypatch.setenv("LIVEOPS_LLM_MODEL", "fixture")
 
