@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LiveOps · 主播中控台</title>
+  <link rel="stylesheet" href="/app.css">
+  <link rel="stylesheet" href="/harness.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">L</span><span>LiveOps <small>Harness</small></span></div>
+    <div class="top-status"><span class="live-dot"></span><span id="active-scene">播中</span><span class="divider"></span><span id="live-id">LIVE-DEMO-001</span></div>
+    <span class="mode" id="mode">离线演示</span>
+  </header>
+
+  <main class="shell">
+    <section class="page-heading">
+      <div><p class="eyebrow">直播运营工作台</p><h1>护肤专场</h1><p id="goal" class="muted">正在加载本场目标...</p></div>
+      <button class="outline" id="refresh" type="button">刷新状态</button>
+    </section>
+
+    <section class="overview" aria-label="直播概况">
+      <div class="metric"><span>当前讲解</span><strong id="current-product">--</strong><small id="current-sku">--</small></div>
+      <div class="metric"><span>当前售价</span><strong id="current-price">--</strong><small>元 / 件</small></div>
+      <div class="metric"><span>当前库存</span><strong id="current-stock">--</strong><small>件</small></div>
+      <div class="metric"><span>已创建优惠券</span><strong id="coupon-count">--</strong><small>批</small></div>
+    </section>
+
+    <div class="workspace">
+      <section class="main-column">
+        <div class="section-head"><div><h2>商品货盘</h2><p>价格与库存以仿真业务库为准</p></div><span class="count" id="product-count">0 件商品</span></div>
+        <div class="table-scroll"><table><thead><tr><th>商品</th><th>售价</th><th>库存</th><th>状态</th><th>操作</th></tr></thead><tbody id="products"></tbody></table></div>
+
+        <section class="campaign-section" aria-labelledby="campaign-heading">
+          <div class="section-head"><h2 id="campaign-heading">多智能体备播</h2><span class="count" id="campaign-status">未开始</span></div>
+          <form id="campaign-form">
+            <label for="campaign-goal">准备目标</label>
+            <textarea id="campaign-goal" rows="2" maxlength="500" required>为三款商品准备讲解手卡，核对商品依据并汇总</textarea>
+            <fieldset><legend>商品范围</legend><div id="campaign-products" class="sku-choices"></div></fieldset>
+            <div class="campaign-toolbar"><button type="submit" id="campaign-start" class="primary">生成备播材料</button><button type="button" id="campaign-pause" class="outline" disabled>暂停后续阶段</button><button type="button" id="campaign-resume" class="outline" disabled>继续</button><button type="button" id="campaign-retry" class="outline" disabled>恢复失败任务</button><button type="button" id="campaign-export" class="outline" title="下载当前备播材料" aria-label="下载当前备播材料" disabled>↓</button></div>
+          </form>
+          <label class="history-picker" for="campaign-history">历史计划<select id="campaign-history"><option value="">选择计划</option></select></label>
+          <details class="trace-details"><summary>商品变化与局部重规划</summary><div class="replan-controls"><label for="replan-old">原商品</label><select id="replan-old"></select><label for="replan-new">替换为</label><select id="replan-new"><option value="">仅刷新当前商品版本</option></select><button type="button" id="campaign-replan" class="outline" disabled>确认重规划</button></div><p id="replan-history" class="muted small"></p></details>
+          <p id="campaign-feedback" class="status-line" role="status"></p>
+          <progress id="campaign-progress" value="0" max="1" aria-label="备播任务完成进度"></progress>
+          <div id="campaign-tasks" class="task-grid"></div>
+          <p id="campaign-metrics" class="muted small"></p>
+          <div id="campaign-materials" class="materials"></div>
+          <details class="trace-details"><summary>执行轨迹</summary><pre id="campaign-trace">[]</pre></details>
+        </section>
+
+        <div class="section-head audit-head"><div><h2>执行记录</h2><p>指令、审批与业务提交可追溯</p></div></div>
+        <div id="audit" class="audit-list"><p class="empty">暂无记录</p></div>
+      </section>
+
+      <aside class="side-column">
+        <section class="runtime-panel"><div class="section-head"><h2>场景与运行约束</h2><select id="runtime-scene" aria-label="当前工作阶段"><option value="pre_live">播前准备</option><option value="on_live" selected>播中运营</option><option value="post_live">播后复盘</option></select></div><div class="runtime-observation"><label for="viewers">仿真在线人数</label><input id="viewers" type="number" min="0" max="10000000" value="500"><button type="button" id="observe-viewers" class="outline">更新观测</button></div><p id="runtime-feedback" class="status-line" role="status"></p><dl id="runtime-metrics" class="memory-list"></dl></section>
+        <section class="assistant-panel">
+          <div class="section-head"><div><h2>主播助理</h2><p>选品、手卡和运营操作</p></div><span class="assistant-online">可用</span></div>
+          <div id="conversation" class="conversation" aria-live="polite"><div class="message system">可以和我讨论商品、比较方案、生成口播，也可以创建多商品备播计划。改价、发券会单独向你申请确认。</div></div>
+          <div class="suggestions"><button type="button" data-prompt="预算100元内，推荐三款开场商品并解释顺序">选品建议</button><button type="button" data-prompt="给当前商品写一段自然的直播口播，带一个互动提问">口播草稿</button><button type="button" data-prompt="准备三款商品手卡并合规审核">多角色备播</button><button type="button" data-prompt="复盘本场操作">操作复盘</button></div>
+          <form id="command-form"><label for="instruction" class="sr-only">向主播助理发送指令</label><div class="composer"><input id="instruction" autocomplete="off" placeholder="例如：把面霜价格改成 119 元" maxlength="500" required><button type="submit" id="send">发送</button></div></form>
+          <p class="status-line" id="request-status"></p>
+        </section>
+
+        <section class="approval-panel"><div class="section-head"><div><h2>待审批操作</h2><p>改价与发券需要主播确认</p></div><span class="count" id="approval-count">0</span></div><div id="approvals"><p class="empty">目前没有待审批操作</p></div></section>
+
+        <section class="memory-panel"><div class="section-head"><h2>上下文与记忆</h2><select id="memory-scene" aria-label="记忆场景"><option value="pre_live">播前</option><option value="on_live" selected>播中</option><option value="post_live">播后</option></select></div><dl id="memory-content" class="memory-list"></dl><button type="button" id="forget-preference" class="table-action">删除明确偏好</button><details class="trace-details"><summary>注入上下文与原文回查</summary><pre id="context-preview"></pre><button type="button" id="context-original" class="table-action" disabled>查看最近完整回答</button><pre id="context-artifact"></pre></details><p id="memory-feedback" class="status-line" role="status"></p></section>
+
+        <section class="operations-panel"><div class="section-head"><h2>发券回执</h2><span class="count" id="operation-count">0</span></div><div id="operations"><p class="empty">暂无远端操作</p></div></section>
+
+        <section class="simulator-panel"><div class="section-head"><div><h2>故障演示</h2><p>本地业务沙箱，不会操作真实淘宝账户</p></div></div><div class="simulator-controls"><label for="sim-sku">商品</label><select id="sim-sku"></select><label for="sim-stock">新库存</label><input id="sim-stock" type="number" min="0" max="100000" value="0"><button id="change-stock" type="button" class="outline">注入库存变化</button><label for="remote-fault">发券模式</label><select id="remote-fault"><option value="normal">正常响应</option><option value="lost_response">提交成功但响应丢失</option><option value="delayed_visibility">回执延迟可见</option><option value="query_unavailable">回执查询不可用</option><option value="reject">平台拒绝</option></select><button id="set-remote-fault" type="button" class="outline">设置仿真故障</button></div></section>
+      </aside>
+    </div>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
+

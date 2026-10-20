@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "preferenceSaved": true,
+    "missingQuantityClarified": true,
+    "approvalRequired": true,
+    "lostResponseBecomesUnknown": true,
+    "receiptReconciled": true,
+    "exactlyOneCouponBatch": true,
+    "pauseSavedCheckpoint": true,
+    "preparationEightTasks": true,
+    "preparationThreeMaterials": true,
+    "exportAvailable": true,
+    "materialsRestoredAfterReload": true,
+    "preferenceDeletion": true,
+    "desktopNoOverflow": true,
+    "mobileNoOverflow": true,
+    "noBrowserErrors": true
+  },
+  "errors": [],
+  "passed": 15,
+  "total": 15
+}

@@ -1,0 +1,384 @@
+{
+  "mode": "offline_deterministic_and_injected_fixtures_not_real_llm_or_taobao",
+  "resume": {
+    "before": "paused",
+    "after": "succeeded",
+    "tasks": 8,
+    "selection_attempts": 1,
+    "approved_briefs": 3
+  },
+  "grounding": {
+    "status": "review_required",
+    "injected_bad_drafts": 2,
+    "admitted_bad_drafts": 0
+  },
+  "incremental_recovery": {
+    "before": "blocked",
+    "after": "succeeded",
+    "failed_product_attempts": 2,
+    "unaffected_product_attempts": 1
+  },
+  "business_state_unchanged": true,
+  "trace": [
+    {
+      "artifact_id": "selection-8cd4fa64837dabae",
+      "attempt": 1,
+      "backend": "deterministic",
+      "checks": [
+        {
+          "elapsed_ms": 1.355,
+          "name": "load_scoped_fresh_context",
+          "outcome": "passed",
+          "phase": "pre_tool_call",
+          "required": true
+        },
+        {
+          "elapsed_ms": 0.016,
+          "name": "capability_scope_and_budget",
+          "outcome": "passed",
+          "phase": "pre_tool_call",
+          "required": true
+        },
+        {
+          "elapsed_ms": 0.016,
+          "name": "skill_input_contract",
+          "outcome": "passed",
+          "phase": "pre_tool_call",
+          "required": true
+        },
+        {
+          "elapsed_ms": 0.013,
+          "name": "skill_output_contract",
+          "outcome": "passed",
+          "phase": "post_tool_call",
+          "required": true
+        }
+      ],
+      "context_chars": 777,
+      "elapsed_ms": 1.45,
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "revision": 1,
+      "role": "merchandiser",
+      "skill": "catalog",
+      "status": "succeeded",
+      "task_id": "selection",
+      "trace_id": "aec22629-6f43-48a4-975b-a21790b494fd/r1/selection/1"
+    },
+    {
+      "trace_id": "aec22629-6f43-48a4-975b-a21790b494fd/r1/brief_0/1",
+      "revision": 1,
+      "task_id": "brief_0",
+      "role": "copywriter",
+      "attempt": 1,
+      "status": "succeeded",
+      "artifact_id": "brief_0-6c303c9cc0efe2e0",
+      "context_chars": 492,
+      "elapsed_ms": 1.22,
+      "checks": [
+        {
+          "name": "load_scoped_fresh_context",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 1.149
+        },
+        {
+          "name": "capability_scope_and_budget",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.01
+        },
+        {
+          "name": "skill_input_contract",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.006
+        },
+        {
+          "name": "skill_output_contract",
+          "phase": "post_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.008
+        }
+      ],
+      "skill": "product",
+      "backend": "deterministic",
+      "model_calls": 0,
+      "reported_total_tokens": 0
+    },
+    {
+      "trace_id": "aec22629-6f43-48a4-975b-a21790b494fd/r1/brief_2/1",
+      "revision": 1,
+      "task_id": "brief_2",
+      "role": "copywriter",
+      "attempt": 1,
+      "status": "succeeded",
+      "artifact_id": "brief_2-240c4c5a077d05d4",
+      "context_chars": 493,
+      "elapsed_ms": 1.24,
+      "checks": [
+        {
+          "name": "load_scoped_fresh_context",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 1.173
+        },
+        {
+          "name": "capability_scope_and_budget",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.01
+        },
+        {
+          "name": "skill_input_contract",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.005
+        },
+        {
+          "name": "skill_output_contract",
+          "phase": "post_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.008
+        }
+      ],
+      "skill": "product",
+      "backend": "deterministic",
+      "model_calls": 0,
+      "reported_total_tokens": 0
+    },
+    {
+      "trace_id": "aec22629-6f43-48a4-975b-a21790b494fd/r1/brief_1/1",
+      "revision": 1,
+      "task_id": "brief_1",
+      "role": "copywriter",
+      "attempt": 1,
+      "status": "succeeded",
+      "artifact_id": "brief_1-f0531976d4c22c6f",
+      "context_chars": 492,
+      "elapsed_ms": 2.61,
+      "checks": [
+        {
+          "name": "load_scoped_fresh_context",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 2.546
+        },
+        {
+          "name": "capability_scope_and_budget",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.009
+        },
+        {
+          "name": "skill_input_contract",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.006
+        },
+        {
+          "name": "skill_output_contract",
+          "phase": "post_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.008
+        }
+      ],
+      "skill": "product",
+      "backend": "deterministic",
+      "model_calls": 0,
+      "reported_total_tokens": 0
+    },
+    {
+      "trace_id": "aec22629-6f43-48a4-975b-a21790b494fd/r1/review_2/1",
+      "revision": 1,
+      "task_id": "review_2",
+      "role": "compliance",
+      "attempt": 1,
+      "status": "succeeded",
+      "artifact_id": "review_2-7ede5c8816b9e5d8",
+      "context_chars": 489,
+      "elapsed_ms": 1.51,
+      "checks": [
+        {
+          "name": "load_scoped_fresh_context",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 1.438
+        },
+        {
+          "name": "capability_scope_and_budget",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.009
+        },
+        {
+          "name": "skill_input_contract",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.005
+        },
+        {
+          "name": "skill_output_contract",
+          "phase": "post_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.012
+        }
+      ],
+      "skill": "review",
+      "backend": "deterministic",
+      "model_calls": 0,
+      "reported_total_tokens": 0
+    },
+    {
+      "trace_id": "aec22629-6f43-48a4-975b-a21790b494fd/r1/review_1/1",
+      "revision": 1,
+      "task_id": "review_1",
+      "role": "compliance",
+      "attempt": 1,
+      "status": "succeeded",
+      "artifact_id": "review_1-51d24c75aa63d19d",
+      "context_chars": 487,
+      "elapsed_ms": 1.71,
+      "checks": [
+        {
+          "name": "load_scoped_fresh_context",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 1.63
+        },
+        {
+          "name": "capability_scope_and_budget",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.014
+        },
+        {
+          "name": "skill_input_contract",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.006
+        },
+        {
+          "name": "skill_output_contract",
+          "phase": "post_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.011
+        }
+      ],
+      "skill": "review",
+      "backend": "deterministic",
+      "model_calls": 0,
+      "reported_total_tokens": 0
+    },
+    {
+      "trace_id": "aec22629-6f43-48a4-975b-a21790b494fd/r1/review_0/1",
+      "revision": 1,
+      "task_id": "review_0",
+      "role": "compliance",
+      "attempt": 1,
+      "status": "succeeded",
+      "artifact_id": "review_0-25a9d203b8625927",
+      "context_chars": 487,
+      "elapsed_ms": 3.13,
+      "checks": [
+        {
+          "name": "load_scoped_fresh_context",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 3.072
+        },
+        {
+          "name": "capability_scope_and_budget",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.008
+        },
+        {
+          "name": "skill_input_contract",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.004
+        },
+        {
+          "name": "skill_output_contract",
+          "phase": "post_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.009
+        }
+      ],
+      "skill": "review",
+      "backend": "deterministic",
+      "model_calls": 0,
+      "reported_total_tokens": 0
+    },
+    {
+      "trace_id": "aec22629-6f43-48a4-975b-a21790b494fd/r1/summary/1",
+      "revision": 1,
+      "task_id": "summary",
+      "role": "director",
+      "attempt": 1,
+      "status": "succeeded",
+      "artifact_id": "summary-a43bb3d4a752def1",
+      "context_chars": 1554,
+      "elapsed_ms": 3.6,
+      "checks": [
+        {
+          "name": "load_scoped_fresh_context",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 3.474
+        },
+        {
+          "name": "capability_scope_and_budget",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.021
+        },
+        {
+          "name": "skill_input_contract",
+          "phase": "pre_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.008
+        },
+        {
+          "name": "skill_output_contract",
+          "phase": "post_tool_call",
+          "required": true,
+          "outcome": "passed",
+          "elapsed_ms": 0.021
+        }
+      ],
+      "skill": "assemble",
+      "backend": "deterministic",
+      "model_calls": 0,
+      "reported_total_tokens": 0
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "scope": "two_real_questions_separated_by_eight_offline_filler_turns_not_independent_benchmark",
+  "provider_calls": [
+    {
+      "index": 1,
+      "label": "budget_plan",
+      "status": 200,
+      "response_id": "64ed149e-2455-4663-8ae9-2eb4c13ce16d",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 905,
+        "completion_tokens": 18,
+        "total_tokens": 923,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 649
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 609.458
+    },
+    {
+      "index": 2,
+      "label": "budget_plan",
+      "status": 200,
+      "response_id": "edadfa2d-e1fa-42c4-acde-61f0ee289f0c",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 844,
+        "completion_tokens": 155,
+        "total_tokens": 999,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 844
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1686.439
+    },
+    {
+      "index": 3,
+      "label": "ordinal_after_eight_turns",
+      "status": 200,
+      "response_id": "6046c42f-68aa-4cb1-8207-b94955c5712b",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1230,
+        "completion_tokens": 11,
+        "total_tokens": 1241,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 974
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 960.712
+    },
+    {
+      "index": 4,
+      "label": "ordinal_after_eight_turns",
+      "status": 200,
+      "response_id": "f99d4583-7f88-42ad-a8f2-d73d506d0fcb",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1054,
+        "completion_tokens": 88,
+        "total_tokens": 1142,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 798
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1138.607
+    }
+  ],
+  "source_sha256": {
+    "liveops/__init__.py": "a41e12776638365aaa61b0059a720c6c2c16f3d427a5959148a154e646310fd1",
+    "liveops/advisor.py": "055095945ba86a494d36b30f502d7f8575d2efe06210ac7cfeb562700ecfc6e5",
+    "liveops/agent.py": "0287a070763e643b4b024ea6f89768694ba5713ff05468f9911c3e68b10c1c1b",
+    "liveops/api.py": "216c25147d803f6bd6a96912f7d39ba74707c42c812fee6b8ddb6b2cec4ada75",
+    "liveops/article_eval.py": "72568d3e3159f1fbd5aef144e9025070b405a5138d38081453cb570ac5bdfcfb",
+    "liveops/benchmark.py": "81c8286e3537476749906c11b1a609995104e400bc85b64994101493c4b57dd9",
+    "liveops/campaign_demo.py": "35589d6d7662155e94c6676ffb63e3ba5ab77ffc089412eff78acc18060cac09",
+    "liveops/campaigns.py": "4050a7271db38c87e550600e0766aec84cfa0e6da409346b87b2afe18188eacc",
+    "liveops/context.py": "739c4f112931d53e9781b9d4aaaa08859c6d0a7b493264e7a6eb4ced5ce3001a",
+    "liveops/context_eval.py": "d1da627e9cdd12b01a1891bf25d339df7b991bd9f92d15dfc5560c6506fc78db",
+    "liveops/conversation_eval.py": "36388a47f354d6577b891fb17e9972edeb2b291c7498d06a597b99e9e9a84cf3",
+    "liveops/feedback.py": "044002e8f7a32acdc1edd6f6799bb6d2e5c5194a74a27fe1f50eed9fa063a1dd",
+    "liveops/memory.py": "96c53638eb0022d8cf341de238f23e4da0b596c3020e9f116a40aa1e30d81d6d",
+    "liveops/metrics.py": "6783723b528a8bb2bf11c12d9f5bc8d058b64c79611d5335956d65f08b21eec3",
+    "liveops/model_budget.py": "50fc8e22c13a7604b6d03c7e553713ffdd6c5840abd88692b28c87191d6104d2",
+    "liveops/multiagent_eval.py": "a4d7088de8c010d50da09c8f46fa42d2aa3ad7d7a1b6cf09774167021485dd80",
+    "liveops/operations_eval.py": "578f65e53211b0c7bc87123c0d94c2399a23fb35b4772ad384a952d23eb99b8b",
+    "liveops/policy.py": "555b4c81a31003c78ad67d8e05e46b26cdf9dae83ec1520a76142a2b1fbc473c",
+    "liveops/private_config.py": "0d888abd1c236ac3af826ef554f7e5321555da687826b1f407c42a07c7c30c11",
+    "liveops/real_model_eval.py": "b26dfd9c2e934884f2d23c18aa3bde3277202121d521b675d4b1583b2b936eb0",
+    "liveops/real_writer_repeats.py": "8b3aea0c3198a7afbdacf5346a3a56ec1ca317d302cf0a4c9b5f523977dc3821",
+    "liveops/remote.py": "dd1c9f1bad44d15b053ecad4bf7ceabac89264db5fbead9a0bb98d2cd18a5877",
+    "liveops/remote_demo.py": "811de9ffafe18f51234c410387c3d7da2a3e21232a3bbd7fd60c8a57f53e7b7d",
+    "liveops/specialists.py": "7d373af9004a1370be283b94b45ce8f29321df7791a33cd919ab97b06f2d5215",
+    "liveops/store.py": "407e62b3511b9a0cf3e49781fd58c841ed59073ec9c47364e2ff36797666f707",
+    "liveops/tooling.py": "2ae2e5c2d37649af3617213be733077b207cd967a0608ff351d2f8fa1455bb62",
+    "liveops/workspace.py": "abc8906a9f0ed06a6fa0809d698d1b77c2f08f395ce79ff2d04caa9aa8364b7c"
+  },
+  "first_response": {
+    "command_id": "plan",
+    "trace_id": "plan",
+    "status": "ok",
+    "action": {
+      "type": "plan",
+      "top_k": 3,
+      "max_price_cents": 10000,
+      "expected_live_version": 0,
+      "expected_scene_revision": 1,
+      "context_scene": "pre_live"
+    },
+    "interpretation": {
+      "source": "model",
+      "attempts": 1,
+      "fallback_error": null
+    },
+    "generation": {
+      "source": "model",
+      "model": "deepseek-flash",
+      "model_calls": 1,
+      "reported_total_tokens": 999,
+      "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+      "elapsed_ms": 1692.03,
+      "provider_attempts": [
+        {
+          "status": "accepted",
+          "reported_total_tokens": 999
+        }
+      ],
+      "answer": "三款都在100元内，建议开场顺序：先棉柔卸妆巾[P3]（39元，240件，便携低门槛，适合快速聚人）→ 氨基酸洁面[P2]（79元，180件，日常清洁刚需，承接停留）→ 轻薄防晒乳[P1]（99元，122件，SPF50+清爽肤感，作为开场后段价值款）。顺序逻辑：低价易决策先起量，再用刚需款稳停留，最后用防晒拉高客单。",
+      "evidence_ids": [
+        "P3",
+        "P2",
+        "P1"
+      ],
+      "recommended_skus": [
+        "SK-105",
+        "SK-101",
+        "SK-103"
+      ],
+      "evidence": {
+        "P1": {
+          "sku": "SK-103",
+          "title": "轻薄防晒乳",
+          "price_cents": 9900,
+          "stock": 122,
+          "features": "SPF50+；50ml；清爽肤感",
+          "version": 0
+        },
+        "P2": {
+          "sku": "SK-101",
+          "title": "氨基酸洁面",
+          "price_cents": 7900,
+          "stock": 180,
+          "features": "温和清洁；120ml；适合日常使用",
+          "version": 0
+        },
+        "P3": {
+          "sku": "SK-105",
+          "title": "棉柔卸妆巾",
+          "price_cents": 3900,
+          "stock": 240,
+          "features": "一次性卸妆巾；30片；便携包装",
+          "version": 0
+        }
+      }
+    },
+    "gate": {
+      "level": "auto",
+      "reason": "只读操作"
+    },
+    "message": "本轮推荐顺序：\n1. 棉柔卸妆巾（SK-105）\n2. 氨基酸洁面（SK-101）\n3. 轻薄防晒乳（SK-103）\n\n三款都在100元内，建议开场顺序：先棉柔卸妆巾[P3]（39元，240件，便携低门槛，适合快速聚人）→ 氨基酸洁面[P2]（79元，180件，日常清洁刚需，承接停留）→ 轻薄防晒乳[P1]（99元，122件，SPF50+清爽肤感，作为开场后段价值款）。顺序逻辑：低价易决策先起量，再用刚需款稳停留，最后用防晒拉高客单。",
+    "result": {
+      "status": "ok",
+      "plan": [
+        "SK-105",
+        "SK-101",
+        "SK-103"
+      ],
+      "recommended_skus": [
+        "SK-105",
+        "SK-101",
+        "SK-103"
+      ]
+    }
+  },
+  "context_before_followup": {
+    "scene": "pre_live",
+    "runtime_revision": 10,
+    "control_revision": 1,
+    "audience": null,
+    "summary": {
+      "turns_by_kind": {
+        "plan": 1,
+        "status": 8
+      },
+      "rule": "结构化统计与引用，不是生成的事实结论"
+    },
+    "conversation": {
+      "focus_ambiguous": false,
+      "focus_sku": null,
+      "last_artifact_id": "turn-b272c8c4b803ce1c824ea233",
+      "listed_skus": [
+        "SK-105",
+        "SK-101",
+        "SK-103"
+      ],
+      "source": "scene_projection_not_live_price_or_inventory",
+      "turns": [
+        {
+          "user": "查看状态",
+          "assistant": "直播间正在讲解 氨基酸洁面，售价 79.00 元，剩余 180 件。",
+          "status": "ok",
+          "action_type": "status",
+          "artifact_id": "turn-5d556c14b371644a4b69d610"
+        },
+        {
+          "user": "查看状态",
+          "assistant": "直播间正在讲解 氨基酸洁面，售价 79.00 元，剩余 180 件。",
+          "status": "ok",
+          "action_type": "status",
+          "artifact_id": "turn-91be36ee356c94bded30f65f"
+        },
+        {
+          "user": "查看状态",
+          "assistant": "直播间正在讲解 氨基酸洁面，售价 79.00 元，剩余 180 件。",
+          "status": "ok",
+          "action_type": "status",
+          "artifact_id": "turn-0525c393dc2ae858671ff990"
+        },
+        {
+          "user": "查看状态",
+          "assistant": "直播间正在讲解 氨基酸洁面，售价 79.00 元，剩余 180 件。",
+          "status": "ok",
+          "action_type": "status",
+          "artifact_id": "turn-b272c8c4b803ce1c824ea233"
+        }
+      ]
+    },
+    "compression": {
+      "mode": "structured_scene_summary_and_artifact_offload",
+      "char_budget": 4000,
+      "recent_turn_count": 4,
+      "historical_turn_count": 9,
+      "injected_chars": 1207
+    }
+  },
+  "followup_response": {
+    "command_id": "followup",
+    "trace_id": "followup",
+    "status": "ok",
+    "action": {
+      "type": "brief",
+      "sku": "SK-101",
+      "expected_live_version": 0,
+      "expected_scene_revision": 1,
+      "context_scene": "pre_live",
+      "expected_product_version": 0
+    },
+    "interpretation": {
+      "source": "model",
+      "attempts": 1,
+      "fallback_error": null
+    },
+    "generation": {
+      "source": "model",
+      "model": "deepseek-flash",
+      "model_calls": 1,
+      "reported_total_tokens": 1142,
+      "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+      "elapsed_ms": 1143.79,
+      "provider_attempts": [
+        {
+          "status": "accepted",
+          "reported_total_tokens": 1142
+        }
+      ],
+      "answer": "第二款是氨基酸洁面[P1]，日常温和清洁用，120ml，售价79.00元[P1]。早上或晚上洗脸都能用，泡沫上脸轻揉后冲净就行[P1]。大家平时洗脸更看重洗得干净，还是洗完不紧绷？评论区聊聊。",
+      "evidence_ids": [
+        "P1"
+      ],
+      "recommended_skus": [
+        "SK-101"
+      ],
+      "evidence": {
+        "P1": {
+          "sku": "SK-101",
+          "title": "氨基酸洁面",
+          "price_cents": 7900,
+          "stock": 180,
+          "features": "温和清洁；120ml；适合日常使用",
+          "version": 0
+        }
+      }
+    },
+    "gate": {
+      "level": "auto",
+      "reason": "只读操作"
+    },
+    "message": "第二款是氨基酸洁面[P1]，日常温和清洁用，120ml，售价79.00元[P1]。早上或晚上洗脸都能用，泡沫上脸轻揉后冲净就行[P1]。大家平时洗脸更看重洗得干净，还是洗完不紧绷？评论区聊聊。",
+    "result": {
+      "status": "ok",
+      "product": {
+        "sku": "SK-101",
+        "title": "氨基酸洁面",
+        "category": "护肤",
+        "price_cents": 7900,
+        "cost_cents": 4200,
+        "stock": 180,
+        "features": "温和清洁；120ml；适合日常使用",
+        "version": 0
+      },
+      "recommended_skus": [
+        "SK-101"
+      ]
+    }
+  },
+  "checks": {
+    "initial_model_understanding": true,
+    "initial_model_generation": true,
+    "budget_scope_respected": true,
+    "plan_survives_outside_recent_four_turns": true,
+    "followup_resolves_displayed_second_product": true,
+    "followup_model_generation": true,
+    "no_cross_scene_history": true,
+    "no_commerce_writes": true
+  },
+  "ledger": {
+    "scope_id": null,
+    "calls": 4,
+    "reported_tokens": 4305,
+    "charged_tokens": 4305,
+    "unknown_usage_calls": 0,
+    "limits": {
+      "max_calls": 200,
+      "max_reserved_tokens": 2000000
+    },
+    "accounting": "durable_admission_estimate_not_currency_invoice",
+    "reset_policy": "persistent_no_automatic_refill"
+  },
+  "all_checks_passed": true
+}

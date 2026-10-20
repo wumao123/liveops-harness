@@ -1,0 +1,329 @@
+[
+  {
+    "question": "你好，你能帮我什么？",
+    "seconds": 1.366,
+    "response": {
+      "command_id": "upgrade-live-0",
+      "trace_id": "upgrade-live-0",
+      "status": "clarification",
+      "action": {
+        "type": "clarify",
+        "question": "您好！我可以帮您查询直播状态、生成推荐排序、撰写口播稿、做复盘、给建议、准备多款商品的备用讲解，或执行切换商品、改价、发券等操作。请问您想先做哪一项？",
+        "expected_live_version": 0
+      },
+      "interpretation": {
+        "source": "model",
+        "attempts": 1,
+        "fallback_error": null
+      },
+      "generation": {
+        "source": "deterministic",
+        "model_calls": 0
+      },
+      "gate": {
+        "level": "auto",
+        "reason": "只读操作"
+      },
+      "message": "您好！我可以帮您查询直播状态、生成推荐排序、撰写口播稿、做复盘、给建议、准备多款商品的备用讲解，或执行切换商品、改价、发券等操作。请问您想先做哪一项？",
+      "result": {
+        "status": "clarification",
+        "message": "您好！我可以帮您查询直播状态、生成推荐排序、撰写口播稿、做复盘、给建议、准备多款商品的备用讲解，或执行切换商品、改价、发券等操作。请问您想先做哪一项？"
+      }
+    }
+  },
+  {
+    "question": "预算100元以内，推荐三款开场商品并解释顺序",
+    "seconds": 2.911,
+    "response": {
+      "command_id": "upgrade-live-1",
+      "trace_id": "upgrade-live-1",
+      "status": "ok",
+      "action": {
+        "type": "plan",
+        "top_k": 3,
+        "max_price_cents": 10000,
+        "expected_live_version": 0
+      },
+      "interpretation": {
+        "source": "model",
+        "attempts": 1,
+        "fallback_error": null
+      },
+      "generation": {
+        "source": "offline_fallback",
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "reported_total_tokens": 813,
+        "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+        "elapsed_ms": 1819.01,
+        "error": "ValueError",
+        "fallback_reason": "模型建议未通过结构/引用检查或服务异常，已保留确定性结果"
+      },
+      "gate": {
+        "level": "auto",
+        "reason": "只读操作"
+      },
+      "message": "建议讲解顺序（优先保留库存和毛利空间）：\n1. 轻薄防晒乳，库存 122，售价 99.00 元\n2. 氨基酸洁面，库存 180，售价 79.00 元\n3. 棉柔卸妆巾，库存 240，售价 39.00 元",
+      "result": {
+        "status": "ok",
+        "plan": [
+          "SK-103",
+          "SK-101",
+          "SK-105"
+        ]
+      }
+    }
+  },
+  {
+    "question": "给第二款写一段自然的直播口播，带一个互动提问",
+    "seconds": 4.802,
+    "response": {
+      "command_id": "upgrade-live-2",
+      "trace_id": "upgrade-live-2",
+      "status": "ok",
+      "action": {
+        "type": "brief",
+        "sku": "SK-101",
+        "expected_live_version": 0,
+        "expected_product_version": 0
+      },
+      "interpretation": {
+        "source": "model",
+        "attempts": 1,
+        "fallback_error": null
+      },
+      "generation": {
+        "source": "model",
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "reported_total_tokens": 800,
+        "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+        "elapsed_ms": 3356.39,
+        "answer": "第二款是氨基酸洁面，120ml，日常温和清洁用，价格79.00元[P1]。\n\n口播草稿：\n“接下来这款是氨基酸洁面，120ml，主打温和清洁，适合日常使用[P1]。平时早晚洗脸、想要一支用着省心的洁面，可以看看它。价格是79.00元[P1]。大家平时选洁面，更看重洗得干净，还是洗完不紧绷？在评论区告诉我，我按大家的偏好接着讲。”\n\n互动提问已放在结尾，你也可以根据直播间节奏把它挪到讲卖点之前。",
+        "evidence_ids": [
+          "P1"
+        ],
+        "recommended_skus": [
+          "SK-101"
+        ],
+        "evidence": {
+          "P1": {
+            "sku": "SK-101",
+            "title": "氨基酸洁面",
+            "price_cents": 7900,
+            "stock": 180,
+            "features": "温和清洁；120ml；适合日常使用",
+            "version": 0
+          }
+        }
+      },
+      "gate": {
+        "level": "auto",
+        "reason": "只读操作"
+      },
+      "message": "第二款是氨基酸洁面，120ml，日常温和清洁用，价格79.00元[P1]。\n\n口播草稿：\n“接下来这款是氨基酸洁面，120ml，主打温和清洁，适合日常使用[P1]。平时早晚洗脸、想要一支用着省心的洁面，可以看看它。价格是79.00元[P1]。大家平时选洁面，更看重洗得干净，还是洗完不紧绷？在评论区告诉我，我按大家的偏好接着讲。”\n\n互动提问已放在结尾，你也可以根据直播间节奏把它挪到讲卖点之前。",
+      "result": {
+        "status": "ok",
+        "product": {
+          "sku": "SK-101",
+          "title": "氨基酸洁面",
+          "category": "护肤",
+          "price_cents": 7900,
+          "cost_cents": 4200,
+          "stock": 180,
+          "features": "温和清洁；120ml；适合日常使用",
+          "version": 0
+        },
+        "recommended_skus": [
+          "SK-101"
+        ]
+      }
+    }
+  },
+  {
+    "question": "它适合敏感肌吗？",
+    "seconds": 1.419,
+    "response": {
+      "command_id": "upgrade-live-3",
+      "trace_id": "upgrade-live-3",
+      "status": "blocked",
+      "action": {
+        "type": "invalid",
+        "error": "模型提出了未授权的操作"
+      },
+      "interpretation": {
+        "source": "model",
+        "attempts": 1,
+        "fallback_error": null
+      },
+      "generation": {
+        "source": "deterministic",
+        "model_calls": 0
+      },
+      "gate": {
+        "level": "block",
+        "code": "INVALID_ACTION",
+        "reason": "模型提出了未授权的操作"
+      },
+      "message": "模型提出了未授权的操作",
+      "result": {
+        "status": "blocked",
+        "code": "INVALID_ACTION",
+        "message": "模型提出了未授权的操作",
+        "tool_error": {
+          "code": "INVALID_ACTION",
+          "category": "invalid_input",
+          "retryable": false,
+          "next_step": "correct_input",
+          "message": "模型提出了未授权的操作"
+        }
+      }
+    }
+  },
+  {
+    "question": "给面霜发10元券",
+    "seconds": 1.084,
+    "response": {
+      "command_id": "upgrade-live-4",
+      "trace_id": "upgrade-live-4",
+      "status": "clarification",
+      "action": {
+        "type": "clarify",
+        "question": "准备发多少张券？请明确张数，我不会自动猜成一张。",
+        "expected_live_version": 0
+      },
+      "interpretation": {
+        "source": "model",
+        "attempts": 1,
+        "fallback_error": null
+      },
+      "generation": {
+        "source": "deterministic",
+        "model_calls": 0
+      },
+      "gate": {
+        "level": "auto",
+        "reason": "只读操作"
+      },
+      "message": "准备发多少张券？请明确张数，我不会自动猜成一张。",
+      "result": {
+        "status": "clarification",
+        "message": "准备发多少张券？请明确张数，我不会自动猜成一张。"
+      }
+    }
+  },
+  {
+    "question": "如果明天给它发10元券20张呢？",
+    "seconds": 1.755,
+    "response": {
+      "command_id": "upgrade-live-5",
+      "trace_id": "upgrade-live-5",
+      "status": "blocked",
+      "action": {
+        "type": "invalid",
+        "error": "模型提出了未授权的操作"
+      },
+      "interpretation": {
+        "source": "model",
+        "attempts": 1,
+        "fallback_error": null
+      },
+      "generation": {
+        "source": "deterministic",
+        "model_calls": 0
+      },
+      "gate": {
+        "level": "block",
+        "code": "INVALID_ACTION",
+        "reason": "模型提出了未授权的操作"
+      },
+      "message": "模型提出了未授权的操作",
+      "result": {
+        "status": "blocked",
+        "code": "INVALID_ACTION",
+        "message": "模型提出了未授权的操作",
+        "tool_error": {
+          "code": "INVALID_ACTION",
+          "category": "invalid_input",
+          "retryable": false,
+          "next_step": "correct_input",
+          "message": "模型提出了未授权的操作"
+        }
+      }
+    }
+  },
+  {
+    "question": "记住：口播简短，不夸大功效",
+    "seconds": 0.762,
+    "response": {
+      "command_id": "upgrade-live-6",
+      "trace_id": "upgrade-live-6",
+      "status": "ok",
+      "action": {
+        "type": "set_preference",
+        "value": "口播简短，不夸大功效",
+        "expected_live_version": 0
+      },
+      "interpretation": {
+        "source": "model",
+        "attempts": 1,
+        "fallback_error": null
+      },
+      "generation": {
+        "source": "deterministic",
+        "model_calls": 0
+      },
+      "gate": {
+        "level": "auto",
+        "reason": "主播明确要求记录偏好"
+      },
+      "message": "已记住主播偏好：口播简短，不夸大功效",
+      "result": {
+        "status": "ok",
+        "message": "已记住主播偏好：口播简短，不夸大功效",
+        "replayed": false,
+        "idempotency_key": "1d615b34bb6a625fe63442664dc51543525f5ae53b5ada0cd90fcd63a3d2b881"
+      }
+    }
+  },
+  {
+    "question": "准备三款商品手卡并合规审核",
+    "seconds": 0.901,
+    "response": {
+      "command_id": "upgrade-live-7",
+      "trace_id": "upgrade-live-7",
+      "status": "blocked",
+      "action": {
+        "type": "invalid",
+        "error": "模型提出了未授权的操作"
+      },
+      "interpretation": {
+        "source": "model",
+        "attempts": 1,
+        "fallback_error": null
+      },
+      "generation": {
+        "source": "deterministic",
+        "model_calls": 0
+      },
+      "gate": {
+        "level": "block",
+        "code": "INVALID_ACTION",
+        "reason": "模型提出了未授权的操作"
+      },
+      "message": "模型提出了未授权的操作",
+      "result": {
+        "status": "blocked",
+        "code": "INVALID_ACTION",
+        "message": "模型提出了未授权的操作",
+        "tool_error": {
+          "code": "INVALID_ACTION",
+          "category": "invalid_input",
+          "retryable": false,
+          "next_step": "correct_input",
+          "message": "模型提出了未授权的操作"
+        }
+      }
+    }
+  }
+]

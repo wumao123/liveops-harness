@@ -1,0 +1,125 @@
+{
+  "state": {
+    "live": {
+      "live_id": "LIVE-DEMO-001",
+      "status": "live",
+      "current_sku": "SK-102",
+      "previous_sku": "SK-101",
+      "goal": "护肤专场：控制优惠力度，避免售罄",
+      "version": 5,
+      "started_at": 1792378050.828524
+    },
+    "products": [
+      {
+        "sku": "SK-101",
+        "title": "氨基酸洁面",
+        "category": "护肤",
+        "price_cents": 7900,
+        "cost_cents": 4200,
+        "stock": 180,
+        "features": "温和清洁；120ml；适合日常使用",
+        "version": 0
+      },
+      {
+        "sku": "SK-102",
+        "title": "保湿修护面霜",
+        "category": "护肤",
+        "price_cents": 11900,
+        "cost_cents": 7300,
+        "stock": 10,
+        "features": "保湿修护；50g；无香精配方",
+        "version": 4
+      },
+      {
+        "sku": "SK-103",
+        "title": "轻薄防晒乳",
+        "category": "护肤",
+        "price_cents": 9900,
+        "cost_cents": 5400,
+        "stock": 122,
+        "features": "SPF50+；50ml；清爽肤感",
+        "version": 0
+      },
+      {
+        "sku": "SK-104",
+        "title": "玻尿酸精华",
+        "category": "护肤",
+        "price_cents": 15900,
+        "cost_cents": 9500,
+        "stock": 68,
+        "features": "补水精华；30ml；透明质酸配方",
+        "version": 0
+      },
+      {
+        "sku": "SK-105",
+        "title": "棉柔卸妆巾",
+        "category": "护肤",
+        "price_cents": 3900,
+        "cost_cents": 1700,
+        "stock": 240,
+        "features": "一次性卸妆巾；30片；便携包装",
+        "version": 0
+      }
+    ],
+    "coupons": [],
+    "preferences": {}
+  },
+  "commands": [
+    {
+      "command_id": "3efc4e11-ee03-4b92-8756-e6029fcd2277",
+      "status": "ok"
+    },
+    {
+      "command_id": "24ee9a15-f4df-483b-acdd-22e15c615fdb",
+      "status": "ok"
+    },
+    {
+      "command_id": "58d11e47-3c73-4184-82d8-2b4a4bfcf5ec",
+      "status": "blocked"
+    },
+    {
+      "command_id": "6d4ff9a7-3fe7-48d7-9b71-dced2feb95f6",
+      "status": "rejected"
+    },
+    {
+      "command_id": "bbef0b81-3887-427e-9e31-a29de82ff3c1",
+      "status": "ok"
+    },
+    {
+      "command_id": "f28c4fb8-b4ee-460d-99a8-220216d438f6",
+      "status": "ok"
+    },
+    {
+      "command_id": "d89274dd-9094-4994-84a6-fc510906e8cb",
+      "status": "ok"
+    },
+    {
+      "command_id": "3cb09e1d-401b-4499-a276-c95fb1c54bf2",
+      "status": "ok"
+    },
+    {
+      "command_id": "9b6d218a-a874-418c-8a16-afd4e917c7c9",
+      "status": "ok"
+    },
+    {
+      "command_id": "f90b7dfa-9c10-4ff1-abf6-d0cca8eb055d",
+      "status": "ok"
+    },
+    {
+      "command_id": "601c76d2-94c6-4633-9e27-83c8da30ce0a",
+      "status": "ok"
+    },
+    {
+      "command_id": "6d4b5a4c-1874-4f8d-943b-9aca2d0cfc59",
+      "status": "ok"
+    },
+    {
+      "command_id": "bcf0d67c-bc2c-45bd-89fe-136b4ecaac45",
+      "status": "ok"
+    },
+    {
+      "command_id": "startup-check-20261019",
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "health": {
+    "status": "ok",
+    "mode": "model",
+    "coupon_backend": "simulated_remote",
+    "intent_model": "deepseek-flash",
+    "writer_model": "deepseek-flash",
+    "advice_generation": true
+  },
+  "checks": {
+    "business_state_preserved": true,
+    "command_states_preserved": true,
+    "advice_enabled": true,
+    "new_workspace_served": true
+  }
+}

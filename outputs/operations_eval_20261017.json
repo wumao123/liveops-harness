@@ -1,0 +1,238 @@
+{
+  "created_at_utc": "2026-10-19T07:05:08.094535+00:00",
+  "python": "3.11.13",
+  "platform": "macOS-15.7.3-arm64-arm-64bit",
+  "real_provider_calls": 0,
+  "source_sha256": {
+    "specialists.py": "574f067fcc4e54315e9eea558580cb242de26b262cbf6d2775e5c3695c244c8b",
+    "campaigns.py": "f8f591037a54380c3a7d7e7ae059cfd49e83e34fb6912d067d9e31a5240edd58",
+    "metrics.py": "6783723b528a8bb2bf11c12d9f5bc8d058b64c79611d5335956d65f08b21eec3",
+    "operations_eval.py": "578f65e53211b0c7bc87123c0d94c2399a23fb35b4772ad384a952d23eb99b8b"
+  },
+  "capacity_scope": "single_process_offline_agent_calls_not_HTTP_not_open_loop_not_production",
+  "latency_scope": "starts_inside_worker_excludes_executor_queue_wait",
+  "capacity": [
+    {
+      "round": 1,
+      "workers": 1,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 200.49,
+      "p50_ms": 4.85,
+      "p95_ms": 5.79
+    },
+    {
+      "round": 1,
+      "workers": 4,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 325.07,
+      "p50_ms": 11.28,
+      "p95_ms": 20.27
+    },
+    {
+      "round": 1,
+      "workers": 8,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 315.9,
+      "p50_ms": 23.98,
+      "p95_ms": 34.88
+    },
+    {
+      "round": 2,
+      "workers": 4,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 351.53,
+      "p50_ms": 11.34,
+      "p95_ms": 14.92
+    },
+    {
+      "round": 2,
+      "workers": 8,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 330.69,
+      "p50_ms": 22.13,
+      "p95_ms": 38.11
+    },
+    {
+      "round": 2,
+      "workers": 1,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 217.13,
+      "p50_ms": 4.47,
+      "p95_ms": 5.26
+    },
+    {
+      "round": 3,
+      "workers": 8,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 316.35,
+      "p50_ms": 25.24,
+      "p95_ms": 31.45
+    },
+    {
+      "round": 3,
+      "workers": 1,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 212.11,
+      "p50_ms": 4.59,
+      "p95_ms": 5.28
+    },
+    {
+      "round": 3,
+      "workers": 4,
+      "requests": 100,
+      "success": 100,
+      "failed": 0,
+      "throughput_rps": 320.05,
+      "p50_ms": 12.11,
+      "p95_ms": 18.33
+    }
+  ],
+  "capacity_summary": [
+    {
+      "workers": 1,
+      "rounds": 3,
+      "requests": 300,
+      "success": 300,
+      "median_run_throughput_rps": 212.11,
+      "median_run_p50_ms": 4.59,
+      "median_run_p95_ms": 5.28
+    },
+    {
+      "workers": 4,
+      "rounds": 3,
+      "requests": 300,
+      "success": 300,
+      "median_run_throughput_rps": 325.07,
+      "median_run_p50_ms": 11.34,
+      "median_run_p95_ms": 18.33
+    },
+    {
+      "workers": 8,
+      "rounds": 3,
+      "requests": 300,
+      "success": 300,
+      "median_run_throughput_rps": 316.35,
+      "median_run_p50_ms": 23.98,
+      "median_run_p95_ms": 34.88
+    }
+  ],
+  "accounting_scope": "scripted_provider_responses_not_real_token_or_cost_measurements",
+  "accounting": {
+    "schema_failure": {
+      "metrics": {
+        "run_id": "c23ad774-f429-45d3-81c2-5570f42f3a11",
+        "status": "blocked",
+        "scope": "committed_trace_only_not_provider_invoice_or_crash_safe_usage_ledger",
+        "task_attempts": 2,
+        "completed_tasks": 1,
+        "failed_tasks": 1,
+        "model_calls_recorded": 2,
+        "extra_calls_within_task_attempts": 1,
+        "failed_task_model_calls": 2,
+        "usage_status": "reported_totals_available",
+        "calls_with_reported_totals": 2,
+        "calls_without_reported_totals": 0,
+        "reported_total_tokens": 240,
+        "reported_prompt_tokens": 200,
+        "reported_completion_tokens": 40,
+        "calls_with_token_breakdown": 2,
+        "calls_with_inconsistent_usage": 0,
+        "token_breakdown_complete": true,
+        "actual_currency_cost": null,
+        "cost_note": "No price/cached-token/tool-billing adapter; missing usage is not zero cost."
+      },
+      "business_state_unchanged": true
+    },
+    "transient_failure": {
+      "metrics": {
+        "run_id": "3b39218e-1cf4-4725-bd31-a2455f77b543",
+        "status": "blocked",
+        "scope": "committed_trace_only_not_provider_invoice_or_crash_safe_usage_ledger",
+        "task_attempts": 7,
+        "completed_tasks": 1,
+        "failed_tasks": 3,
+        "model_calls_recorded": 12,
+        "extra_calls_within_task_attempts": 6,
+        "failed_task_model_calls": 12,
+        "usage_status": "partial_or_unknown",
+        "calls_with_reported_totals": 0,
+        "calls_without_reported_totals": 12,
+        "reported_total_tokens": 0,
+        "reported_prompt_tokens": 0,
+        "reported_completion_tokens": 0,
+        "calls_with_token_breakdown": 0,
+        "calls_with_inconsistent_usage": 0,
+        "token_breakdown_complete": false,
+        "actual_currency_cost": null,
+        "cost_note": "No price/cached-token/tool-billing adapter; missing usage is not zero cost."
+      },
+      "business_state_unchanged": true
+    },
+    "total_only": {
+      "metrics": {
+        "run_id": "2e6d47e0-30e4-4bb8-9d35-71e4ebf26f25",
+        "status": "succeeded",
+        "scope": "committed_trace_only_not_provider_invoice_or_crash_safe_usage_ledger",
+        "task_attempts": 4,
+        "completed_tasks": 4,
+        "failed_tasks": 0,
+        "model_calls_recorded": 1,
+        "extra_calls_within_task_attempts": 0,
+        "failed_task_model_calls": 0,
+        "usage_status": "reported_totals_available",
+        "calls_with_reported_totals": 1,
+        "calls_without_reported_totals": 0,
+        "reported_total_tokens": 123,
+        "reported_prompt_tokens": 0,
+        "reported_completion_tokens": 0,
+        "calls_with_token_breakdown": 0,
+        "calls_with_inconsistent_usage": 0,
+        "token_breakdown_complete": false,
+        "actual_currency_cost": null,
+        "cost_note": "No price/cached-token/tool-billing adapter; missing usage is not zero cost."
+      },
+      "business_state_unchanged": true
+    },
+    "offline": {
+      "metrics": {
+        "run_id": "534836c8-bbc6-4012-aa4b-117a10d51d01",
+        "status": "succeeded",
+        "scope": "committed_trace_only_not_provider_invoice_or_crash_safe_usage_ledger",
+        "task_attempts": 4,
+        "completed_tasks": 4,
+        "failed_tasks": 0,
+        "model_calls_recorded": 0,
+        "extra_calls_within_task_attempts": 0,
+        "failed_task_model_calls": 0,
+        "usage_status": "no_model_calls_recorded",
+        "calls_with_reported_totals": 0,
+        "calls_without_reported_totals": 0,
+        "reported_total_tokens": 0,
+        "reported_prompt_tokens": 0,
+        "reported_completion_tokens": 0,
+        "calls_with_token_breakdown": 0,
+        "calls_with_inconsistent_usage": 0,
+        "token_breakdown_complete": false,
+        "actual_currency_cost": null,
+        "cost_note": "No price/cached-token/tool-billing adapter; missing usage is not zero cost."
+      },
+      "business_state_unchanged": true
+    }
+  }
+}

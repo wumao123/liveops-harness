@@ -1,0 +1,22 @@
+{
+  "scope": "offline_real_browser_development_workflow_not_live_model_benchmark",
+  "checks": {
+    "runtimePanelLoaded": true,
+    "preLiveBlocksPriceWrites": true,
+    "planAvailable": true,
+    "feedbackIsNotExecution": true,
+    "feedbackMetricsUpdated": true,
+    "fullContextArtifactReadable": true,
+    "threeMaterials": true,
+    "incrementalReplanPreservesFourTasks": true,
+    "replannedMaterialsShown": true,
+    "replanHistoryVisible": true,
+    "audienceObservation": true,
+    "desktopNoHorizontalOverflow": true,
+    "mobileNoHorizontalOverflow": true,
+    "mobileRuntimeFits": true,
+    "noBrowserErrors": true
+  },
+  "errors": [],
+  "allPassed": true
+}

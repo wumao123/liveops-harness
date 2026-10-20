@@ -1,0 +1,2246 @@
+{
+  "mode": "offline_deterministic_fault_injection_not_real_llm_or_taobao",
+  "created_at_utc": "2026-10-17T18:00:15.603671+00:00",
+  "python": "3.11.13",
+  "platform": "macOS-15.7.3-arm64-arm-64bit",
+  "repeats": 10,
+  "llm_calls": 0,
+  "source_sha256": {
+    "campaigns.py": "f8f591037a54380c3a7d7e7ae059cfd49e83e34fb6912d067d9e31a5240edd58",
+    "store.py": "19b5741a84758e273d48af249d68631777a22201d85666f136c6f60b35f064f2",
+    "multiagent_eval.py": "a4d7088de8c010d50da09c8f46fa42d2aa3ad7d7a1b6cf09774167021485dd80"
+  },
+  "parallel": {
+    "summary": [
+      {
+        "products": 1,
+        "injected_writer_latency_ms": 0,
+        "serial": {
+          "n": 10,
+          "median_ms": 11.536,
+          "p95_ms": 16.902
+        },
+        "parallel": {
+          "n": 10,
+          "median_ms": 12.571,
+          "p95_ms": 16.404
+        },
+        "median_speedup": 0.918,
+        "same_output_pairs": 10
+      },
+      {
+        "products": 3,
+        "injected_writer_latency_ms": 0,
+        "serial": {
+          "n": 10,
+          "median_ms": 21.368,
+          "p95_ms": 22.519
+        },
+        "parallel": {
+          "n": 10,
+          "median_ms": 18.774,
+          "p95_ms": 23.859
+        },
+        "median_speedup": 1.138,
+        "same_output_pairs": 10
+      },
+      {
+        "products": 5,
+        "injected_writer_latency_ms": 0,
+        "serial": {
+          "n": 10,
+          "median_ms": 32.632,
+          "p95_ms": 37.184
+        },
+        "parallel": {
+          "n": 10,
+          "median_ms": 28.689,
+          "p95_ms": 30.737
+        },
+        "median_speedup": 1.137,
+        "same_output_pairs": 10
+      },
+      {
+        "products": 1,
+        "injected_writer_latency_ms": 40.0,
+        "serial": {
+          "n": 10,
+          "median_ms": 68.966,
+          "p95_ms": 69.899
+        },
+        "parallel": {
+          "n": 10,
+          "median_ms": 69.235,
+          "p95_ms": 69.664
+        },
+        "median_speedup": 0.996,
+        "same_output_pairs": 10
+      },
+      {
+        "products": 3,
+        "injected_writer_latency_ms": 40.0,
+        "serial": {
+          "n": 10,
+          "median_ms": 182.521,
+          "p95_ms": 193.96
+        },
+        "parallel": {
+          "n": 10,
+          "median_ms": 74.708,
+          "p95_ms": 80.783
+        },
+        "median_speedup": 2.443,
+        "same_output_pairs": 10
+      },
+      {
+        "products": 5,
+        "injected_writer_latency_ms": 40.0,
+        "serial": {
+          "n": 10,
+          "median_ms": 314.078,
+          "p95_ms": 330.176
+        },
+        "parallel": {
+          "n": 10,
+          "median_ms": 140.96,
+          "p95_ms": 147.288
+        },
+        "median_speedup": 2.228,
+        "same_output_pairs": 10
+      }
+    ],
+    "raw_pairs": [
+      {
+        "products": 1,
+        "repeat": 0,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 16.902457922697067,
+        "workers_3_ms": 16.403874848037958,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 1,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 12.917083222419024,
+        "workers_1_ms": 12.161666061729193,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 2,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 11.604208033531904,
+        "workers_3_ms": 11.285250075161457,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 3,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 13.833750039339066,
+        "workers_1_ms": 11.048666201531887,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 4,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 10.845541022717953,
+        "workers_3_ms": 11.933458968997002,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 5,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 12.495208065956831,
+        "workers_1_ms": 11.46845892071724,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 6,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 11.803749948740005,
+        "workers_3_ms": 11.616250034421682,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 7,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 12.833666056394577,
+        "workers_1_ms": 11.921875178813934,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 8,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 11.125833727419376,
+        "workers_3_ms": 11.026333086192608,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 9,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 12.646374758332968,
+        "workers_1_ms": 10.825416073203087,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 0,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 21.772082895040512,
+        "workers_3_ms": 23.859082721173763,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 1,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 19.364625215530396,
+        "workers_1_ms": 21.346834022551775,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 2,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 21.388208959251642,
+        "workers_3_ms": 18.83499976247549,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 3,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 18.713499885052443,
+        "workers_1_ms": 21.592583041638136,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 4,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 21.064207889139652,
+        "workers_3_ms": 17.966666258871555,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 5,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 19.40720807760954,
+        "workers_1_ms": 21.047458052635193,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 6,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 21.12870803102851,
+        "workers_3_ms": 16.736166086047888,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 7,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 16.566875390708447,
+        "workers_1_ms": 22.51924993470311,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 8,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 21.62287477403879,
+        "workers_3_ms": 19.24220798537135,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 9,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 17.654999624937773,
+        "workers_1_ms": 20.97112499177456,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 0,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 33.07499969378114,
+        "workers_3_ms": 27.394124772399664,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 1,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 30.736874788999557,
+        "workers_1_ms": 32.101249787956476,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 2,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 31.16116626188159,
+        "workers_3_ms": 28.89662468805909,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 3,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 28.13125029206276,
+        "workers_1_ms": 37.18425007537007,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 4,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 35.19654180854559,
+        "workers_3_ms": 29.96399998664856,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 5,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 28.606458101421595,
+        "workers_1_ms": 32.43908379226923,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 6,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 30.64512461423874,
+        "workers_3_ms": 28.463374823331833,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 7,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 29.84758373349905,
+        "workers_1_ms": 33.2607920281589,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 8,
+        "injected_writer_latency_ms": 0,
+        "workers_1_ms": 31.43733413890004,
+        "workers_3_ms": 28.77104189246893,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 9,
+        "injected_writer_latency_ms": 0,
+        "workers_3_ms": 27.412208262830973,
+        "workers_1_ms": 32.82504063099623,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 0,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 57.048041839152575,
+        "workers_3_ms": 67.5909579731524,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 1,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 67.02237483114004,
+        "workers_1_ms": 59.268124867230654,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 2,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 68.95762495696545,
+        "workers_3_ms": 69.07120812684298,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 3,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 69.1274581477046,
+        "workers_1_ms": 68.91862535849214,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 4,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 69.03424998745322,
+        "workers_3_ms": 69.15766699239612,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 5,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 69.39129205420613,
+        "workers_1_ms": 69.37220925465226,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 6,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 69.89874970167875,
+        "workers_3_ms": 69.66354185715318,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 7,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 69.57416702061892,
+        "workers_1_ms": 69.41745895892382,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 8,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 68.97429190576077,
+        "workers_3_ms": 69.31204115971923,
+        "same_output": true
+      },
+      {
+        "products": 1,
+        "repeat": 9,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 69.42441686987877,
+        "workers_1_ms": 62.44954094290733,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 0,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 186.1290829256177,
+        "workers_3_ms": 77.60150032117963,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 1,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 74.4491252116859,
+        "workers_1_ms": 178.91266709193587,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 2,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 193.95974976941943,
+        "workers_3_ms": 76.81312505155802,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 3,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 74.96758410707116,
+        "workers_1_ms": 192.32300017029047,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 4,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 174.11816725507379,
+        "workers_3_ms": 75.15166699886322,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 5,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 71.67475018650293,
+        "workers_1_ms": 172.66954202204943,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 6,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 178.17391734570265,
+        "workers_3_ms": 72.6432092487812,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 7,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 72.41237489506602,
+        "workers_1_ms": 171.53120785951614,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 8,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 190.15649985522032,
+        "workers_3_ms": 80.7830416597426,
+        "same_output": true
+      },
+      {
+        "products": 3,
+        "repeat": 9,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 73.05454090237617,
+        "workers_1_ms": 188.32045886665583,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 0,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 330.1760838367045,
+        "workers_3_ms": 142.33154198154807,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 1,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 143.45587510615587,
+        "workers_1_ms": 308.6793338879943,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 2,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 308.4940407425165,
+        "workers_3_ms": 147.28750009089708,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 3,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 132.1953753940761,
+        "workers_1_ms": 319.4770831614733,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 4,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 302.4299582466483,
+        "workers_3_ms": 136.73316687345505,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 5,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 133.44091596081853,
+        "workers_1_ms": 302.1176247857511,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 6,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 324.4160837493837,
+        "workers_3_ms": 142.52458279952407,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 7,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 139.00341698899865,
+        "workers_1_ms": 301.2738339602947,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 8,
+        "injected_writer_latency_ms": 40.0,
+        "workers_1_ms": 326.0226249694824,
+        "workers_3_ms": 141.6104999370873,
+        "same_output": true
+      },
+      {
+        "products": 5,
+        "repeat": 9,
+        "injected_writer_latency_ms": 40.0,
+        "workers_3_ms": 140.31016686931252,
+        "workers_1_ms": 324.5780412107706,
+        "same_output": true
+      }
+    ]
+  },
+  "context": {
+    "task_packets": 40,
+    "scoped_total_chars": 26415,
+    "full_total_chars": 238069,
+    "chars_reduction_pct": 88.904,
+    "scoped_cost_exposure_packets": 0,
+    "full_cost_exposure_packets": 40,
+    "product_role_packets": 30,
+    "product_scope_correct": 30,
+    "dependency_scope_correct": 40,
+    "unit": "JSON Unicode characters, not tokenizer tokens or measured API cost",
+    "raw": [
+      {
+        "task_id": "selection",
+        "role": "merchandiser",
+        "scoped_chars": 533,
+        "full_chars": 1774,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": null,
+        "dependencies": [],
+        "expected_dependencies": [],
+        "products_in_plan": 1
+      },
+      {
+        "task_id": "brief_0",
+        "role": "copywriter",
+        "scoped_chars": 475,
+        "full_chars": 2705,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 1
+      },
+      {
+        "task_id": "review_0",
+        "role": "compliance",
+        "scoped_chars": 489,
+        "full_chars": 3666,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "brief_0"
+        ],
+        "expected_dependencies": [
+          "brief_0"
+        ],
+        "products_in_plan": 1
+      },
+      {
+        "task_id": "summary",
+        "role": "director",
+        "scoped_chars": 788,
+        "full_chars": 4773,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": null,
+        "dependencies": [
+          "review_0"
+        ],
+        "expected_dependencies": [
+          "review_0"
+        ],
+        "products_in_plan": 1
+      },
+      {
+        "task_id": "selection",
+        "role": "merchandiser",
+        "scoped_chars": 654,
+        "full_chars": 2064,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101",
+          "SK-102"
+        ],
+        "expected_sku": null,
+        "dependencies": [],
+        "expected_dependencies": [],
+        "products_in_plan": 2
+      },
+      {
+        "task_id": "brief_0",
+        "role": "copywriter",
+        "scoped_chars": 484,
+        "full_chars": 3015,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 2
+      },
+      {
+        "task_id": "brief_1",
+        "role": "copywriter",
+        "scoped_chars": 482,
+        "full_chars": 3015,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-102"
+        ],
+        "expected_sku": "SK-102",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 2
+      },
+      {
+        "task_id": "review_0",
+        "role": "compliance",
+        "scoped_chars": 489,
+        "full_chars": 4933,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "brief_0"
+        ],
+        "expected_dependencies": [
+          "brief_0"
+        ],
+        "products_in_plan": 2
+      },
+      {
+        "task_id": "review_1",
+        "role": "compliance",
+        "scoped_chars": 485,
+        "full_chars": 4933,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-102"
+        ],
+        "expected_sku": "SK-102",
+        "dependencies": [
+          "brief_1"
+        ],
+        "expected_dependencies": [
+          "brief_1"
+        ],
+        "products_in_plan": 2
+      },
+      {
+        "task_id": "summary",
+        "role": "director",
+        "scoped_chars": 1169,
+        "full_chars": 7145,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101",
+          "SK-102"
+        ],
+        "expected_sku": null,
+        "dependencies": [
+          "review_0",
+          "review_1"
+        ],
+        "expected_dependencies": [
+          "review_0",
+          "review_1"
+        ],
+        "products_in_plan": 2
+      },
+      {
+        "task_id": "selection",
+        "role": "merchandiser",
+        "scoped_chars": 776,
+        "full_chars": 2356,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101",
+          "SK-102",
+          "SK-103"
+        ],
+        "expected_sku": null,
+        "dependencies": [],
+        "expected_dependencies": [],
+        "products_in_plan": 3
+      },
+      {
+        "task_id": "brief_0",
+        "role": "copywriter",
+        "scoped_chars": 493,
+        "full_chars": 3327,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 3
+      },
+      {
+        "task_id": "brief_2",
+        "role": "copywriter",
+        "scoped_chars": 492,
+        "full_chars": 3327,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-103"
+        ],
+        "expected_sku": "SK-103",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 3
+      },
+      {
+        "task_id": "brief_1",
+        "role": "copywriter",
+        "scoped_chars": 491,
+        "full_chars": 3327,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-102"
+        ],
+        "expected_sku": "SK-102",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 3
+      },
+      {
+        "task_id": "review_0",
+        "role": "compliance",
+        "scoped_chars": 489,
+        "full_chars": 6204,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "brief_0"
+        ],
+        "expected_dependencies": [
+          "brief_0"
+        ],
+        "products_in_plan": 3
+      },
+      {
+        "task_id": "review_2",
+        "role": "compliance",
+        "scoped_chars": 487,
+        "full_chars": 6204,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-103"
+        ],
+        "expected_sku": "SK-103",
+        "dependencies": [
+          "brief_2"
+        ],
+        "expected_dependencies": [
+          "brief_2"
+        ],
+        "products_in_plan": 3
+      },
+      {
+        "task_id": "review_1",
+        "role": "compliance",
+        "scoped_chars": 485,
+        "full_chars": 6204,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-102"
+        ],
+        "expected_sku": "SK-102",
+        "dependencies": [
+          "brief_1"
+        ],
+        "expected_dependencies": [
+          "brief_1"
+        ],
+        "products_in_plan": 3
+      },
+      {
+        "task_id": "summary",
+        "role": "director",
+        "scoped_chars": 1552,
+        "full_chars": 9522,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101",
+          "SK-102",
+          "SK-103"
+        ],
+        "expected_sku": null,
+        "dependencies": [
+          "review_0",
+          "review_1",
+          "review_2"
+        ],
+        "expected_dependencies": [
+          "review_0",
+          "review_1",
+          "review_2"
+        ],
+        "products_in_plan": 3
+      },
+      {
+        "task_id": "selection",
+        "role": "merchandiser",
+        "scoped_chars": 898,
+        "full_chars": 2646,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101",
+          "SK-102",
+          "SK-103",
+          "SK-104"
+        ],
+        "expected_sku": null,
+        "dependencies": [],
+        "expected_dependencies": [],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "brief_0",
+        "role": "copywriter",
+        "scoped_chars": 502,
+        "full_chars": 3635,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "brief_2",
+        "role": "copywriter",
+        "scoped_chars": 501,
+        "full_chars": 3635,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-103"
+        ],
+        "expected_sku": "SK-103",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "brief_1",
+        "role": "copywriter",
+        "scoped_chars": 500,
+        "full_chars": 3635,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-102"
+        ],
+        "expected_sku": "SK-102",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "review_1",
+        "role": "compliance",
+        "scoped_chars": 485,
+        "full_chars": 6512,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-102"
+        ],
+        "expected_sku": "SK-102",
+        "dependencies": [
+          "brief_1"
+        ],
+        "expected_dependencies": [
+          "brief_1"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "review_2",
+        "role": "compliance",
+        "scoped_chars": 487,
+        "full_chars": 6512,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-103"
+        ],
+        "expected_sku": "SK-103",
+        "dependencies": [
+          "brief_2"
+        ],
+        "expected_dependencies": [
+          "brief_2"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "review_0",
+        "role": "compliance",
+        "scoped_chars": 489,
+        "full_chars": 6512,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "brief_0"
+        ],
+        "expected_dependencies": [
+          "brief_0"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "brief_3",
+        "role": "copywriter",
+        "scoped_chars": 501,
+        "full_chars": 9830,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-104"
+        ],
+        "expected_sku": "SK-104",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "review_3",
+        "role": "compliance",
+        "scoped_chars": 487,
+        "full_chars": 10789,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-104"
+        ],
+        "expected_sku": "SK-104",
+        "dependencies": [
+          "brief_3"
+        ],
+        "expected_dependencies": [
+          "brief_3"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "summary",
+        "role": "director",
+        "scoped_chars": 1935,
+        "full_chars": 11896,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101",
+          "SK-102",
+          "SK-103",
+          "SK-104"
+        ],
+        "expected_sku": null,
+        "dependencies": [
+          "review_0",
+          "review_1",
+          "review_2",
+          "review_3"
+        ],
+        "expected_dependencies": [
+          "review_0",
+          "review_1",
+          "review_2",
+          "review_3"
+        ],
+        "products_in_plan": 4
+      },
+      {
+        "task_id": "selection",
+        "role": "merchandiser",
+        "scoped_chars": 1019,
+        "full_chars": 2939,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101",
+          "SK-102",
+          "SK-103",
+          "SK-104",
+          "SK-105"
+        ],
+        "expected_sku": null,
+        "dependencies": [],
+        "expected_dependencies": [],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "brief_0",
+        "role": "copywriter",
+        "scoped_chars": 511,
+        "full_chars": 3952,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "brief_1",
+        "role": "copywriter",
+        "scoped_chars": 509,
+        "full_chars": 3952,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-102"
+        ],
+        "expected_sku": "SK-102",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "brief_2",
+        "role": "copywriter",
+        "scoped_chars": 510,
+        "full_chars": 3952,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-103"
+        ],
+        "expected_sku": "SK-103",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "review_2",
+        "role": "compliance",
+        "scoped_chars": 487,
+        "full_chars": 6829,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-103"
+        ],
+        "expected_sku": "SK-103",
+        "dependencies": [
+          "brief_2"
+        ],
+        "expected_dependencies": [
+          "brief_2"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "review_0",
+        "role": "compliance",
+        "scoped_chars": 489,
+        "full_chars": 6829,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101"
+        ],
+        "expected_sku": "SK-101",
+        "dependencies": [
+          "brief_0"
+        ],
+        "expected_dependencies": [
+          "brief_0"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "review_1",
+        "role": "compliance",
+        "scoped_chars": 485,
+        "full_chars": 6829,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-102"
+        ],
+        "expected_sku": "SK-102",
+        "dependencies": [
+          "brief_1"
+        ],
+        "expected_dependencies": [
+          "brief_1"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "brief_4",
+        "role": "copywriter",
+        "scoped_chars": 509,
+        "full_chars": 10145,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-105"
+        ],
+        "expected_sku": "SK-105",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "brief_3",
+        "role": "copywriter",
+        "scoped_chars": 510,
+        "full_chars": 10145,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-104"
+        ],
+        "expected_sku": "SK-104",
+        "dependencies": [
+          "selection"
+        ],
+        "expected_dependencies": [
+          "selection"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "review_4",
+        "role": "compliance",
+        "scoped_chars": 485,
+        "full_chars": 12062,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-105"
+        ],
+        "expected_sku": "SK-105",
+        "dependencies": [
+          "brief_4"
+        ],
+        "expected_dependencies": [
+          "brief_4"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "review_3",
+        "role": "compliance",
+        "scoped_chars": 487,
+        "full_chars": 12062,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-104"
+        ],
+        "expected_sku": "SK-104",
+        "dependencies": [
+          "brief_3"
+        ],
+        "expected_dependencies": [
+          "brief_3"
+        ],
+        "products_in_plan": 5
+      },
+      {
+        "task_id": "summary",
+        "role": "director",
+        "scoped_chars": 2316,
+        "full_chars": 14277,
+        "scoped_has_cost": false,
+        "full_has_cost": true,
+        "scoped_skus": [
+          "SK-101",
+          "SK-102",
+          "SK-103",
+          "SK-104",
+          "SK-105"
+        ],
+        "expected_sku": null,
+        "dependencies": [
+          "review_0",
+          "review_1",
+          "review_2",
+          "review_3",
+          "review_4"
+        ],
+        "expected_dependencies": [
+          "review_0",
+          "review_1",
+          "review_2",
+          "review_3",
+          "review_4"
+        ],
+        "products_in_plan": 5
+      }
+    ]
+  },
+  "review": {
+    "distinct_fixtures": 50,
+    "bad_fixtures": 45,
+    "good_fixtures": 5,
+    "fault_types": [
+      "claim",
+      "price",
+      "stock",
+      "source",
+      "empty",
+      "duplicate",
+      "title",
+      "sku",
+      "version"
+    ],
+    "review_off_bad_admitted": 45,
+    "review_on_bad_admitted": 0,
+    "review_on_good_admitted": 5,
+    "raw": [
+      {
+        "sku": "SK-101",
+        "fault": null,
+        "bad": false,
+        "review_off_admitted": true,
+        "review_on_admitted": true
+      },
+      {
+        "sku": "SK-101",
+        "fault": "claim",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-101",
+        "fault": "price",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-101",
+        "fault": "stock",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-101",
+        "fault": "source",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-101",
+        "fault": "empty",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-101",
+        "fault": "duplicate",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-101",
+        "fault": "title",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-101",
+        "fault": "sku",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-101",
+        "fault": "version",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": null,
+        "bad": false,
+        "review_off_admitted": true,
+        "review_on_admitted": true
+      },
+      {
+        "sku": "SK-102",
+        "fault": "claim",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": "price",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": "stock",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": "source",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": "empty",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": "duplicate",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": "title",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": "sku",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-102",
+        "fault": "version",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": null,
+        "bad": false,
+        "review_off_admitted": true,
+        "review_on_admitted": true
+      },
+      {
+        "sku": "SK-103",
+        "fault": "claim",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": "price",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": "stock",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": "source",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": "empty",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": "duplicate",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": "title",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": "sku",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-103",
+        "fault": "version",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": null,
+        "bad": false,
+        "review_off_admitted": true,
+        "review_on_admitted": true
+      },
+      {
+        "sku": "SK-104",
+        "fault": "claim",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": "price",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": "stock",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": "source",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": "empty",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": "duplicate",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": "title",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": "sku",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-104",
+        "fault": "version",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": null,
+        "bad": false,
+        "review_off_admitted": true,
+        "review_on_admitted": true
+      },
+      {
+        "sku": "SK-105",
+        "fault": "claim",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": "price",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": "stock",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": "source",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": "empty",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": "duplicate",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": "title",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": "sku",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      },
+      {
+        "sku": "SK-105",
+        "fault": "version",
+        "bad": true,
+        "review_off_admitted": true,
+        "review_on_admitted": false
+      }
+    ]
+  },
+  "recovery": {
+    "summary": [
+      {
+        "mode": "partial_failure",
+        "n": 10,
+        "checkpoint_total_attempts": 90,
+        "full_restart_total_attempts": 140,
+        "attempt_reduction_pct": 35.714,
+        "completed_tasks_reexecuted": 0,
+        "recovered": 10
+      },
+      {
+        "mode": "pause_after_reviews",
+        "n": 10,
+        "checkpoint_total_attempts": 80,
+        "full_restart_total_attempts": 150,
+        "attempt_reduction_pct": 46.667,
+        "completed_tasks_reexecuted": 0,
+        "recovered": 10
+      }
+    ],
+    "raw": [
+      {
+        "repeat": 0,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 0,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 1,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 1,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 2,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 2,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 3,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 3,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 4,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 4,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 5,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 5,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 6,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 6,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 7,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 7,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 8,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 8,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 9,
+        "mode": "partial_failure",
+        "before_status": "blocked",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 6,
+        "checkpoint_total_attempts": 9,
+        "full_restart_total_attempts": 14,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      },
+      {
+        "repeat": 9,
+        "mode": "pause_after_reviews",
+        "before_status": "paused",
+        "after_status": "succeeded",
+        "same_output": true,
+        "initial_steps": 7,
+        "checkpoint_total_attempts": 8,
+        "full_restart_total_attempts": 15,
+        "completed_tasks_reexecuted": 0,
+        "snapshot_unchanged": true
+      }
+    ]
+  },
+  "boundaries": {
+    "capability_checks": [
+      {
+        "role": "merchandiser",
+        "tool": "catalog",
+        "allowed": true,
+        "expected": true,
+        "code": null
+      },
+      {
+        "role": "merchandiser",
+        "tool": "product",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "merchandiser",
+        "tool": "review",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "merchandiser",
+        "tool": "assemble",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "merchandiser",
+        "tool": "issue_coupon",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "merchandiser",
+        "tool": "update_price",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "copywriter",
+        "tool": "catalog",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "copywriter",
+        "tool": "product",
+        "allowed": true,
+        "expected": true,
+        "code": null
+      },
+      {
+        "role": "copywriter",
+        "tool": "review",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "copywriter",
+        "tool": "assemble",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "copywriter",
+        "tool": "issue_coupon",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "copywriter",
+        "tool": "update_price",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "compliance",
+        "tool": "catalog",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "compliance",
+        "tool": "product",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "compliance",
+        "tool": "review",
+        "allowed": true,
+        "expected": true,
+        "code": null
+      },
+      {
+        "role": "compliance",
+        "tool": "assemble",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "compliance",
+        "tool": "issue_coupon",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "compliance",
+        "tool": "update_price",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "director",
+        "tool": "catalog",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "director",
+        "tool": "product",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "director",
+        "tool": "review",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "director",
+        "tool": "assemble",
+        "allowed": true,
+        "expected": true,
+        "code": null
+      },
+      {
+        "role": "director",
+        "tool": "issue_coupon",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      },
+      {
+        "role": "director",
+        "tool": "update_price",
+        "allowed": false,
+        "expected": false,
+        "code": "CAPABILITY_DENIED"
+      }
+    ],
+    "unauthorized_probes": 20,
+    "unauthorized_allowed": 0,
+    "authorized_probes": 4,
+    "authorized_allowed": 4,
+    "permanent_failure": {
+      "extra_advance_requests": 20,
+      "failed_task_attempts": 2,
+      "max_attempts": 2,
+      "final_status": "blocked",
+      "healthy_brief_attempts": [
+        1,
+        1
+      ]
+    },
+    "step_budget": {
+      "advance_requests": 5,
+      "steps": 2,
+      "max_steps": 2,
+      "reason": "step_limit"
+    }
+  },
+  "plans": {
+    "invalid_plans": 6,
+    "rejected": 6,
+    "raw": [
+      {
+        "mutation": "cycle",
+        "rejected": true
+      },
+      {
+        "mutation": "missing",
+        "rejected": true
+      },
+      {
+        "mutation": "duplicate",
+        "rejected": true
+      },
+      {
+        "mutation": "wrong_product",
+        "rejected": true
+      },
+      {
+        "mutation": "forbidden_role",
+        "rejected": true
+      },
+      {
+        "mutation": "extra_field",
+        "rejected": true
+      }
+    ]
+  }
+}

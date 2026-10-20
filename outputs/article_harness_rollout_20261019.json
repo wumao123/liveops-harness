@@ -1,0 +1,27 @@
+{
+  "url": "http://127.0.0.1:8765/",
+  "pid": 4827,
+  "backup": "/Users/wumao/Downloads/项目报告汇总/liveops-harness/data/backups/article_upgrade_20261019_153052",
+  "before_business_sha256": "e3d32ba8e79ce4593f071e4a047c69ce0d0d157d635ab0cd11c2b1d994fffe2e",
+  "after_business_sha256": "e3d32ba8e79ce4593f071e4a047c69ce0d0d157d635ab0cd11c2b1d994fffe2e",
+  "all_existing_business_rows_unchanged": true,
+  "checkpoint_and_platform_unchanged": true,
+  "before_health": {
+    "status": "ok",
+    "mode": "model",
+    "coupon_backend": "simulated_remote",
+    "intent_model": "deepseek-flash",
+    "writer_model": "deepseek-flash",
+    "advice_generation": true
+  },
+  "after_health": {
+    "status": "ok",
+    "mode": "model",
+    "coupon_backend": "simulated_remote",
+    "intent_model": "deepseek-flash",
+    "writer_model": "deepseek-flash",
+    "advice_generation": true
+  },
+  "runtime_scene": "on_live",
+  "runtime_revision": 14
+}

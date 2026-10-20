@@ -1,0 +1,2685 @@
+{
+  "scope": "four_additional_pairs_plus_one_original_pair_not_large_sample_benchmark",
+  "started_at_utc": "2026-10-17T18:01:33.870455+00:00",
+  "model_requested": "deepseek-flash",
+  "additional_request_budget": 30,
+  "source_sha256": {
+    "agent.py": "173ffa65d18622f934b4ec7ff97305b1f25c2f380a9af764264e9c8a302d9480",
+    "campaigns.py": "f8f591037a54380c3a7d7e7ae059cfd49e83e34fb6912d067d9e31a5240edd58",
+    "specialists.py": "574f067fcc4e54315e9eea558580cb242de26b262cbf6d2775e5c3695c244c8b",
+    "real_writer_repeats.py": "8b3aea0c3198a7afbdacf5346a3a56ec1ca317d302cf0a4c9b5f523977dc3821"
+  },
+  "additional_runs": [
+    {
+      "repeat": 1,
+      "workers": 3,
+      "elapsed_ms": 1366.708,
+      "status": "succeeded",
+      "approved_briefs": 3,
+      "final": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "温和清洁",
+              "120ml",
+              "适合日常使用"
+            ],
+            "price_cents": 7900,
+            "product_version": 0,
+            "sku": "SK-101",
+            "source": "product:SK-101@0",
+            "stock": 180,
+            "title": "氨基酸洁面"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      },
+      "trace": [
+        {
+          "trace_id": "a1720165-5b6d-4f39-8d4f-adbbcc267bcc/selection/1",
+          "task_id": "selection",
+          "role": "merchandiser",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "selection-91115f20bfa93705",
+          "context_chars": 776,
+          "elapsed_ms": 1.76,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "catalog",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "a1720165-5b6d-4f39-8d4f-adbbcc267bcc/brief_2/1",
+          "task_id": "brief_2",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_2-f0531976d4c22c6f",
+          "context_chars": 492,
+          "elapsed_ms": 802.06,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 391,
+          "reported_prompt_tokens": 336,
+          "reported_completion_tokens": 55,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 391,
+              "prompt_tokens": 336,
+              "completion_tokens": 55,
+              "elapsed_ms": 798.748
+            }
+          ]
+        },
+        {
+          "trace_id": "a1720165-5b6d-4f39-8d4f-adbbcc267bcc/brief_1/1",
+          "task_id": "brief_1",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_1-c7ec5f78687359b1",
+          "context_chars": 491,
+          "elapsed_ms": 863.98,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 395,
+          "reported_prompt_tokens": 338,
+          "reported_completion_tokens": 57,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 395,
+              "prompt_tokens": 338,
+              "completion_tokens": 57,
+              "elapsed_ms": 863.083
+            }
+          ]
+        },
+        {
+          "trace_id": "a1720165-5b6d-4f39-8d4f-adbbcc267bcc/brief_0/1",
+          "task_id": "brief_0",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_0-240c4c5a077d05d4",
+          "context_chars": 493,
+          "elapsed_ms": 1330.8,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 387,
+          "reported_prompt_tokens": 334,
+          "reported_completion_tokens": 53,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 387,
+              "prompt_tokens": 334,
+              "completion_tokens": 53,
+              "elapsed_ms": 1328.0
+            }
+          ]
+        },
+        {
+          "trace_id": "a1720165-5b6d-4f39-8d4f-adbbcc267bcc/review_1/1",
+          "task_id": "review_1",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_1-7fb230892236f1dd",
+          "context_chars": 485,
+          "elapsed_ms": 2.79,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "a1720165-5b6d-4f39-8d4f-adbbcc267bcc/review_2/1",
+          "task_id": "review_2",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_2-51d24c75aa63d19d",
+          "context_chars": 487,
+          "elapsed_ms": 2.99,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "a1720165-5b6d-4f39-8d4f-adbbcc267bcc/review_0/1",
+          "task_id": "review_0",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_0-7ede5c8816b9e5d8",
+          "context_chars": 489,
+          "elapsed_ms": 5.05,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "a1720165-5b6d-4f39-8d4f-adbbcc267bcc/summary/1",
+          "task_id": "summary",
+          "role": "director",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "summary-957384aa25712269",
+          "context_chars": 1552,
+          "elapsed_ms": 7.05,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "assemble",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        }
+      ],
+      "business_state_unchanged": true
+    },
+    {
+      "repeat": 1,
+      "workers": 1,
+      "elapsed_ms": 3234.946,
+      "status": "succeeded",
+      "approved_briefs": 3,
+      "final": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "温和清洁",
+              "120ml",
+              "适合日常使用"
+            ],
+            "price_cents": 7900,
+            "product_version": 0,
+            "sku": "SK-101",
+            "source": "product:SK-101@0",
+            "stock": 180,
+            "title": "氨基酸洁面"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      },
+      "trace": [
+        {
+          "trace_id": "ee8560b8-c4a7-41c4-9773-65fab35c63ba/selection/1",
+          "task_id": "selection",
+          "role": "merchandiser",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "selection-91115f20bfa93705",
+          "context_chars": 776,
+          "elapsed_ms": 1.72,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "catalog",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "ee8560b8-c4a7-41c4-9773-65fab35c63ba/brief_0/1",
+          "task_id": "brief_0",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_0-240c4c5a077d05d4",
+          "context_chars": 493,
+          "elapsed_ms": 969.09,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 387,
+          "reported_prompt_tokens": 334,
+          "reported_completion_tokens": 53,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 387,
+              "prompt_tokens": 334,
+              "completion_tokens": 53,
+              "elapsed_ms": 967.486
+            }
+          ]
+        },
+        {
+          "trace_id": "ee8560b8-c4a7-41c4-9773-65fab35c63ba/review_0/1",
+          "task_id": "review_0",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_0-7ede5c8816b9e5d8",
+          "context_chars": 489,
+          "elapsed_ms": 3.41,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "ee8560b8-c4a7-41c4-9773-65fab35c63ba/brief_1/1",
+          "task_id": "brief_1",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_1-c7ec5f78687359b1",
+          "context_chars": 491,
+          "elapsed_ms": 1111.12,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 395,
+          "reported_prompt_tokens": 338,
+          "reported_completion_tokens": 57,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 395,
+              "prompt_tokens": 338,
+              "completion_tokens": 57,
+              "elapsed_ms": 1108.533
+            }
+          ]
+        },
+        {
+          "trace_id": "ee8560b8-c4a7-41c4-9773-65fab35c63ba/review_1/1",
+          "task_id": "review_1",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_1-7fb230892236f1dd",
+          "context_chars": 485,
+          "elapsed_ms": 3.36,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "ee8560b8-c4a7-41c4-9773-65fab35c63ba/brief_2/1",
+          "task_id": "brief_2",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_2-f0531976d4c22c6f",
+          "context_chars": 492,
+          "elapsed_ms": 1091.55,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 391,
+          "reported_prompt_tokens": 336,
+          "reported_completion_tokens": 55,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 391,
+              "prompt_tokens": 336,
+              "completion_tokens": 55,
+              "elapsed_ms": 1088.523
+            }
+          ]
+        },
+        {
+          "trace_id": "ee8560b8-c4a7-41c4-9773-65fab35c63ba/review_2/1",
+          "task_id": "review_2",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_2-51d24c75aa63d19d",
+          "context_chars": 487,
+          "elapsed_ms": 3.57,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "ee8560b8-c4a7-41c4-9773-65fab35c63ba/summary/1",
+          "task_id": "summary",
+          "role": "director",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "summary-957384aa25712269",
+          "context_chars": 1552,
+          "elapsed_ms": 7.54,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "assemble",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        }
+      ],
+      "business_state_unchanged": true
+    },
+    {
+      "repeat": 2,
+      "workers": 1,
+      "elapsed_ms": 2995.448,
+      "status": "succeeded",
+      "approved_briefs": 3,
+      "final": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "温和清洁",
+              "120ml",
+              "适合日常使用"
+            ],
+            "price_cents": 7900,
+            "product_version": 0,
+            "sku": "SK-101",
+            "source": "product:SK-101@0",
+            "stock": 180,
+            "title": "氨基酸洁面"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      },
+      "trace": [
+        {
+          "trace_id": "df4afbbe-615e-4139-98f1-0ebaa68a44c6/selection/1",
+          "task_id": "selection",
+          "role": "merchandiser",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "selection-91115f20bfa93705",
+          "context_chars": 776,
+          "elapsed_ms": 1.74,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "catalog",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "df4afbbe-615e-4139-98f1-0ebaa68a44c6/brief_0/1",
+          "task_id": "brief_0",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_0-240c4c5a077d05d4",
+          "context_chars": 493,
+          "elapsed_ms": 1037.89,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 387,
+          "reported_prompt_tokens": 334,
+          "reported_completion_tokens": 53,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 387,
+              "prompt_tokens": 334,
+              "completion_tokens": 53,
+              "elapsed_ms": 1036.35
+            }
+          ]
+        },
+        {
+          "trace_id": "df4afbbe-615e-4139-98f1-0ebaa68a44c6/review_0/1",
+          "task_id": "review_0",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_0-7ede5c8816b9e5d8",
+          "context_chars": 489,
+          "elapsed_ms": 1.58,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "df4afbbe-615e-4139-98f1-0ebaa68a44c6/brief_1/1",
+          "task_id": "brief_1",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_1-c7ec5f78687359b1",
+          "context_chars": 491,
+          "elapsed_ms": 1001.72,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 395,
+          "reported_prompt_tokens": 338,
+          "reported_completion_tokens": 57,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 395,
+              "prompt_tokens": 338,
+              "completion_tokens": 57,
+              "elapsed_ms": 1000.366
+            }
+          ]
+        },
+        {
+          "trace_id": "df4afbbe-615e-4139-98f1-0ebaa68a44c6/review_1/1",
+          "task_id": "review_1",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_1-7fb230892236f1dd",
+          "context_chars": 485,
+          "elapsed_ms": 3.18,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "df4afbbe-615e-4139-98f1-0ebaa68a44c6/brief_2/1",
+          "task_id": "brief_2",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_2-f0531976d4c22c6f",
+          "context_chars": 492,
+          "elapsed_ms": 902.11,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 391,
+          "reported_prompt_tokens": 336,
+          "reported_completion_tokens": 55,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 391,
+              "prompt_tokens": 336,
+              "completion_tokens": 55,
+              "elapsed_ms": 899.269
+            }
+          ]
+        },
+        {
+          "trace_id": "df4afbbe-615e-4139-98f1-0ebaa68a44c6/review_2/1",
+          "task_id": "review_2",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_2-51d24c75aa63d19d",
+          "context_chars": 487,
+          "elapsed_ms": 3.14,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "df4afbbe-615e-4139-98f1-0ebaa68a44c6/summary/1",
+          "task_id": "summary",
+          "role": "director",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "summary-957384aa25712269",
+          "context_chars": 1552,
+          "elapsed_ms": 6.52,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "assemble",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        }
+      ],
+      "business_state_unchanged": true
+    },
+    {
+      "repeat": 2,
+      "workers": 3,
+      "elapsed_ms": 1529.698,
+      "status": "succeeded",
+      "approved_briefs": 3,
+      "final": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "温和清洁",
+              "120ml",
+              "适合日常使用"
+            ],
+            "price_cents": 7900,
+            "product_version": 0,
+            "sku": "SK-101",
+            "source": "product:SK-101@0",
+            "stock": 180,
+            "title": "氨基酸洁面"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      },
+      "trace": [
+        {
+          "trace_id": "1abcab56-03d1-4674-81e2-3c1ab6ad0279/selection/1",
+          "task_id": "selection",
+          "role": "merchandiser",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "selection-91115f20bfa93705",
+          "context_chars": 776,
+          "elapsed_ms": 1.55,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "catalog",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "1abcab56-03d1-4674-81e2-3c1ab6ad0279/brief_0/1",
+          "task_id": "brief_0",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_0-240c4c5a077d05d4",
+          "context_chars": 493,
+          "elapsed_ms": 1025.05,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 387,
+          "reported_prompt_tokens": 334,
+          "reported_completion_tokens": 53,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 387,
+              "prompt_tokens": 334,
+              "completion_tokens": 53,
+              "elapsed_ms": 1022.648
+            }
+          ]
+        },
+        {
+          "trace_id": "1abcab56-03d1-4674-81e2-3c1ab6ad0279/brief_2/1",
+          "task_id": "brief_2",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_2-f0531976d4c22c6f",
+          "context_chars": 492,
+          "elapsed_ms": 1031.97,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 391,
+          "reported_prompt_tokens": 336,
+          "reported_completion_tokens": 55,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 391,
+              "prompt_tokens": 336,
+              "completion_tokens": 55,
+              "elapsed_ms": 1028.191
+            }
+          ]
+        },
+        {
+          "trace_id": "1abcab56-03d1-4674-81e2-3c1ab6ad0279/brief_1/1",
+          "task_id": "brief_1",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_1-c7ec5f78687359b1",
+          "context_chars": 491,
+          "elapsed_ms": 1493.02,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 395,
+          "reported_prompt_tokens": 338,
+          "reported_completion_tokens": 57,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 395,
+              "prompt_tokens": 338,
+              "completion_tokens": 57,
+              "elapsed_ms": 1490.765
+            }
+          ]
+        },
+        {
+          "trace_id": "1abcab56-03d1-4674-81e2-3c1ab6ad0279/review_2/1",
+          "task_id": "review_2",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_2-51d24c75aa63d19d",
+          "context_chars": 487,
+          "elapsed_ms": 3.88,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "1abcab56-03d1-4674-81e2-3c1ab6ad0279/review_0/1",
+          "task_id": "review_0",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_0-7ede5c8816b9e5d8",
+          "context_chars": 489,
+          "elapsed_ms": 4.33,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "1abcab56-03d1-4674-81e2-3c1ab6ad0279/review_1/1",
+          "task_id": "review_1",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_1-7fb230892236f1dd",
+          "context_chars": 485,
+          "elapsed_ms": 5.07,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "1abcab56-03d1-4674-81e2-3c1ab6ad0279/summary/1",
+          "task_id": "summary",
+          "role": "director",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "summary-957384aa25712269",
+          "context_chars": 1552,
+          "elapsed_ms": 6.9,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "assemble",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        }
+      ],
+      "business_state_unchanged": true
+    },
+    {
+      "repeat": 3,
+      "workers": 3,
+      "elapsed_ms": 920.683,
+      "status": "succeeded",
+      "approved_briefs": 3,
+      "final": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "温和清洁",
+              "120ml",
+              "适合日常使用"
+            ],
+            "price_cents": 7900,
+            "product_version": 0,
+            "sku": "SK-101",
+            "source": "product:SK-101@0",
+            "stock": 180,
+            "title": "氨基酸洁面"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      },
+      "trace": [
+        {
+          "trace_id": "c797c188-c8f6-40a0-a658-b72d6cd96fde/selection/1",
+          "task_id": "selection",
+          "role": "merchandiser",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "selection-91115f20bfa93705",
+          "context_chars": 776,
+          "elapsed_ms": 1.6,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "catalog",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "c797c188-c8f6-40a0-a658-b72d6cd96fde/brief_1/1",
+          "task_id": "brief_1",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_1-c7ec5f78687359b1",
+          "context_chars": 491,
+          "elapsed_ms": 757.14,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 395,
+          "reported_prompt_tokens": 338,
+          "reported_completion_tokens": 57,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 395,
+              "prompt_tokens": 338,
+              "completion_tokens": 57,
+              "elapsed_ms": 755.637
+            }
+          ]
+        },
+        {
+          "trace_id": "c797c188-c8f6-40a0-a658-b72d6cd96fde/brief_2/1",
+          "task_id": "brief_2",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_2-f0531976d4c22c6f",
+          "context_chars": 492,
+          "elapsed_ms": 827.8,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 391,
+          "reported_prompt_tokens": 336,
+          "reported_completion_tokens": 55,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 391,
+              "prompt_tokens": 336,
+              "completion_tokens": 55,
+              "elapsed_ms": 824.679
+            }
+          ]
+        },
+        {
+          "trace_id": "c797c188-c8f6-40a0-a658-b72d6cd96fde/brief_0/1",
+          "task_id": "brief_0",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_0-240c4c5a077d05d4",
+          "context_chars": 493,
+          "elapsed_ms": 884.03,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 387,
+          "reported_prompt_tokens": 334,
+          "reported_completion_tokens": 53,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 387,
+              "prompt_tokens": 334,
+              "completion_tokens": 53,
+              "elapsed_ms": 882.673
+            }
+          ]
+        },
+        {
+          "trace_id": "c797c188-c8f6-40a0-a658-b72d6cd96fde/review_2/1",
+          "task_id": "review_2",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_2-51d24c75aa63d19d",
+          "context_chars": 487,
+          "elapsed_ms": 3.27,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "c797c188-c8f6-40a0-a658-b72d6cd96fde/review_1/1",
+          "task_id": "review_1",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_1-7fb230892236f1dd",
+          "context_chars": 485,
+          "elapsed_ms": 6.18,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "c797c188-c8f6-40a0-a658-b72d6cd96fde/review_0/1",
+          "task_id": "review_0",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_0-7ede5c8816b9e5d8",
+          "context_chars": 489,
+          "elapsed_ms": 6.96,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "c797c188-c8f6-40a0-a658-b72d6cd96fde/summary/1",
+          "task_id": "summary",
+          "role": "director",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "summary-957384aa25712269",
+          "context_chars": 1552,
+          "elapsed_ms": 7.01,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "assemble",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        }
+      ],
+      "business_state_unchanged": true
+    },
+    {
+      "repeat": 3,
+      "workers": 1,
+      "elapsed_ms": 2599.098,
+      "status": "succeeded",
+      "approved_briefs": 3,
+      "final": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "温和清洁",
+              "120ml",
+              "适合日常使用"
+            ],
+            "price_cents": 7900,
+            "product_version": 0,
+            "sku": "SK-101",
+            "source": "product:SK-101@0",
+            "stock": 180,
+            "title": "氨基酸洁面"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      },
+      "trace": [
+        {
+          "trace_id": "5c2df600-aab7-49d4-877f-89db38357655/selection/1",
+          "task_id": "selection",
+          "role": "merchandiser",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "selection-91115f20bfa93705",
+          "context_chars": 776,
+          "elapsed_ms": 1.54,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "catalog",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "5c2df600-aab7-49d4-877f-89db38357655/brief_0/1",
+          "task_id": "brief_0",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_0-240c4c5a077d05d4",
+          "context_chars": 493,
+          "elapsed_ms": 959.96,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 387,
+          "reported_prompt_tokens": 334,
+          "reported_completion_tokens": 53,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 387,
+              "prompt_tokens": 334,
+              "completion_tokens": 53,
+              "elapsed_ms": 958.336
+            }
+          ]
+        },
+        {
+          "trace_id": "5c2df600-aab7-49d4-877f-89db38357655/review_0/1",
+          "task_id": "review_0",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_0-7ede5c8816b9e5d8",
+          "context_chars": 489,
+          "elapsed_ms": 3.46,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "5c2df600-aab7-49d4-877f-89db38357655/brief_1/1",
+          "task_id": "brief_1",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_1-c7ec5f78687359b1",
+          "context_chars": 491,
+          "elapsed_ms": 774.96,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 395,
+          "reported_prompt_tokens": 338,
+          "reported_completion_tokens": 57,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 395,
+              "prompt_tokens": 338,
+              "completion_tokens": 57,
+              "elapsed_ms": 772.588
+            }
+          ]
+        },
+        {
+          "trace_id": "5c2df600-aab7-49d4-877f-89db38357655/review_1/1",
+          "task_id": "review_1",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_1-7fb230892236f1dd",
+          "context_chars": 485,
+          "elapsed_ms": 3.0,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "5c2df600-aab7-49d4-877f-89db38357655/brief_2/1",
+          "task_id": "brief_2",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_2-f0531976d4c22c6f",
+          "context_chars": 492,
+          "elapsed_ms": 803.49,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 391,
+          "reported_prompt_tokens": 336,
+          "reported_completion_tokens": 55,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 391,
+              "prompt_tokens": 336,
+              "completion_tokens": 55,
+              "elapsed_ms": 800.963
+            }
+          ]
+        },
+        {
+          "trace_id": "5c2df600-aab7-49d4-877f-89db38357655/review_2/1",
+          "task_id": "review_2",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_2-51d24c75aa63d19d",
+          "context_chars": 487,
+          "elapsed_ms": 3.52,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "5c2df600-aab7-49d4-877f-89db38357655/summary/1",
+          "task_id": "summary",
+          "role": "director",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "summary-957384aa25712269",
+          "context_chars": 1552,
+          "elapsed_ms": 7.22,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "assemble",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        }
+      ],
+      "business_state_unchanged": true
+    },
+    {
+      "repeat": 4,
+      "workers": 1,
+      "elapsed_ms": 2466.827,
+      "status": "succeeded",
+      "approved_briefs": 3,
+      "final": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "温和清洁",
+              "120ml",
+              "适合日常使用"
+            ],
+            "price_cents": 7900,
+            "product_version": 0,
+            "sku": "SK-101",
+            "source": "product:SK-101@0",
+            "stock": 180,
+            "title": "氨基酸洁面"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      },
+      "trace": [
+        {
+          "trace_id": "ceb42cd7-1f81-4c5d-87d8-ba7a3985a664/selection/1",
+          "task_id": "selection",
+          "role": "merchandiser",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "selection-91115f20bfa93705",
+          "context_chars": 776,
+          "elapsed_ms": 1.71,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "catalog",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "ceb42cd7-1f81-4c5d-87d8-ba7a3985a664/brief_0/1",
+          "task_id": "brief_0",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_0-240c4c5a077d05d4",
+          "context_chars": 493,
+          "elapsed_ms": 747.71,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 387,
+          "reported_prompt_tokens": 334,
+          "reported_completion_tokens": 53,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 387,
+              "prompt_tokens": 334,
+              "completion_tokens": 53,
+              "elapsed_ms": 746.083
+            }
+          ]
+        },
+        {
+          "trace_id": "ceb42cd7-1f81-4c5d-87d8-ba7a3985a664/review_0/1",
+          "task_id": "review_0",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_0-7ede5c8816b9e5d8",
+          "context_chars": 489,
+          "elapsed_ms": 2.99,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "ceb42cd7-1f81-4c5d-87d8-ba7a3985a664/brief_1/1",
+          "task_id": "brief_1",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_1-c7ec5f78687359b1",
+          "context_chars": 491,
+          "elapsed_ms": 870.19,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 395,
+          "reported_prompt_tokens": 338,
+          "reported_completion_tokens": 57,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 395,
+              "prompt_tokens": 338,
+              "completion_tokens": 57,
+              "elapsed_ms": 867.88
+            }
+          ]
+        },
+        {
+          "trace_id": "ceb42cd7-1f81-4c5d-87d8-ba7a3985a664/review_1/1",
+          "task_id": "review_1",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_1-7fb230892236f1dd",
+          "context_chars": 485,
+          "elapsed_ms": 3.46,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "ceb42cd7-1f81-4c5d-87d8-ba7a3985a664/brief_2/1",
+          "task_id": "brief_2",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_2-f0531976d4c22c6f",
+          "context_chars": 492,
+          "elapsed_ms": 787.94,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 391,
+          "reported_prompt_tokens": 336,
+          "reported_completion_tokens": 55,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 391,
+              "prompt_tokens": 336,
+              "completion_tokens": 55,
+              "elapsed_ms": 785.22
+            }
+          ]
+        },
+        {
+          "trace_id": "ceb42cd7-1f81-4c5d-87d8-ba7a3985a664/review_2/1",
+          "task_id": "review_2",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_2-51d24c75aa63d19d",
+          "context_chars": 487,
+          "elapsed_ms": 3.47,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "ceb42cd7-1f81-4c5d-87d8-ba7a3985a664/summary/1",
+          "task_id": "summary",
+          "role": "director",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "summary-957384aa25712269",
+          "context_chars": 1552,
+          "elapsed_ms": 7.63,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "assemble",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        }
+      ],
+      "business_state_unchanged": true
+    },
+    {
+      "repeat": 4,
+      "workers": 3,
+      "elapsed_ms": 995.915,
+      "status": "succeeded",
+      "approved_briefs": 3,
+      "final": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "温和清洁",
+              "120ml",
+              "适合日常使用"
+            ],
+            "price_cents": 7900,
+            "product_version": 0,
+            "sku": "SK-101",
+            "source": "product:SK-101@0",
+            "stock": 180,
+            "title": "氨基酸洁面"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      },
+      "trace": [
+        {
+          "trace_id": "83b90333-1435-4f6b-8de9-e2d512c09fac/selection/1",
+          "task_id": "selection",
+          "role": "merchandiser",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "selection-91115f20bfa93705",
+          "context_chars": 776,
+          "elapsed_ms": 1.6,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "catalog",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "83b90333-1435-4f6b-8de9-e2d512c09fac/brief_1/1",
+          "task_id": "brief_1",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_1-c7ec5f78687359b1",
+          "context_chars": 491,
+          "elapsed_ms": 741.54,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 395,
+          "reported_prompt_tokens": 338,
+          "reported_completion_tokens": 57,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 395,
+              "prompt_tokens": 338,
+              "completion_tokens": 57,
+              "elapsed_ms": 740.182
+            }
+          ]
+        },
+        {
+          "trace_id": "83b90333-1435-4f6b-8de9-e2d512c09fac/brief_2/1",
+          "task_id": "brief_2",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_2-f0531976d4c22c6f",
+          "context_chars": 492,
+          "elapsed_ms": 751.56,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 391,
+          "reported_prompt_tokens": 336,
+          "reported_completion_tokens": 55,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 391,
+              "prompt_tokens": 336,
+              "completion_tokens": 55,
+              "elapsed_ms": 748.496
+            }
+          ]
+        },
+        {
+          "trace_id": "83b90333-1435-4f6b-8de9-e2d512c09fac/brief_0/1",
+          "task_id": "brief_0",
+          "role": "copywriter",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "brief_0-240c4c5a077d05d4",
+          "context_chars": 493,
+          "elapsed_ms": 963.31,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "product",
+          "backend": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 387,
+          "reported_prompt_tokens": 334,
+          "reported_completion_tokens": 53,
+          "usage_reported_calls": 1,
+          "token_breakdown_calls": 1,
+          "usage_inconsistent_calls": 0,
+          "provider_attempts": [
+            {
+              "attempt": 1,
+              "outcome": "accepted",
+              "http_status": 200,
+              "reported_total_tokens": 387,
+              "prompt_tokens": 334,
+              "completion_tokens": 53,
+              "elapsed_ms": 961.905
+            }
+          ]
+        },
+        {
+          "trace_id": "83b90333-1435-4f6b-8de9-e2d512c09fac/review_1/1",
+          "task_id": "review_1",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_1-7fb230892236f1dd",
+          "context_chars": 485,
+          "elapsed_ms": 4.04,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "83b90333-1435-4f6b-8de9-e2d512c09fac/review_2/1",
+          "task_id": "review_2",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_2-51d24c75aa63d19d",
+          "context_chars": 487,
+          "elapsed_ms": 4.2,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "83b90333-1435-4f6b-8de9-e2d512c09fac/review_0/1",
+          "task_id": "review_0",
+          "role": "compliance",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "review_0-7ede5c8816b9e5d8",
+          "context_chars": 489,
+          "elapsed_ms": 5.48,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "review",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        },
+        {
+          "trace_id": "83b90333-1435-4f6b-8de9-e2d512c09fac/summary/1",
+          "task_id": "summary",
+          "role": "director",
+          "attempt": 1,
+          "status": "succeeded",
+          "artifact_id": "summary-957384aa25712269",
+          "context_chars": 1552,
+          "elapsed_ms": 6.69,
+          "hooks": [
+            "pre_reasoning",
+            "pre_tool_call",
+            "post_tool_call",
+            "post_reasoning"
+          ],
+          "skill": "assemble",
+          "backend": "deterministic",
+          "model_calls": 0,
+          "reported_total_tokens": 0
+        }
+      ],
+      "business_state_unchanged": true
+    }
+  ],
+  "provider_requests": [
+    {
+      "index": 1,
+      "label": "writer_repeat/1/workers_3",
+      "status": 200,
+      "response_id": "295eeecb-6a02-4c1a-b8a8-74cde8a0444d",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 862.953
+    },
+    {
+      "index": 2,
+      "label": "writer_repeat/1/workers_3",
+      "status": 200,
+      "response_id": "cb809de4-ba3f-4119-9d6a-cb072f0f4641",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1327.878
+    },
+    {
+      "index": 3,
+      "label": "writer_repeat/1/workers_3",
+      "status": 200,
+      "response_id": "0bb465cc-c10e-47ee-b7bd-68cd21496eff",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 798.611
+    },
+    {
+      "index": 4,
+      "label": "writer_repeat/1/workers_1",
+      "status": 200,
+      "response_id": "e03f883c-1aca-4ad3-afb6-3ae74db04481",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 967.196
+    },
+    {
+      "index": 5,
+      "label": "writer_repeat/1/workers_1",
+      "status": 200,
+      "response_id": "afada197-c868-457b-b66f-1bf812327a04",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1108.305
+    },
+    {
+      "index": 6,
+      "label": "writer_repeat/1/workers_1",
+      "status": 200,
+      "response_id": "0c3ee2f8-b9cd-414f-a6e5-0b122ddf890c",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1088.301
+    },
+    {
+      "index": 7,
+      "label": "writer_repeat/2/workers_1",
+      "status": 200,
+      "response_id": "1e83aaf5-4d12-4c47-88a8-f7867601e913",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1036.23
+    },
+    {
+      "index": 8,
+      "label": "writer_repeat/2/workers_1",
+      "status": 200,
+      "response_id": "ffb02d82-d6f8-4d2a-b333-44ad2d26aa20",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1000.167
+    },
+    {
+      "index": 9,
+      "label": "writer_repeat/2/workers_1",
+      "status": 200,
+      "response_id": "badf8a36-33e1-408e-86df-204ab571b950",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 899.04
+    },
+    {
+      "index": 10,
+      "label": "writer_repeat/2/workers_3",
+      "status": 200,
+      "response_id": "3d280c9f-03f6-4137-a9f0-f1fda0d1e28e",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1490.555
+    },
+    {
+      "index": 11,
+      "label": "writer_repeat/2/workers_3",
+      "status": 200,
+      "response_id": "a7d9ed5e-40f0-41fb-816d-7fd274ed6dc4",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1022.433
+    },
+    {
+      "index": 12,
+      "label": "writer_repeat/2/workers_3",
+      "status": 200,
+      "response_id": "fc55cdbc-a6e0-43d0-a697-531b65f133ef",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1028.102
+    },
+    {
+      "index": 13,
+      "label": "writer_repeat/3/workers_3",
+      "status": 200,
+      "response_id": "82774bcd-db2b-4342-8e3a-715645ece8bc",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 882.505
+    },
+    {
+      "index": 14,
+      "label": "writer_repeat/3/workers_3",
+      "status": 200,
+      "response_id": "6b442d44-1c38-43b9-b111-07ee31813ffe",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 755.46
+    },
+    {
+      "index": 15,
+      "label": "writer_repeat/3/workers_3",
+      "status": 200,
+      "response_id": "1d162b80-1df4-443d-b687-5b88aff84b81",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 824.516
+    },
+    {
+      "index": 16,
+      "label": "writer_repeat/3/workers_1",
+      "status": 200,
+      "response_id": "d37d3794-e699-4e26-a50c-eff10d6ba9e1",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 958.154
+    },
+    {
+      "index": 17,
+      "label": "writer_repeat/3/workers_1",
+      "status": 200,
+      "response_id": "18fc1bcd-e60e-49dd-87f0-7d351928489e",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 772.389
+    },
+    {
+      "index": 18,
+      "label": "writer_repeat/3/workers_1",
+      "status": 200,
+      "response_id": "1e9cc969-3aa1-4212-8f89-1e7eb70f2cad",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 800.741
+    },
+    {
+      "index": 19,
+      "label": "writer_repeat/4/workers_1",
+      "status": 200,
+      "response_id": "68a67eb0-6796-4241-821b-63deb586b441",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 745.878
+    },
+    {
+      "index": 20,
+      "label": "writer_repeat/4/workers_1",
+      "status": 200,
+      "response_id": "775973a3-4e79-44ba-bca4-67c67eb14b56",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 867.631
+    },
+    {
+      "index": 21,
+      "label": "writer_repeat/4/workers_1",
+      "status": 200,
+      "response_id": "ca310eeb-a229-4530-96f1-a7a8dbd7fd38",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 784.912
+    },
+    {
+      "index": 22,
+      "label": "writer_repeat/4/workers_3",
+      "status": 200,
+      "response_id": "141c6a8c-396b-424f-a687-46e3399b00c1",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 739.992
+    },
+    {
+      "index": 23,
+      "label": "writer_repeat/4/workers_3",
+      "status": 200,
+      "response_id": "4b30607e-7a8b-438d-b1c4-90c6d66edf14",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 961.775
+    },
+    {
+      "index": 24,
+      "label": "writer_repeat/4/workers_3",
+      "status": 200,
+      "response_id": "c24859b3-daad-412d-bf7c-12212d5b3b98",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 748.398
+    }
+  ],
+  "summary": [
+    {
+      "workers": 1,
+      "runs": 5,
+      "elapsed_ms_values": [
+        3302.729,
+        3234.946,
+        2995.448,
+        2599.098,
+        2466.827
+      ],
+      "median_elapsed_ms": 2995.448,
+      "succeeded": 5,
+      "approved_briefs": 15
+    },
+    {
+      "workers": 3,
+      "runs": 5,
+      "elapsed_ms_values": [
+        1069.633,
+        1366.708,
+        1529.698,
+        920.683,
+        995.915
+      ],
+      "median_elapsed_ms": 1069.633,
+      "succeeded": 5,
+      "approved_briefs": 15
+    }
+  ],
+  "additional_usage": {
+    "requests": 24,
+    "responses_with_usage": 24,
+    "requests_without_usage": 0,
+    "reported_prompt_tokens": 8064,
+    "reported_completion_tokens": 1320,
+    "reported_total_tokens": 9384,
+    "reported_cache_hit_tokens": 3072,
+    "actual_currency_cost": null,
+    "note": "Usage returned by provider, not a billing invoice; preflight call excluded."
+  },
+  "combined_usage": {
+    "requests": 54,
+    "responses_with_usage": 54,
+    "requests_without_usage": 0,
+    "reported_prompt_tokens": 18658,
+    "reported_completion_tokens": 2162,
+    "reported_total_tokens": 20820,
+    "reported_cache_hit_tokens": 6144,
+    "actual_currency_cost": null,
+    "note": "Usage returned by provider, not a billing invoice; preflight call excluded."
+  },
+  "finished_at_utc": "2026-10-17T18:01:50.043062+00:00"
+}

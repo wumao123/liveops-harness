@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
+build/
+dist/
+*.egg-info/
+.env
+data/*.db
+data/*.db-*
+# Local runtime artifacts and pre-git manual backups
+data/*.log
+data/backups/
+.claude/settings.local.json

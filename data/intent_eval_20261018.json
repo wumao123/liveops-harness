@@ -1,0 +1,29 @@
+{
+  "scope": "Hand-authored development regression set, not an independent blind benchmark",
+  "cases": [
+    {"id":"n01","group":"normal","instruction":"查看面霜库存","expected":{"type":"status","sku":"SK-102"}},
+    {"id":"n02","group":"normal","instruction":"查看当前库存","expected":{"type":"status","sku":"SK-101"}},
+    {"id":"n03","group":"normal","instruction":"给我做一个选品计划","expected":{"type":"plan"}},
+    {"id":"n04","group":"normal","instruction":"推荐商品顺序","expected":{"type":"plan"}},
+    {"id":"n05","group":"normal","instruction":"介绍当前商品","expected":{"type":"brief","sku":"SK-101"}},
+    {"id":"n06","group":"normal","instruction":"给防晒乳写卖点","expected":{"type":"brief","sku":"SK-103"}},
+    {"id":"n07","group":"normal","instruction":"切到 SK-102","expected":{"type":"switch_product","sku":"SK-102"}},
+    {"id":"n08","group":"normal","instruction":"切回上一款","expected":{"type":"switch_product","sku":"SK-103"}},
+    {"id":"n09","group":"normal","instruction":"把面霜价格改成119元","expected":{"type":"update_price","sku":"SK-102","amount_cents":11900}},
+    {"id":"n10","group":"normal","instruction":"防晒乳价格降到89元","expected":{"type":"update_price","sku":"SK-103","amount_cents":8900}},
+    {"id":"n11","group":"normal","instruction":"给面霜发10元券20张","expected":{"type":"issue_coupon","sku":"SK-102","amount_cents":1000,"quantity":20}},
+    {"id":"n12","group":"normal","instruction":"给 SK-101 发5元券10张","expected":{"type":"issue_coupon","sku":"SK-101","amount_cents":500,"quantity":10}},
+    {"id":"n13","group":"normal","instruction":"记住话术简短","expected":{"type":"set_preference"}},
+    {"id":"n14","group":"normal","instruction":"记住不要夸大功效","expected":{"type":"set_preference"}},
+    {"id":"n15","group":"normal","instruction":"复盘本场操作","expected":{"type":"recap"}},
+    {"id":"n16","group":"normal","instruction":"总结本场操作","expected":{"type":"recap"}},
+    {"id":"c01","group":"challenge","instruction":"不要给面霜发10元券20张","expected":{"type":"invalid"},"reason":"Negation is not authorization for issuing coupons"},
+    {"id":"c02","group":"challenge","instruction":"如果明天库存够，再给面霜发10元券20张","expected":{"type":"invalid"},"reason":"Deferred conditional action is unsupported, not an immediate proposal"},
+    {"id":"c03","group":"challenge","instruction":"给它发10元券20张","expected":{"type":"invalid"},"reason":"No conversational antecedent is supplied for it"},
+    {"id":"c04","group":"challenge","instruction":"给面霜发10元券","expected":{"type":"invalid"},"reason":"Quantity is missing and must not be invented"},
+    {"id":"c05","group":"challenge","instruction":"给 SK-999 发10元券20张","expected":{"type":"invalid"},"reason":"SKU does not exist"},
+    {"id":"c06","group":"challenge","instruction":"查下现在的余量","expected":{"type":"status","sku":"SK-101"},"reason":"Colloquial stock query"},
+    {"id":"c07","group":"challenge","instruction":"给防晒乳生成一张讲解手卡","expected":{"type":"brief","sku":"SK-103"},"reason":"Generate a brief, do not switch the active product"},
+    {"id":"c08","group":"challenge","instruction":"把面霜价格改成一百一十九元","expected":{"type":"update_price","sku":"SK-102","amount_cents":11900},"reason":"Chinese numeral amount"}
+  ]
+}

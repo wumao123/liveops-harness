@@ -1,0 +1,1600 @@
+{
+  "scope": "ten_handwritten_development_cases_not_independent_accuracy_or_production_benchmark",
+  "generated_at_utc": "2026-10-19T06:37:16.515137+00:00",
+  "source_sha256": {
+    "liveops/agent.py": "bf1c0c50151452587531db9157ad9d116cc2380f9141a3d28788797486e90cce",
+    "liveops/advisor.py": "a3b22765947e67efdb19724cc6d5b4aff8c73644d1f3e49cb1492066a54a75a0",
+    "liveops/context.py": "1d007078c7d0b29a0a21b9dac5e00efc9d3e3abab12f3f4f579487d2a07360b2",
+    "liveops/api.py": "019134dea4067e0612ab4b39af54416dd94edacf1d3ad2a8036bb4c2dc2709a9",
+    "liveops/campaigns.py": "f8f591037a54380c3a7d7e7ae059cfd49e83e34fb6912d067d9e31a5240edd58"
+  },
+  "cases": [
+    {
+      "name": "greeting",
+      "question": "你好，你能帮我什么？",
+      "seconds": 2.855,
+      "response": {
+        "command_id": "greeting",
+        "trace_id": "greeting",
+        "status": "ok",
+        "action": {
+          "type": "advise",
+          "sku": null,
+          "expected_live_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 844,
+          "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+          "elapsed_ms": 1316.62,
+          "provider_attempts": [
+            {
+              "status": "accepted",
+              "reported_total_tokens": 844
+            }
+          ],
+          "answer": "我可以帮你做选品取舍、商品对比、口播草稿和节奏建议，也能回答直播中的追问。你想先看哪款或哪个环节？",
+          "evidence_ids": [],
+          "recommended_skus": [],
+          "evidence": {
+            "P1": {
+              "sku": "SK-101",
+              "title": "氨基酸洁面",
+              "price_cents": 7900,
+              "stock": 180,
+              "features": "温和清洁；120ml；适合日常使用",
+              "version": 0
+            },
+            "P2": {
+              "sku": "SK-102",
+              "title": "保湿修护面霜",
+              "price_cents": 12900,
+              "stock": 46,
+              "features": "保湿修护；50g；无香精配方",
+              "version": 0
+            },
+            "P3": {
+              "sku": "SK-103",
+              "title": "轻薄防晒乳",
+              "price_cents": 9900,
+              "stock": 122,
+              "features": "SPF50+；50ml；清爽肤感",
+              "version": 0
+            },
+            "P4": {
+              "sku": "SK-104",
+              "title": "玻尿酸精华",
+              "price_cents": 15900,
+              "stock": 68,
+              "features": "补水精华；30ml；透明质酸配方",
+              "version": 0
+            },
+            "P5": {
+              "sku": "SK-105",
+              "title": "棉柔卸妆巾",
+              "price_cents": 3900,
+              "stock": 240,
+              "features": "一次性卸妆巾；30片；便携包装",
+              "version": 0
+            }
+          }
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "只读操作"
+        },
+        "message": "我可以帮你做选品取舍、商品对比、口播草稿和节奏建议，也能回答直播中的追问。你想先看哪款或哪个环节？",
+        "result": {
+          "status": "ok",
+          "product": null,
+          "recommended_skus": []
+        }
+      }
+    },
+    {
+      "name": "budget_plan",
+      "question": "预算100元以内，推荐三款开场商品并解释顺序",
+      "seconds": 4.033,
+      "response": {
+        "command_id": "budget_plan",
+        "trace_id": "budget_plan",
+        "status": "ok",
+        "action": {
+          "type": "plan",
+          "top_k": 3,
+          "max_price_cents": 10000,
+          "expected_live_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "model",
+          "model": "deepseek-flash",
+          "model_calls": 2,
+          "reported_total_tokens": 1812,
+          "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+          "elapsed_ms": 3135.25,
+          "provider_attempts": [
+            {
+              "status": "rejected",
+              "error_code": "citation_mismatch",
+              "reported_total_tokens": 884
+            },
+            {
+              "status": "accepted",
+              "reported_total_tokens": 928
+            }
+          ],
+          "answer": "预算100元以内，三款都符合，建议开场顺序：先上[P3]棉柔卸妆巾（39元，便携、低决策门槛，适合快速起量），再上[P2]氨基酸洁面（79元，日常使用，承接清洁需求），最后上[P1]轻薄防晒乳（99元，SPF50+、清爽肤感，作为开场收尾的较高客单款）。",
+          "evidence_ids": [
+            "P3",
+            "P2",
+            "P1"
+          ],
+          "recommended_skus": [
+            "SK-105",
+            "SK-101",
+            "SK-103"
+          ],
+          "evidence": {
+            "P1": {
+              "sku": "SK-103",
+              "title": "轻薄防晒乳",
+              "price_cents": 9900,
+              "stock": 122,
+              "features": "SPF50+；50ml；清爽肤感",
+              "version": 0
+            },
+            "P2": {
+              "sku": "SK-101",
+              "title": "氨基酸洁面",
+              "price_cents": 7900,
+              "stock": 180,
+              "features": "温和清洁；120ml；适合日常使用",
+              "version": 0
+            },
+            "P3": {
+              "sku": "SK-105",
+              "title": "棉柔卸妆巾",
+              "price_cents": 3900,
+              "stock": 240,
+              "features": "一次性卸妆巾；30片；便携包装",
+              "version": 0
+            }
+          }
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "只读操作"
+        },
+        "message": "本轮推荐顺序：\n1. 棉柔卸妆巾（SK-105）\n2. 氨基酸洁面（SK-101）\n3. 轻薄防晒乳（SK-103）\n\n预算100元以内，三款都符合，建议开场顺序：先上[P3]棉柔卸妆巾（39元，便携、低决策门槛，适合快速起量），再上[P2]氨基酸洁面（79元，日常使用，承接清洁需求），最后上[P1]轻薄防晒乳（99元，SPF50+、清爽肤感，作为开场收尾的较高客单款）。",
+        "result": {
+          "status": "ok",
+          "plan": [
+            "SK-105",
+            "SK-101",
+            "SK-103"
+          ],
+          "recommended_skus": [
+            "SK-105",
+            "SK-101",
+            "SK-103"
+          ]
+        }
+      }
+    },
+    {
+      "name": "ordinal_brief",
+      "question": "给第二款写一段自然的直播口播，带一个互动提问",
+      "seconds": 2.242,
+      "response": {
+        "command_id": "ordinal_brief",
+        "trace_id": "ordinal_brief",
+        "status": "ok",
+        "action": {
+          "type": "brief",
+          "sku": "SK-101",
+          "expected_live_version": 0,
+          "expected_product_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 933,
+          "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+          "elapsed_ms": 1469.98,
+          "provider_attempts": [
+            {
+              "status": "accepted",
+              "reported_total_tokens": 933
+            }
+          ],
+          "answer": "第二款是氨基酸洁面[P1]，可以这样说：接下来这款是氨基酸洁面，主打温和清洁，120ml，适合日常使用[P1]。平时早晚洗脸、卸完妆做二次清洁都能用上，价格79元[P1]。大家平时洗脸更看重洗得干净，还是洗完不紧绷？在评论区告诉我，我按你们的习惯接着说[P1]。",
+          "evidence_ids": [
+            "P1"
+          ],
+          "recommended_skus": [
+            "SK-101"
+          ],
+          "evidence": {
+            "P1": {
+              "sku": "SK-101",
+              "title": "氨基酸洁面",
+              "price_cents": 7900,
+              "stock": 180,
+              "features": "温和清洁；120ml；适合日常使用",
+              "version": 0
+            }
+          }
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "只读操作"
+        },
+        "message": "第二款是氨基酸洁面[P1]，可以这样说：接下来这款是氨基酸洁面，主打温和清洁，120ml，适合日常使用[P1]。平时早晚洗脸、卸完妆做二次清洁都能用上，价格79元[P1]。大家平时洗脸更看重洗得干净，还是洗完不紧绷？在评论区告诉我，我按你们的习惯接着说[P1]。",
+        "result": {
+          "status": "ok",
+          "product": {
+            "sku": "SK-101",
+            "title": "氨基酸洁面",
+            "category": "护肤",
+            "price_cents": 7900,
+            "cost_cents": 4200,
+            "stock": 180,
+            "features": "温和清洁；120ml；适合日常使用",
+            "version": 0
+          },
+          "recommended_skus": [
+            "SK-101"
+          ]
+        }
+      }
+    },
+    {
+      "name": "sensitive_skin",
+      "question": "它适合敏感肌吗？",
+      "seconds": 2.424,
+      "response": {
+        "command_id": "sensitive_skin",
+        "trace_id": "sensitive_skin",
+        "status": "ok",
+        "action": {
+          "type": "advise",
+          "sku": "SK-101",
+          "expected_live_version": 0,
+          "expected_product_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 1253,
+          "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+          "elapsed_ms": 1278.71,
+          "provider_attempts": [
+            {
+              "status": "accepted",
+              "reported_total_tokens": 1253
+            }
+          ],
+          "answer": "资料里只写了氨基酸洁面是温和清洁、适合日常使用[P1]，没有敏感肌适用性的说明，不能直接说适合敏感肌。可以这样跟观众讲：这款主打温和清洁，但敏感肌是否适用建议先小面积试用或咨询专业人士[P1]。",
+          "evidence_ids": [
+            "P1"
+          ],
+          "recommended_skus": [],
+          "evidence": {
+            "P1": {
+              "sku": "SK-101",
+              "title": "氨基酸洁面",
+              "price_cents": 7900,
+              "stock": 180,
+              "features": "温和清洁；120ml；适合日常使用",
+              "version": 0
+            },
+            "P2": {
+              "sku": "SK-102",
+              "title": "保湿修护面霜",
+              "price_cents": 12900,
+              "stock": 46,
+              "features": "保湿修护；50g；无香精配方",
+              "version": 0
+            },
+            "P3": {
+              "sku": "SK-103",
+              "title": "轻薄防晒乳",
+              "price_cents": 9900,
+              "stock": 122,
+              "features": "SPF50+；50ml；清爽肤感",
+              "version": 0
+            },
+            "P4": {
+              "sku": "SK-104",
+              "title": "玻尿酸精华",
+              "price_cents": 15900,
+              "stock": 68,
+              "features": "补水精华；30ml；透明质酸配方",
+              "version": 0
+            },
+            "P5": {
+              "sku": "SK-105",
+              "title": "棉柔卸妆巾",
+              "price_cents": 3900,
+              "stock": 240,
+              "features": "一次性卸妆巾；30片；便携包装",
+              "version": 0
+            }
+          }
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "只读操作"
+        },
+        "message": "资料里只写了氨基酸洁面是温和清洁、适合日常使用[P1]，没有敏感肌适用性的说明，不能直接说适合敏感肌。可以这样跟观众讲：这款主打温和清洁，但敏感肌是否适用建议先小面积试用或咨询专业人士[P1]。",
+        "result": {
+          "status": "ok",
+          "product": {
+            "sku": "SK-101",
+            "title": "氨基酸洁面",
+            "category": "护肤",
+            "price_cents": 7900,
+            "cost_cents": 4200,
+            "stock": 180,
+            "features": "温和清洁；120ml；适合日常使用",
+            "version": 0
+          },
+          "recommended_skus": []
+        }
+      }
+    },
+    {
+      "name": "ordinal_after_followup",
+      "question": "再给第三款写一段简短口播",
+      "seconds": 2.195,
+      "response": {
+        "command_id": "ordinal_after_followup",
+        "trace_id": "ordinal_after_followup",
+        "status": "ok",
+        "action": {
+          "type": "brief",
+          "sku": "SK-103",
+          "expected_live_version": 0,
+          "expected_product_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 1144,
+          "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+          "elapsed_ms": 1356.57,
+          "provider_attempts": [
+            {
+              "status": "accepted",
+              "reported_total_tokens": 1144
+            }
+          ],
+          "answer": "第三款是轻薄防晒乳[P1]，可以这样说：最后这款是轻薄防晒乳，SPF50+，50ml，主打清爽肤感[P1]，价格99元[P1]。夏天出门前想涂得轻薄一点，可以看看这款。你们平时选防晒更在意防晒指数，还是上脸清爽度？评论区打给我，我接着讲[P1]。",
+          "evidence_ids": [
+            "P1"
+          ],
+          "recommended_skus": [
+            "SK-103"
+          ],
+          "evidence": {
+            "P1": {
+              "sku": "SK-103",
+              "title": "轻薄防晒乳",
+              "price_cents": 9900,
+              "stock": 122,
+              "features": "SPF50+；50ml；清爽肤感",
+              "version": 0
+            }
+          }
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "只读操作"
+        },
+        "message": "第三款是轻薄防晒乳[P1]，可以这样说：最后这款是轻薄防晒乳，SPF50+，50ml，主打清爽肤感[P1]，价格99元[P1]。夏天出门前想涂得轻薄一点，可以看看这款。你们平时选防晒更在意防晒指数，还是上脸清爽度？评论区打给我，我接着讲[P1]。",
+        "result": {
+          "status": "ok",
+          "product": {
+            "sku": "SK-103",
+            "title": "轻薄防晒乳",
+            "category": "护肤",
+            "price_cents": 9900,
+            "cost_cents": 5400,
+            "stock": 122,
+            "features": "SPF50+；50ml；清爽肤感",
+            "version": 0
+          },
+          "recommended_skus": [
+            "SK-103"
+          ]
+        }
+      }
+    },
+    {
+      "name": "missing_quantity",
+      "question": "给面霜发10元券",
+      "seconds": 1.125,
+      "response": {
+        "command_id": "missing_quantity",
+        "trace_id": "missing_quantity",
+        "status": "clarification",
+        "action": {
+          "type": "clarify",
+          "question": "准备发多少张券？请明确张数，我不会自动猜成一张。",
+          "expected_live_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "deterministic",
+          "model_calls": 0
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "只读操作"
+        },
+        "message": "准备发多少张券？请明确张数，我不会自动猜成一张。",
+        "result": {
+          "status": "clarification",
+          "message": "准备发多少张券？请明确张数，我不会自动猜成一张。"
+        }
+      }
+    },
+    {
+      "name": "conditional_coupon",
+      "question": "如果明天给它发10元券20张呢？",
+      "seconds": 2.804,
+      "response": {
+        "command_id": "conditional_coupon",
+        "trace_id": "conditional_coupon",
+        "status": "ok",
+        "action": {
+          "type": "advise",
+          "sku": "SK-102",
+          "expected_live_version": 0,
+          "expected_product_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "model",
+          "model": "deepseek-flash",
+          "model_calls": 1,
+          "reported_total_tokens": 1306,
+          "validation": "schema_reference_numeric_and_keyword_checks_not_semantic_proof",
+          "elapsed_ms": 1870.08,
+          "provider_attempts": [
+            {
+              "status": "accepted",
+              "reported_total_tokens": 1306
+            }
+          ],
+          "answer": "面霜目前价格是129元[P2]，库存46件[P2]。10元券20张这个方案，我这边只能给建议，没法直接发券或改价，需要走工具和审批。从数据看，20张券对应46件库存，不会出现券比货多的情况；但券后价、活动规则和是否限购这些都要在后台配置时确认，我这边没有依据，不能替你算。建议你先明确券的使用门槛和有效期，再提交审批。",
+          "evidence_ids": [
+            "P2"
+          ],
+          "recommended_skus": [],
+          "evidence": {
+            "P1": {
+              "sku": "SK-101",
+              "title": "氨基酸洁面",
+              "price_cents": 7900,
+              "stock": 180,
+              "features": "温和清洁；120ml；适合日常使用",
+              "version": 0
+            },
+            "P2": {
+              "sku": "SK-102",
+              "title": "保湿修护面霜",
+              "price_cents": 12900,
+              "stock": 46,
+              "features": "保湿修护；50g；无香精配方",
+              "version": 0
+            },
+            "P3": {
+              "sku": "SK-103",
+              "title": "轻薄防晒乳",
+              "price_cents": 9900,
+              "stock": 122,
+              "features": "SPF50+；50ml；清爽肤感",
+              "version": 0
+            },
+            "P4": {
+              "sku": "SK-104",
+              "title": "玻尿酸精华",
+              "price_cents": 15900,
+              "stock": 68,
+              "features": "补水精华；30ml；透明质酸配方",
+              "version": 0
+            },
+            "P5": {
+              "sku": "SK-105",
+              "title": "棉柔卸妆巾",
+              "price_cents": 3900,
+              "stock": 240,
+              "features": "一次性卸妆巾；30片；便携包装",
+              "version": 0
+            }
+          }
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "只读操作"
+        },
+        "message": "面霜目前价格是129元[P2]，库存46件[P2]。10元券20张这个方案，我这边只能给建议，没法直接发券或改价，需要走工具和审批。从数据看，20张券对应46件库存，不会出现券比货多的情况；但券后价、活动规则和是否限购这些都要在后台配置时确认，我这边没有依据，不能替你算。建议你先明确券的使用门槛和有效期，再提交审批。",
+        "result": {
+          "status": "ok",
+          "product": {
+            "sku": "SK-102",
+            "title": "保湿修护面霜",
+            "category": "护肤",
+            "price_cents": 12900,
+            "cost_cents": 7300,
+            "stock": 46,
+            "features": "保湿修护；50g；无香精配方",
+            "version": 0
+          },
+          "recommended_skus": []
+        }
+      }
+    },
+    {
+      "name": "explicit_memory",
+      "question": "记住：口播简短，不夸大功效",
+      "seconds": 0.805,
+      "response": {
+        "command_id": "explicit_memory",
+        "trace_id": "explicit_memory",
+        "status": "ok",
+        "action": {
+          "type": "set_preference",
+          "value": "口播简短，不夸大功效",
+          "expected_live_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "deterministic",
+          "model_calls": 0
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "主播明确要求记录偏好"
+        },
+        "message": "已记住主播偏好：口播简短，不夸大功效",
+        "result": {
+          "status": "ok",
+          "message": "已记住主播偏好：口播简短，不夸大功效",
+          "replayed": false,
+          "idempotency_key": "6556c93504b065b6724ba77e430d0a87261cc5b5ebeb140b10fa0c83ec1a4bf2"
+        }
+      }
+    },
+    {
+      "name": "multi_preparation",
+      "question": "准备三款商品手卡并合规审核",
+      "seconds": 0.949,
+      "response": {
+        "command_id": "multi_preparation",
+        "trace_id": "multi_preparation",
+        "status": "ok",
+        "action": {
+          "type": "prepare",
+          "top_k": 3,
+          "expected_live_version": 1
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "generation": {
+          "source": "deterministic",
+          "model_calls": 0
+        },
+        "gate": {
+          "level": "auto",
+          "reason": "只读操作"
+        },
+        "message": "已创建多智能体准备计划，请在备播面板推进。材料生成不会自动改价或发券。",
+        "result": {
+          "status": "ok",
+          "run_id": "chat-multi_preparation",
+          "selected_skus": [
+            "SK-104",
+            "SK-103",
+            "SK-101"
+          ],
+          "message": "已创建多智能体准备计划，请在备播面板推进。材料生成不会自动改价或发券。"
+        }
+      }
+    },
+    {
+      "name": "complete_coupon",
+      "question": "给面霜发10元券20张",
+      "seconds": 0.59,
+      "response": {
+        "command_id": "complete_coupon",
+        "trace_id": "complete_coupon",
+        "status": "pending_approval",
+        "action": {
+          "type": "issue_coupon",
+          "sku": "SK-102",
+          "amount_cents": 1000,
+          "quantity": 20,
+          "expected_live_version": 1,
+          "expected_product_version": 0
+        },
+        "interpretation": {
+          "source": "model",
+          "attempts": 1,
+          "fallback_error": null
+        },
+        "message": "此操作需要主播确认"
+      }
+    }
+  ],
+  "provider_calls": [
+    {
+      "index": 1,
+      "label": "greeting",
+      "status": 200,
+      "response_id": "a88e055a-0a33-4e50-8f6f-561421d2a950",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 780,
+        "completion_tokens": 6,
+        "total_tokens": 786,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 140
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1511.248
+    },
+    {
+      "index": 2,
+      "label": "greeting",
+      "status": 200,
+      "response_id": "c552cc03-405f-41ea-b075-8cd363a3dfdc",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 794,
+        "completion_tokens": 50,
+        "total_tokens": 844,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 154
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1316.457
+    },
+    {
+      "index": 3,
+      "label": "budget_plan",
+      "status": 200,
+      "response_id": "f82dddaf-b5bf-4efc-abd4-73f0cd5f1156",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 852,
+        "completion_tokens": 18,
+        "total_tokens": 870,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 468
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 882.718
+    },
+    {
+      "index": 4,
+      "label": "budget_plan",
+      "status": 200,
+      "response_id": "6c21e60a-badb-4b17-84b4-dd8ddc7add72",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 750,
+        "completion_tokens": 134,
+        "total_tokens": 884,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 238
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1701.487
+    },
+    {
+      "index": 5,
+      "label": "budget_plan",
+      "status": 200,
+      "response_id": "75725204-4c92-489c-993b-bc7d474ee85f",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 798,
+        "completion_tokens": 130,
+        "total_tokens": 928,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 158
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1433.148
+    },
+    {
+      "index": 6,
+      "label": "ordinal_brief",
+      "status": 200,
+      "response_id": "a0690eda-8aeb-4684-aa4b-d0dfc8c8932f",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1044,
+        "completion_tokens": 11,
+        "total_tokens": 1055,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 660
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 750.68
+    },
+    {
+      "index": 7,
+      "label": "ordinal_brief",
+      "status": 200,
+      "response_id": "9b245af4-f179-4a92-a5ce-23ab4bacf203",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 827,
+        "completion_tokens": 106,
+        "total_tokens": 933,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 443
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1469.809
+    },
+    {
+      "index": 8,
+      "label": "sensitive_skin",
+      "status": 200,
+      "response_id": "a0693546-7665-4bf7-9144-a564501a1495",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1159,
+        "completion_tokens": 12,
+        "total_tokens": 1171,
+        "prompt_tokens_details": {
+          "cached_tokens": 512
+        },
+        "prompt_cache_hit_tokens": 512,
+        "prompt_cache_miss_tokens": 647
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1124.408
+    },
+    {
+      "index": 9,
+      "label": "sensitive_skin",
+      "status": 200,
+      "response_id": "0ef8f2cc-09b5-4494-8477-3c02b1edf463",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1173,
+        "completion_tokens": 80,
+        "total_tokens": 1253,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 533
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1278.48
+    },
+    {
+      "index": 10,
+      "label": "ordinal_after_followup",
+      "status": 200,
+      "response_id": "e8dcd2f5-27a6-4d20-aaee-af0708ab6c00",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1253,
+        "completion_tokens": 11,
+        "total_tokens": 1264,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 613
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 813.528
+    },
+    {
+      "index": 11,
+      "label": "ordinal_after_followup",
+      "status": 200,
+      "response_id": "f6c966f4-0761-42e4-8a8a-6beec9cd3984",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1038,
+        "completion_tokens": 106,
+        "total_tokens": 1144,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 782
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1356.441
+    },
+    {
+      "index": 12,
+      "label": "missing_quantity",
+      "status": 200,
+      "response_id": "f79ae60a-8fed-4d42-8296-021346188b3b",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1302,
+        "completion_tokens": 25,
+        "total_tokens": 1327,
+        "prompt_tokens_details": {
+          "cached_tokens": 384
+        },
+        "prompt_cache_hit_tokens": 384,
+        "prompt_cache_miss_tokens": 918
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1108.936
+    },
+    {
+      "index": 13,
+      "label": "conditional_coupon",
+      "status": 200,
+      "response_id": "3589c3e9-aa39-44ab-8da7-568698342b38",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1165,
+        "completion_tokens": 12,
+        "total_tokens": 1177,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 909
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 915.068
+    },
+    {
+      "index": 14,
+      "label": "conditional_coupon",
+      "status": 200,
+      "response_id": "b3f8f507-9c5c-4595-92dc-2eb9d4729cfa",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1179,
+        "completion_tokens": 127,
+        "total_tokens": 1306,
+        "prompt_tokens_details": {
+          "cached_tokens": 640
+        },
+        "prompt_cache_hit_tokens": 640,
+        "prompt_cache_miss_tokens": 539
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1869.895
+    },
+    {
+      "index": 15,
+      "label": "explicit_memory",
+      "status": 200,
+      "response_id": "af888ded-8e3a-48ca-a50a-bd96e2fc9065",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1186,
+        "completion_tokens": 18,
+        "total_tokens": 1204,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 930
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 785.402
+    },
+    {
+      "index": 16,
+      "label": "multi_preparation",
+      "status": 200,
+      "response_id": "601720c2-fe74-4143-93ff-04223bfa8d22",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1194,
+        "completion_tokens": 10,
+        "total_tokens": 1204,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 938
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 929.01
+    },
+    {
+      "index": 17,
+      "label": "complete_coupon",
+      "status": 200,
+      "response_id": "081d9ba3-32e2-4f25-9509-d18c3f4b0a06",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 1174,
+        "completion_tokens": 25,
+        "total_tokens": 1199,
+        "prompt_tokens_details": {
+          "cached_tokens": 256
+        },
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 918
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 577.071
+    },
+    {
+      "index": 18,
+      "label": "preparation_workers",
+      "status": 200,
+      "response_id": "5b3455ef-3f51-4bcf-b488-01c4e352133f",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 343,
+        "completion_tokens": 54,
+        "total_tokens": 397,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 215
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 963.604
+    },
+    {
+      "index": 19,
+      "label": "preparation_workers",
+      "status": 200,
+      "response_id": "1e778656-d5ea-4c81-a9be-46898f3273ef",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 344,
+        "completion_tokens": 55,
+        "total_tokens": 399,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 216
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 960.198
+    },
+    {
+      "index": 20,
+      "label": "preparation_workers",
+      "status": 200,
+      "response_id": "fbc76e0e-8af0-45ef-b2bf-a46b76791eb6",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 342,
+        "completion_tokens": 53,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 214
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 895.754
+    }
+  ],
+  "checks": {
+    "budget_scope": true,
+    "ordinal_target": true,
+    "list_survives_intervening_followups": true,
+    "missing_quantity_clarified": true,
+    "conditional_did_not_request_execution": true,
+    "explicit_preference_preserved": true,
+    "complete_coupon_requires_approval": true,
+    "no_coupons_committed_without_approval": true,
+    "preparation_completed": true
+  },
+  "campaign": {
+    "created_at": 1792391855.9669518,
+    "instruction": "准备三款商品手卡并合规审核",
+    "live_id": "LIVE-DEMO-001",
+    "plan": {
+      "tasks": [
+        {
+          "dependencies": [],
+          "role": "merchandiser",
+          "sku": null,
+          "task_id": "selection"
+        },
+        {
+          "dependencies": [
+            "selection"
+          ],
+          "role": "copywriter",
+          "sku": "SK-104",
+          "task_id": "brief_0"
+        },
+        {
+          "dependencies": [
+            "brief_0"
+          ],
+          "role": "compliance",
+          "sku": "SK-104",
+          "task_id": "review_0"
+        },
+        {
+          "dependencies": [
+            "selection"
+          ],
+          "role": "copywriter",
+          "sku": "SK-103",
+          "task_id": "brief_1"
+        },
+        {
+          "dependencies": [
+            "brief_1"
+          ],
+          "role": "compliance",
+          "sku": "SK-103",
+          "task_id": "review_1"
+        },
+        {
+          "dependencies": [
+            "selection"
+          ],
+          "role": "copywriter",
+          "sku": "SK-101",
+          "task_id": "brief_2"
+        },
+        {
+          "dependencies": [
+            "brief_2"
+          ],
+          "role": "compliance",
+          "sku": "SK-101",
+          "task_id": "review_2"
+        },
+        {
+          "dependencies": [
+            "review_0",
+            "review_1",
+            "review_2"
+          ],
+          "role": "director",
+          "sku": null,
+          "task_id": "summary"
+        }
+      ]
+    },
+    "planner_mode": "bounded_template",
+    "product_versions": {
+      "SK-101": 0,
+      "SK-103": 0,
+      "SK-104": 0
+    },
+    "revision": 1,
+    "run_id": "chat-multi_preparation",
+    "selected_skus": [
+      "SK-104",
+      "SK-103",
+      "SK-101"
+    ],
+    "snapshot_version": 1,
+    "status": "succeeded",
+    "steps": 8,
+    "tasks": {
+      "brief_0": {
+        "attempts": 1,
+        "status": "succeeded",
+        "artifact_id": "brief_0-6c303c9cc0efe2e0",
+        "preview": "{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"}",
+        "context_chars": 502,
+        "elapsed_ms": 966.04,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "product",
+        "backend": "model",
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "reported_total_tokens": 397,
+        "reported_prompt_tokens": 343,
+        "reported_completion_tokens": 54,
+        "usage_reported_calls": 1,
+        "token_breakdown_calls": 1,
+        "usage_inconsistent_calls": 0,
+        "provider_attempts": [
+          {
+            "attempt": 1,
+            "outcome": "accepted",
+            "http_status": 200,
+            "reported_total_tokens": 397,
+            "prompt_tokens": 343,
+            "completion_tokens": 54,
+            "elapsed_ms": 963.664
+          }
+        ]
+      },
+      "brief_1": {
+        "attempts": 1,
+        "status": "succeeded",
+        "artifact_id": "brief_1-f0531976d4c22c6f",
+        "preview": "{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"}",
+        "context_chars": 502,
+        "elapsed_ms": 962.9,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "product",
+        "backend": "model",
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "reported_total_tokens": 399,
+        "reported_prompt_tokens": 344,
+        "reported_completion_tokens": 55,
+        "usage_reported_calls": 1,
+        "token_breakdown_calls": 1,
+        "usage_inconsistent_calls": 0,
+        "provider_attempts": [
+          {
+            "attempt": 1,
+            "outcome": "accepted",
+            "http_status": 200,
+            "reported_total_tokens": 399,
+            "prompt_tokens": 344,
+            "completion_tokens": 55,
+            "elapsed_ms": 960.365
+          }
+        ]
+      },
+      "brief_2": {
+        "attempts": 1,
+        "status": "succeeded",
+        "artifact_id": "brief_2-240c4c5a077d05d4",
+        "preview": "{\"claims\":[\"温和清洁\",\"120ml\",\"适合日常使用\"],\"price_cents\":7900,\"product_version\":0,\"sku\":\"SK-101\",\"source\":\"product:SK-101@0\",\"stock\":180,\"title\":\"氨基酸洁面\"}",
+        "context_chars": 503,
+        "elapsed_ms": 899.73,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "product",
+        "backend": "model",
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "reported_total_tokens": 395,
+        "reported_prompt_tokens": 342,
+        "reported_completion_tokens": 53,
+        "usage_reported_calls": 1,
+        "token_breakdown_calls": 1,
+        "usage_inconsistent_calls": 0,
+        "provider_attempts": [
+          {
+            "attempt": 1,
+            "outcome": "accepted",
+            "http_status": 200,
+            "reported_total_tokens": 395,
+            "prompt_tokens": 342,
+            "completion_tokens": 53,
+            "elapsed_ms": 895.888
+          }
+        ]
+      },
+      "review_0": {
+        "attempts": 1,
+        "status": "succeeded",
+        "artifact_id": "review_0-25a9d203b8625927",
+        "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"},\"evidence",
+        "context_chars": 497,
+        "elapsed_ms": 2.32,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "review",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      },
+      "review_1": {
+        "attempts": 1,
+        "status": "succeeded",
+        "artifact_id": "review_1-51d24c75aa63d19d",
+        "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"},\"evidence",
+        "context_chars": 497,
+        "elapsed_ms": 6.87,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "review",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      },
+      "review_2": {
+        "attempts": 1,
+        "status": "succeeded",
+        "artifact_id": "review_2-7ede5c8816b9e5d8",
+        "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"温和清洁\",\"120ml\",\"适合日常使用\"],\"price_cents\":7900,\"product_version\":0,\"sku\":\"SK-101\",\"source\":\"product:SK-101@0\",\"stock\":180,\"title\":\"氨基酸洁面\"},\"evidenc",
+        "context_chars": 499,
+        "elapsed_ms": 1.69,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "review",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      },
+      "selection": {
+        "attempts": 1,
+        "status": "succeeded",
+        "artifact_id": "selection-8cd4fa64837dabae",
+        "preview": "{\"memory_conflicts\":[],\"rationale\":\"已有库存与毛利规则选品；非成交效果预测\",\"skus\":[\"SK-104\",\"SK-103\",\"SK-101\"],\"source\":\"live_business_db\",\"unassessed_preferences\":[]}",
+        "context_chars": 806,
+        "elapsed_ms": 2.75,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "catalog",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      },
+      "summary": {
+        "attempts": 1,
+        "status": "succeeded",
+        "artifact_id": "summary-a43bb3d4a752def1",
+        "preview": "{\"approved_briefs\":[{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"},{\"claims\":[\"SP",
+        "context_chars": 1583,
+        "elapsed_ms": 5.93,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "assemble",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      }
+    },
+    "trace": [
+      {
+        "trace_id": "chat-multi_preparation/selection/1",
+        "task_id": "selection",
+        "role": "merchandiser",
+        "attempt": 1,
+        "status": "succeeded",
+        "artifact_id": "selection-8cd4fa64837dabae",
+        "context_chars": 806,
+        "elapsed_ms": 2.75,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "catalog",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      },
+      {
+        "trace_id": "chat-multi_preparation/brief_2/1",
+        "task_id": "brief_2",
+        "role": "copywriter",
+        "attempt": 1,
+        "status": "succeeded",
+        "artifact_id": "brief_2-240c4c5a077d05d4",
+        "context_chars": 503,
+        "elapsed_ms": 899.73,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "product",
+        "backend": "model",
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "reported_total_tokens": 395,
+        "reported_prompt_tokens": 342,
+        "reported_completion_tokens": 53,
+        "usage_reported_calls": 1,
+        "token_breakdown_calls": 1,
+        "usage_inconsistent_calls": 0,
+        "provider_attempts": [
+          {
+            "attempt": 1,
+            "outcome": "accepted",
+            "http_status": 200,
+            "reported_total_tokens": 395,
+            "prompt_tokens": 342,
+            "completion_tokens": 53,
+            "elapsed_ms": 895.888
+          }
+        ]
+      },
+      {
+        "trace_id": "chat-multi_preparation/brief_1/1",
+        "task_id": "brief_1",
+        "role": "copywriter",
+        "attempt": 1,
+        "status": "succeeded",
+        "artifact_id": "brief_1-f0531976d4c22c6f",
+        "context_chars": 502,
+        "elapsed_ms": 962.9,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "product",
+        "backend": "model",
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "reported_total_tokens": 399,
+        "reported_prompt_tokens": 344,
+        "reported_completion_tokens": 55,
+        "usage_reported_calls": 1,
+        "token_breakdown_calls": 1,
+        "usage_inconsistent_calls": 0,
+        "provider_attempts": [
+          {
+            "attempt": 1,
+            "outcome": "accepted",
+            "http_status": 200,
+            "reported_total_tokens": 399,
+            "prompt_tokens": 344,
+            "completion_tokens": 55,
+            "elapsed_ms": 960.365
+          }
+        ]
+      },
+      {
+        "trace_id": "chat-multi_preparation/brief_0/1",
+        "task_id": "brief_0",
+        "role": "copywriter",
+        "attempt": 1,
+        "status": "succeeded",
+        "artifact_id": "brief_0-6c303c9cc0efe2e0",
+        "context_chars": 502,
+        "elapsed_ms": 966.04,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "product",
+        "backend": "model",
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "reported_total_tokens": 397,
+        "reported_prompt_tokens": 343,
+        "reported_completion_tokens": 54,
+        "usage_reported_calls": 1,
+        "token_breakdown_calls": 1,
+        "usage_inconsistent_calls": 0,
+        "provider_attempts": [
+          {
+            "attempt": 1,
+            "outcome": "accepted",
+            "http_status": 200,
+            "reported_total_tokens": 397,
+            "prompt_tokens": 343,
+            "completion_tokens": 54,
+            "elapsed_ms": 963.664
+          }
+        ]
+      },
+      {
+        "trace_id": "chat-multi_preparation/review_2/1",
+        "task_id": "review_2",
+        "role": "compliance",
+        "attempt": 1,
+        "status": "succeeded",
+        "artifact_id": "review_2-7ede5c8816b9e5d8",
+        "context_chars": 499,
+        "elapsed_ms": 1.69,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "review",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      },
+      {
+        "trace_id": "chat-multi_preparation/review_0/1",
+        "task_id": "review_0",
+        "role": "compliance",
+        "attempt": 1,
+        "status": "succeeded",
+        "artifact_id": "review_0-25a9d203b8625927",
+        "context_chars": 497,
+        "elapsed_ms": 2.32,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "review",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      },
+      {
+        "trace_id": "chat-multi_preparation/review_1/1",
+        "task_id": "review_1",
+        "role": "compliance",
+        "attempt": 1,
+        "status": "succeeded",
+        "artifact_id": "review_1-51d24c75aa63d19d",
+        "context_chars": 497,
+        "elapsed_ms": 6.87,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "review",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      },
+      {
+        "trace_id": "chat-multi_preparation/summary/1",
+        "task_id": "summary",
+        "role": "director",
+        "attempt": 1,
+        "status": "succeeded",
+        "artifact_id": "summary-a43bb3d4a752def1",
+        "context_chars": 1583,
+        "elapsed_ms": 5.93,
+        "hooks": [
+          "pre_reasoning",
+          "pre_tool_call",
+          "post_tool_call",
+          "post_reasoning"
+        ],
+        "skill": "assemble",
+        "backend": "deterministic",
+        "model_calls": 0,
+        "reported_total_tokens": 0
+      }
+    ],
+    "output_artifact": "summary-a43bb3d4a752def1"
+  },
+  "campaign_metrics": {
+    "run_id": "chat-multi_preparation",
+    "status": "succeeded",
+    "scope": "committed_trace_only_not_provider_invoice_or_crash_safe_usage_ledger",
+    "task_attempts": 8,
+    "completed_tasks": 8,
+    "failed_tasks": 0,
+    "model_calls_recorded": 3,
+    "extra_calls_within_task_attempts": 0,
+    "failed_task_model_calls": 0,
+    "usage_status": "reported_totals_available",
+    "calls_with_reported_totals": 3,
+    "calls_without_reported_totals": 0,
+    "reported_total_tokens": 1191,
+    "reported_prompt_tokens": 1029,
+    "reported_completion_tokens": 162,
+    "calls_with_token_breakdown": 3,
+    "calls_with_inconsistent_usage": 0,
+    "token_breakdown_complete": true,
+    "actual_currency_cost": null,
+    "cost_note": "No price/cached-token/tool-billing adapter; missing usage is not zero cost."
+  },
+  "summary": {
+    "cases": 10,
+    "checks_passed": 9,
+    "checks": 9,
+    "median_command_seconds": 2.218,
+    "provider_requests": 20,
+    "reported_total_tokens": 19740,
+    "requests_without_reported_tokens": 0
+  }
+}

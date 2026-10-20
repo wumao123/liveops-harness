@@ -1,0 +1,2570 @@
+{
+  "scope": "one_paired_development_scenario_five_simulated_products_not_production_benchmark",
+  "generated_at_utc": "2026-10-19T07:19:21.518756+00:00",
+  "scenario": "prepare_three_products_then_one_sells_out_replace_it_without_commerce_writes",
+  "provider_calls": [
+    {
+      "index": 1,
+      "label": "full_rebuild/initial",
+      "status": 200,
+      "response_id": "c0a273fb-e9b9-418d-bd2c-da80935c5ec8",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 938.474
+    },
+    {
+      "index": 2,
+      "label": "full_rebuild/initial",
+      "status": 200,
+      "response_id": "ee5ff2a5-90e2-4b85-ba0b-4357cd26933d",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1107.7
+    },
+    {
+      "index": 3,
+      "label": "full_rebuild/initial",
+      "status": 200,
+      "response_id": "0a89d437-1527-4056-be70-ca91bf4e79e9",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1302.359
+    },
+    {
+      "index": 4,
+      "label": "full_rebuild/recovery",
+      "status": 200,
+      "response_id": "7e5ee358-3b69-4ac0-a8f9-3062a997fe68",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 335,
+        "completion_tokens": 54,
+        "total_tokens": 389,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 207
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 907.133
+    },
+    {
+      "index": 5,
+      "label": "full_rebuild/recovery",
+      "status": 200,
+      "response_id": "f85339da-84d2-449f-a543-d69ab83f93b7",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 338
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 896.388
+    },
+    {
+      "index": 6,
+      "label": "full_rebuild/recovery",
+      "status": 200,
+      "response_id": "daf082a8-811b-488e-9239-dc40f5208cff",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 336
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1118.676
+    },
+    {
+      "index": 7,
+      "label": "incremental_replan/initial",
+      "status": 200,
+      "response_id": "ca3553d9-6930-40b4-a998-23fb99734b72",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 338,
+        "completion_tokens": 57,
+        "total_tokens": 395,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 210
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 719.781
+    },
+    {
+      "index": 8,
+      "label": "incremental_replan/initial",
+      "status": 200,
+      "response_id": "ddfaf53b-cbe7-42dd-83b3-22010e45fd71",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 334,
+        "completion_tokens": 53,
+        "total_tokens": 387,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 206
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 905.22
+    },
+    {
+      "index": 9,
+      "label": "incremental_replan/initial",
+      "status": 200,
+      "response_id": "82de6666-74cf-4288-85a2-3d3567a17bfe",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 336,
+        "completion_tokens": 55,
+        "total_tokens": 391,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 208
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 777.148
+    },
+    {
+      "index": 10,
+      "label": "incremental_replan/recovery",
+      "status": 200,
+      "response_id": "e300cd8d-e5de-4cdd-b75c-5e2bfc541aac",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 335,
+        "completion_tokens": 54,
+        "total_tokens": 389,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 207
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1096.647
+    }
+  ],
+  "variants": [
+    {
+      "variant": "full_rebuild",
+      "checks": {
+        "initial_succeeded": true,
+        "recovered": true,
+        "three_valid_materials": true,
+        "sold_out_product_removed": true,
+        "no_commerce_writes": true
+      },
+      "recovery_ms": 1165.92,
+      "recovery_provider_calls": 3,
+      "recovery_task_executions": 8,
+      "preserved_tasks": [],
+      "ledger": {
+        "scope_id": null,
+        "calls": 6,
+        "reported_tokens": 2348,
+        "charged_tokens": 2348,
+        "unknown_usage_calls": 0,
+        "limits": {
+          "max_calls": 200,
+          "max_reserved_tokens": 2000000
+        },
+        "accounting": "durable_admission_estimate_not_currency_invoice",
+        "reset_policy": "persistent_no_automatic_refill"
+      },
+      "initial_plan": {
+        "created_at": 1792394361.527943,
+        "instruction": "为三款商品准备有来源的讲解手卡",
+        "live_id": "LIVE-DEMO-001",
+        "model_limits": {
+          "max_calls": 20,
+          "max_reserved_tokens": 300000
+        },
+        "plan": {
+          "tasks": [
+            {
+              "dependencies": [],
+              "role": "merchandiser",
+              "sku": null,
+              "task_id": "selection"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-101",
+              "task_id": "brief_0"
+            },
+            {
+              "dependencies": [
+                "brief_0"
+              ],
+              "role": "compliance",
+              "sku": "SK-101",
+              "task_id": "review_0"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-102",
+              "task_id": "brief_1"
+            },
+            {
+              "dependencies": [
+                "brief_1"
+              ],
+              "role": "compliance",
+              "sku": "SK-102",
+              "task_id": "review_1"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-103",
+              "task_id": "brief_2"
+            },
+            {
+              "dependencies": [
+                "brief_2"
+              ],
+              "role": "compliance",
+              "sku": "SK-103",
+              "task_id": "review_2"
+            },
+            {
+              "dependencies": [
+                "review_0",
+                "review_1",
+                "review_2"
+              ],
+              "role": "director",
+              "sku": null,
+              "task_id": "summary"
+            }
+          ]
+        },
+        "planner_mode": "bounded_template",
+        "preference_snapshot": {},
+        "product_versions": {
+          "SK-101": 0,
+          "SK-102": 0,
+          "SK-103": 0
+        },
+        "replan_count": 0,
+        "revision": 1,
+        "run_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba",
+        "selected_skus": [
+          "SK-101",
+          "SK-102",
+          "SK-103"
+        ],
+        "snapshot_version": 0,
+        "status": "succeeded",
+        "steps": 8,
+        "tasks": {
+          "brief_0": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_0-240c4c5a077d05d4",
+            "preview": "{\"claims\":[\"温和清洁\",\"120ml\",\"适合日常使用\"],\"price_cents\":7900,\"product_version\":0,\"sku\":\"SK-101\",\"source\":\"product:SK-101@0\",\"stock\":180,\"title\":\"氨基酸洁面\"}",
+            "context_chars": 493,
+            "elapsed_ms": 941.86,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 387,
+            "reported_prompt_tokens": 334,
+            "reported_completion_tokens": 53,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 387,
+                "prompt_tokens": 334,
+                "completion_tokens": 53,
+                "elapsed_ms": 939.838
+              }
+            ]
+          },
+          "brief_1": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_1-c7ec5f78687359b1",
+            "preview": "{\"claims\":[\"保湿修护\",\"50g\",\"无香精配方\"],\"price_cents\":12900,\"product_version\":0,\"sku\":\"SK-102\",\"source\":\"product:SK-102@0\",\"stock\":46,\"title\":\"保湿修护面霜\"}",
+            "context_chars": 491,
+            "elapsed_ms": 1112.13,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 395,
+            "reported_prompt_tokens": 338,
+            "reported_completion_tokens": 57,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 395,
+                "prompt_tokens": 338,
+                "completion_tokens": 57,
+                "elapsed_ms": 1109.082
+              }
+            ]
+          },
+          "brief_2": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_2-f0531976d4c22c6f",
+            "preview": "{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"}",
+            "context_chars": 492,
+            "elapsed_ms": 1307.55,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 391,
+            "reported_prompt_tokens": 336,
+            "reported_completion_tokens": 55,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 391,
+                "prompt_tokens": 336,
+                "completion_tokens": 55,
+                "elapsed_ms": 1305.568
+              }
+            ]
+          },
+          "review_0": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_0-7ede5c8816b9e5d8",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"温和清洁\",\"120ml\",\"适合日常使用\"],\"price_cents\":7900,\"product_version\":0,\"sku\":\"SK-101\",\"source\":\"product:SK-101@0\",\"stock\":180,\"title\":\"氨基酸洁面\"},\"evidenc",
+            "context_chars": 489,
+            "elapsed_ms": 6.07,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "review_1": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_1-7fb230892236f1dd",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"保湿修护\",\"50g\",\"无香精配方\"],\"price_cents\":12900,\"product_version\":0,\"sku\":\"SK-102\",\"source\":\"product:SK-102@0\",\"stock\":46,\"title\":\"保湿修护面霜\"},\"evidence_",
+            "context_chars": 485,
+            "elapsed_ms": 4.66,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "review_2": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_2-51d24c75aa63d19d",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"},\"evidence",
+            "context_chars": 487,
+            "elapsed_ms": 5.75,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "selection": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "selection-91115f20bfa93705",
+            "preview": "{\"memory_conflicts\":[],\"rationale\":\"已有库存与毛利规则选品；非成交效果预测\",\"skus\":[\"SK-101\",\"SK-102\",\"SK-103\"],\"source\":\"live_business_db\",\"unassessed_preferences\":[]}",
+            "context_chars": 776,
+            "elapsed_ms": 1.69,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "catalog",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "summary": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "summary-957384aa25712269",
+            "preview": "{\"approved_briefs\":[{\"claims\":[\"温和清洁\",\"120ml\",\"适合日常使用\"],\"price_cents\":7900,\"product_version\":0,\"sku\":\"SK-101\",\"source\":\"product:SK-101@0\",\"stock\":180,\"title\":\"氨基酸洁面\"},{\"claims\":[\"保",
+            "context_chars": 1552,
+            "elapsed_ms": 4.26,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "assemble",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          }
+        },
+        "trace": [
+          {
+            "trace_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba/r1/selection/1",
+            "revision": 1,
+            "task_id": "selection",
+            "role": "merchandiser",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "selection-91115f20bfa93705",
+            "context_chars": 776,
+            "elapsed_ms": 1.69,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "catalog",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba/r1/brief_0/1",
+            "revision": 1,
+            "task_id": "brief_0",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_0-240c4c5a077d05d4",
+            "context_chars": 493,
+            "elapsed_ms": 941.86,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 387,
+            "reported_prompt_tokens": 334,
+            "reported_completion_tokens": 53,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 387,
+                "prompt_tokens": 334,
+                "completion_tokens": 53,
+                "elapsed_ms": 939.838
+              }
+            ]
+          },
+          {
+            "trace_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba/r1/brief_1/1",
+            "revision": 1,
+            "task_id": "brief_1",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_1-c7ec5f78687359b1",
+            "context_chars": 491,
+            "elapsed_ms": 1112.13,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 395,
+            "reported_prompt_tokens": 338,
+            "reported_completion_tokens": 57,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 395,
+                "prompt_tokens": 338,
+                "completion_tokens": 57,
+                "elapsed_ms": 1109.082
+              }
+            ]
+          },
+          {
+            "trace_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba/r1/brief_2/1",
+            "revision": 1,
+            "task_id": "brief_2",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_2-f0531976d4c22c6f",
+            "context_chars": 492,
+            "elapsed_ms": 1307.55,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 391,
+            "reported_prompt_tokens": 336,
+            "reported_completion_tokens": 55,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 391,
+                "prompt_tokens": 336,
+                "completion_tokens": 55,
+                "elapsed_ms": 1305.568
+              }
+            ]
+          },
+          {
+            "trace_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba/r1/review_1/1",
+            "revision": 1,
+            "task_id": "review_1",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_1-7fb230892236f1dd",
+            "context_chars": 485,
+            "elapsed_ms": 4.66,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba/r1/review_2/1",
+            "revision": 1,
+            "task_id": "review_2",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_2-51d24c75aa63d19d",
+            "context_chars": 487,
+            "elapsed_ms": 5.75,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba/r1/review_0/1",
+            "revision": 1,
+            "task_id": "review_0",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_0-7ede5c8816b9e5d8",
+            "context_chars": 489,
+            "elapsed_ms": 6.07,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "bb0962a9-3038-45c8-aa87-f60f5a5555ba/r1/summary/1",
+            "revision": 1,
+            "task_id": "summary",
+            "role": "director",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "summary-957384aa25712269",
+            "context_chars": 1552,
+            "elapsed_ms": 4.26,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "assemble",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          }
+        ],
+        "output_artifact": "summary-957384aa25712269"
+      },
+      "final_plan": {
+        "created_at": 1792394362.86364,
+        "instruction": "售罄后重新准备三款商品手卡",
+        "live_id": "LIVE-DEMO-001",
+        "model_limits": {
+          "max_calls": 20,
+          "max_reserved_tokens": 300000
+        },
+        "plan": {
+          "tasks": [
+            {
+              "dependencies": [],
+              "role": "merchandiser",
+              "sku": null,
+              "task_id": "selection"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-104",
+              "task_id": "brief_0"
+            },
+            {
+              "dependencies": [
+                "brief_0"
+              ],
+              "role": "compliance",
+              "sku": "SK-104",
+              "task_id": "review_0"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-102",
+              "task_id": "brief_1"
+            },
+            {
+              "dependencies": [
+                "brief_1"
+              ],
+              "role": "compliance",
+              "sku": "SK-102",
+              "task_id": "review_1"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-103",
+              "task_id": "brief_2"
+            },
+            {
+              "dependencies": [
+                "brief_2"
+              ],
+              "role": "compliance",
+              "sku": "SK-103",
+              "task_id": "review_2"
+            },
+            {
+              "dependencies": [
+                "review_0",
+                "review_1",
+                "review_2"
+              ],
+              "role": "director",
+              "sku": null,
+              "task_id": "summary"
+            }
+          ]
+        },
+        "planner_mode": "bounded_template",
+        "preference_snapshot": {},
+        "product_versions": {
+          "SK-102": 0,
+          "SK-103": 0,
+          "SK-104": 0
+        },
+        "replan_count": 0,
+        "revision": 1,
+        "run_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9",
+        "selected_skus": [
+          "SK-104",
+          "SK-102",
+          "SK-103"
+        ],
+        "snapshot_version": 1,
+        "status": "succeeded",
+        "steps": 8,
+        "tasks": {
+          "brief_0": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_0-6c303c9cc0efe2e0",
+            "preview": "{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"}",
+            "context_chars": 492,
+            "elapsed_ms": 909.76,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 389,
+            "reported_prompt_tokens": 335,
+            "reported_completion_tokens": 54,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 389,
+                "prompt_tokens": 335,
+                "completion_tokens": 54,
+                "elapsed_ms": 908.958
+              }
+            ]
+          },
+          "brief_1": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_1-c7ec5f78687359b1",
+            "preview": "{\"claims\":[\"保湿修护\",\"50g\",\"无香精配方\"],\"price_cents\":12900,\"product_version\":0,\"sku\":\"SK-102\",\"source\":\"product:SK-102@0\",\"stock\":46,\"title\":\"保湿修护面霜\"}",
+            "context_chars": 491,
+            "elapsed_ms": 903.89,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 395,
+            "reported_prompt_tokens": 338,
+            "reported_completion_tokens": 57,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 395,
+                "prompt_tokens": 338,
+                "completion_tokens": 57,
+                "elapsed_ms": 900.725
+              }
+            ]
+          },
+          "brief_2": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_2-f0531976d4c22c6f",
+            "preview": "{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"}",
+            "context_chars": 492,
+            "elapsed_ms": 1130.04,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 391,
+            "reported_prompt_tokens": 336,
+            "reported_completion_tokens": 55,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 391,
+                "prompt_tokens": 336,
+                "completion_tokens": 55,
+                "elapsed_ms": 1124.813
+              }
+            ]
+          },
+          "review_0": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_0-25a9d203b8625927",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"},\"evidence",
+            "context_chars": 487,
+            "elapsed_ms": 6.53,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "review_1": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_1-7fb230892236f1dd",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"保湿修护\",\"50g\",\"无香精配方\"],\"price_cents\":12900,\"product_version\":0,\"sku\":\"SK-102\",\"source\":\"product:SK-102@0\",\"stock\":46,\"title\":\"保湿修护面霜\"},\"evidence_",
+            "context_chars": 485,
+            "elapsed_ms": 7.0,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "review_2": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_2-51d24c75aa63d19d",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"},\"evidence",
+            "context_chars": 487,
+            "elapsed_ms": 4.95,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "selection": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "selection-32b67f97a4cecf9b",
+            "preview": "{\"memory_conflicts\":[],\"rationale\":\"已有库存与毛利规则选品；非成交效果预测\",\"skus\":[\"SK-104\",\"SK-102\",\"SK-103\"],\"source\":\"live_business_db\",\"unassessed_preferences\":[]}",
+            "context_chars": 775,
+            "elapsed_ms": 1.91,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "catalog",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "summary": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "summary-16ccaf2365861dd1",
+            "preview": "{\"approved_briefs\":[{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"},{\"claims\":[\"保湿",
+            "context_chars": 1550,
+            "elapsed_ms": 7.03,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "assemble",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          }
+        },
+        "trace": [
+          {
+            "trace_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9/r1/selection/1",
+            "revision": 1,
+            "task_id": "selection",
+            "role": "merchandiser",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "selection-32b67f97a4cecf9b",
+            "context_chars": 775,
+            "elapsed_ms": 1.91,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "catalog",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9/r1/brief_1/1",
+            "revision": 1,
+            "task_id": "brief_1",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_1-c7ec5f78687359b1",
+            "context_chars": 491,
+            "elapsed_ms": 903.89,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 395,
+            "reported_prompt_tokens": 338,
+            "reported_completion_tokens": 57,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 395,
+                "prompt_tokens": 338,
+                "completion_tokens": 57,
+                "elapsed_ms": 900.725
+              }
+            ]
+          },
+          {
+            "trace_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9/r1/brief_0/1",
+            "revision": 1,
+            "task_id": "brief_0",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_0-6c303c9cc0efe2e0",
+            "context_chars": 492,
+            "elapsed_ms": 909.76,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 389,
+            "reported_prompt_tokens": 335,
+            "reported_completion_tokens": 54,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 389,
+                "prompt_tokens": 335,
+                "completion_tokens": 54,
+                "elapsed_ms": 908.958
+              }
+            ]
+          },
+          {
+            "trace_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9/r1/brief_2/1",
+            "revision": 1,
+            "task_id": "brief_2",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_2-f0531976d4c22c6f",
+            "context_chars": 492,
+            "elapsed_ms": 1130.04,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 391,
+            "reported_prompt_tokens": 336,
+            "reported_completion_tokens": 55,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 391,
+                "prompt_tokens": 336,
+                "completion_tokens": 55,
+                "elapsed_ms": 1124.813
+              }
+            ]
+          },
+          {
+            "trace_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9/r1/review_2/1",
+            "revision": 1,
+            "task_id": "review_2",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_2-51d24c75aa63d19d",
+            "context_chars": 487,
+            "elapsed_ms": 4.95,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9/r1/review_0/1",
+            "revision": 1,
+            "task_id": "review_0",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_0-25a9d203b8625927",
+            "context_chars": 487,
+            "elapsed_ms": 6.53,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9/r1/review_1/1",
+            "revision": 1,
+            "task_id": "review_1",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_1-7fb230892236f1dd",
+            "context_chars": 485,
+            "elapsed_ms": 7.0,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "98b375e7-34c5-4bf9-bdd6-50a2aa069fb9/r1/summary/1",
+            "revision": 1,
+            "task_id": "summary",
+            "role": "director",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "summary-16ccaf2365861dd1",
+            "context_chars": 1550,
+            "elapsed_ms": 7.03,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "assemble",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          }
+        ],
+        "output_artifact": "summary-16ccaf2365861dd1"
+      },
+      "final_materials": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "补水精华",
+              "30ml",
+              "透明质酸配方"
+            ],
+            "price_cents": 15900,
+            "product_version": 0,
+            "sku": "SK-104",
+            "source": "product:SK-104@0",
+            "stock": 68,
+            "title": "玻尿酸精华"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      }
+    },
+    {
+      "variant": "incremental_replan",
+      "checks": {
+        "initial_succeeded": true,
+        "recovered": true,
+        "three_valid_materials": true,
+        "sold_out_product_removed": true,
+        "no_commerce_writes": true,
+        "unaffected_materials_reused": true,
+        "budget_scope_not_reset": true
+      },
+      "recovery_ms": 1139.99,
+      "recovery_provider_calls": 1,
+      "recovery_task_executions": 4,
+      "preserved_tasks": [
+        "brief_1",
+        "brief_2",
+        "review_1",
+        "review_2"
+      ],
+      "ledger": {
+        "scope_id": null,
+        "calls": 4,
+        "reported_tokens": 1562,
+        "charged_tokens": 1562,
+        "unknown_usage_calls": 0,
+        "limits": {
+          "max_calls": 200,
+          "max_reserved_tokens": 2000000
+        },
+        "accounting": "durable_admission_estimate_not_currency_invoice",
+        "reset_policy": "persistent_no_automatic_refill"
+      },
+      "initial_plan": {
+        "created_at": 1792394364.039068,
+        "instruction": "为三款商品准备有来源的讲解手卡",
+        "live_id": "LIVE-DEMO-001",
+        "model_limits": {
+          "max_calls": 20,
+          "max_reserved_tokens": 300000
+        },
+        "plan": {
+          "tasks": [
+            {
+              "dependencies": [],
+              "role": "merchandiser",
+              "sku": null,
+              "task_id": "selection"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-101",
+              "task_id": "brief_0"
+            },
+            {
+              "dependencies": [
+                "brief_0"
+              ],
+              "role": "compliance",
+              "sku": "SK-101",
+              "task_id": "review_0"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-102",
+              "task_id": "brief_1"
+            },
+            {
+              "dependencies": [
+                "brief_1"
+              ],
+              "role": "compliance",
+              "sku": "SK-102",
+              "task_id": "review_1"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-103",
+              "task_id": "brief_2"
+            },
+            {
+              "dependencies": [
+                "brief_2"
+              ],
+              "role": "compliance",
+              "sku": "SK-103",
+              "task_id": "review_2"
+            },
+            {
+              "dependencies": [
+                "review_0",
+                "review_1",
+                "review_2"
+              ],
+              "role": "director",
+              "sku": null,
+              "task_id": "summary"
+            }
+          ]
+        },
+        "planner_mode": "bounded_template",
+        "preference_snapshot": {},
+        "product_versions": {
+          "SK-101": 0,
+          "SK-102": 0,
+          "SK-103": 0
+        },
+        "replan_count": 0,
+        "revision": 1,
+        "run_id": "da214f3c-297b-4308-834d-d9ef1be5a317",
+        "selected_skus": [
+          "SK-101",
+          "SK-102",
+          "SK-103"
+        ],
+        "snapshot_version": 0,
+        "status": "succeeded",
+        "steps": 8,
+        "tasks": {
+          "brief_0": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_0-240c4c5a077d05d4",
+            "preview": "{\"claims\":[\"温和清洁\",\"120ml\",\"适合日常使用\"],\"price_cents\":7900,\"product_version\":0,\"sku\":\"SK-101\",\"source\":\"product:SK-101@0\",\"stock\":180,\"title\":\"氨基酸洁面\"}",
+            "context_chars": 493,
+            "elapsed_ms": 913.91,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 387,
+            "reported_prompt_tokens": 334,
+            "reported_completion_tokens": 53,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 387,
+                "prompt_tokens": 334,
+                "completion_tokens": 53,
+                "elapsed_ms": 910.646
+              }
+            ]
+          },
+          "brief_1": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_1-c7ec5f78687359b1",
+            "preview": "{\"claims\":[\"保湿修护\",\"50g\",\"无香精配方\"],\"price_cents\":12900,\"product_version\":0,\"sku\":\"SK-102\",\"source\":\"product:SK-102@0\",\"stock\":46,\"title\":\"保湿修护面霜\"}",
+            "context_chars": 491,
+            "elapsed_ms": 728.16,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 395,
+            "reported_prompt_tokens": 338,
+            "reported_completion_tokens": 57,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 395,
+                "prompt_tokens": 338,
+                "completion_tokens": 57,
+                "elapsed_ms": 725.858
+              }
+            ]
+          },
+          "brief_2": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_2-f0531976d4c22c6f",
+            "preview": "{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"}",
+            "context_chars": 492,
+            "elapsed_ms": 786.98,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 391,
+            "reported_prompt_tokens": 336,
+            "reported_completion_tokens": 55,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 391,
+                "prompt_tokens": 336,
+                "completion_tokens": 55,
+                "elapsed_ms": 784.864
+              }
+            ]
+          },
+          "review_0": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_0-7ede5c8816b9e5d8",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"温和清洁\",\"120ml\",\"适合日常使用\"],\"price_cents\":7900,\"product_version\":0,\"sku\":\"SK-101\",\"source\":\"product:SK-101@0\",\"stock\":180,\"title\":\"氨基酸洁面\"},\"evidenc",
+            "context_chars": 489,
+            "elapsed_ms": 5.24,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "review_1": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_1-7fb230892236f1dd",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"保湿修护\",\"50g\",\"无香精配方\"],\"price_cents\":12900,\"product_version\":0,\"sku\":\"SK-102\",\"source\":\"product:SK-102@0\",\"stock\":46,\"title\":\"保湿修护面霜\"},\"evidence_",
+            "context_chars": 485,
+            "elapsed_ms": 3.89,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "review_2": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_2-51d24c75aa63d19d",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"},\"evidence",
+            "context_chars": 487,
+            "elapsed_ms": 4.04,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "selection": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "selection-91115f20bfa93705",
+            "preview": "{\"memory_conflicts\":[],\"rationale\":\"已有库存与毛利规则选品；非成交效果预测\",\"skus\":[\"SK-101\",\"SK-102\",\"SK-103\"],\"source\":\"live_business_db\",\"unassessed_preferences\":[]}",
+            "context_chars": 776,
+            "elapsed_ms": 1.67,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "catalog",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "summary": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "summary-957384aa25712269",
+            "preview": "{\"approved_briefs\":[{\"claims\":[\"温和清洁\",\"120ml\",\"适合日常使用\"],\"price_cents\":7900,\"product_version\":0,\"sku\":\"SK-101\",\"source\":\"product:SK-101@0\",\"stock\":180,\"title\":\"氨基酸洁面\"},{\"claims\":[\"保",
+            "context_chars": 1552,
+            "elapsed_ms": 6.06,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "assemble",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          }
+        },
+        "trace": [
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/selection/1",
+            "revision": 1,
+            "task_id": "selection",
+            "role": "merchandiser",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "selection-91115f20bfa93705",
+            "context_chars": 776,
+            "elapsed_ms": 1.67,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "catalog",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/brief_1/1",
+            "revision": 1,
+            "task_id": "brief_1",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_1-c7ec5f78687359b1",
+            "context_chars": 491,
+            "elapsed_ms": 728.16,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 395,
+            "reported_prompt_tokens": 338,
+            "reported_completion_tokens": 57,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 395,
+                "prompt_tokens": 338,
+                "completion_tokens": 57,
+                "elapsed_ms": 725.858
+              }
+            ]
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/brief_2/1",
+            "revision": 1,
+            "task_id": "brief_2",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_2-f0531976d4c22c6f",
+            "context_chars": 492,
+            "elapsed_ms": 786.98,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 391,
+            "reported_prompt_tokens": 336,
+            "reported_completion_tokens": 55,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 391,
+                "prompt_tokens": 336,
+                "completion_tokens": 55,
+                "elapsed_ms": 784.864
+              }
+            ]
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/brief_0/1",
+            "revision": 1,
+            "task_id": "brief_0",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_0-240c4c5a077d05d4",
+            "context_chars": 493,
+            "elapsed_ms": 913.91,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 387,
+            "reported_prompt_tokens": 334,
+            "reported_completion_tokens": 53,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 387,
+                "prompt_tokens": 334,
+                "completion_tokens": 53,
+                "elapsed_ms": 910.646
+              }
+            ]
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/review_1/1",
+            "revision": 1,
+            "task_id": "review_1",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_1-7fb230892236f1dd",
+            "context_chars": 485,
+            "elapsed_ms": 3.89,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/review_2/1",
+            "revision": 1,
+            "task_id": "review_2",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_2-51d24c75aa63d19d",
+            "context_chars": 487,
+            "elapsed_ms": 4.04,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/review_0/1",
+            "revision": 1,
+            "task_id": "review_0",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_0-7ede5c8816b9e5d8",
+            "context_chars": 489,
+            "elapsed_ms": 5.24,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/summary/1",
+            "revision": 1,
+            "task_id": "summary",
+            "role": "director",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "summary-957384aa25712269",
+            "context_chars": 1552,
+            "elapsed_ms": 6.06,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "assemble",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          }
+        ],
+        "output_artifact": "summary-957384aa25712269"
+      },
+      "final_plan": {
+        "created_at": 1792394364.039068,
+        "instruction": "为三款商品准备有来源的讲解手卡",
+        "live_id": "LIVE-DEMO-001",
+        "model_limits": {
+          "max_calls": 20,
+          "max_reserved_tokens": 300000
+        },
+        "plan": {
+          "tasks": [
+            {
+              "dependencies": [],
+              "role": "merchandiser",
+              "sku": null,
+              "task_id": "selection"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-104",
+              "task_id": "brief_0"
+            },
+            {
+              "dependencies": [
+                "brief_0"
+              ],
+              "role": "compliance",
+              "sku": "SK-104",
+              "task_id": "review_0"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-102",
+              "task_id": "brief_1"
+            },
+            {
+              "dependencies": [
+                "brief_1"
+              ],
+              "role": "compliance",
+              "sku": "SK-102",
+              "task_id": "review_1"
+            },
+            {
+              "dependencies": [
+                "selection"
+              ],
+              "role": "copywriter",
+              "sku": "SK-103",
+              "task_id": "brief_2"
+            },
+            {
+              "dependencies": [
+                "brief_2"
+              ],
+              "role": "compliance",
+              "sku": "SK-103",
+              "task_id": "review_2"
+            },
+            {
+              "dependencies": [
+                "review_0",
+                "review_1",
+                "review_2"
+              ],
+              "role": "director",
+              "sku": null,
+              "task_id": "summary"
+            }
+          ]
+        },
+        "plan_revisions": [
+          {
+            "archive_id": "plan-0e3f66236c0bd51d5734475e",
+            "at": 1792394364.98705,
+            "invalidated_tasks": [
+              "brief_0",
+              "review_0",
+              "selection",
+              "summary"
+            ],
+            "preserved_tasks": [
+              "brief_1",
+              "brief_2",
+              "review_1",
+              "review_2"
+            ],
+            "reason": "explicit_rebase_against_current_product_and_preference_versions",
+            "replacements": {
+              "SK-101": "SK-104"
+            },
+            "revision": 2
+          }
+        ],
+        "planner_mode": "bounded_template",
+        "preference_snapshot": {},
+        "product_versions": {
+          "SK-102": 0,
+          "SK-103": 0,
+          "SK-104": 0
+        },
+        "replan_count": 1,
+        "revision": 2,
+        "run_id": "da214f3c-297b-4308-834d-d9ef1be5a317",
+        "selected_skus": [
+          "SK-104",
+          "SK-102",
+          "SK-103"
+        ],
+        "snapshot_version": 1,
+        "status": "succeeded",
+        "steps": 12,
+        "tasks": {
+          "brief_0": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_0-6c303c9cc0efe2e0",
+            "preview": "{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"}",
+            "context_chars": 492,
+            "elapsed_ms": 1104.63,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 389,
+            "reported_prompt_tokens": 335,
+            "reported_completion_tokens": 54,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 389,
+                "prompt_tokens": 335,
+                "completion_tokens": 54,
+                "elapsed_ms": 1102.997
+              }
+            ]
+          },
+          "brief_1": {
+            "artifact_id": "brief_1-c7ec5f78687359b1",
+            "attempts": 1,
+            "backend": "model",
+            "context_chars": 491,
+            "elapsed_ms": 728.16,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "preview": "{\"claims\":[\"保湿修护\",\"50g\",\"无香精配方\"],\"price_cents\":12900,\"product_version\":0,\"sku\":\"SK-102\",\"source\":\"product:SK-102@0\",\"stock\":46,\"title\":\"保湿修护面霜\"}",
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "completion_tokens": 57,
+                "elapsed_ms": 725.858,
+                "http_status": 200,
+                "outcome": "accepted",
+                "prompt_tokens": 338,
+                "reported_total_tokens": 395
+              }
+            ],
+            "reported_completion_tokens": 57,
+            "reported_prompt_tokens": 338,
+            "reported_total_tokens": 395,
+            "skill": "product",
+            "status": "succeeded",
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "usage_reported_calls": 1
+          },
+          "brief_2": {
+            "artifact_id": "brief_2-f0531976d4c22c6f",
+            "attempts": 1,
+            "backend": "model",
+            "context_chars": 492,
+            "elapsed_ms": 786.98,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "preview": "{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"}",
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "completion_tokens": 55,
+                "elapsed_ms": 784.864,
+                "http_status": 200,
+                "outcome": "accepted",
+                "prompt_tokens": 336,
+                "reported_total_tokens": 391
+              }
+            ],
+            "reported_completion_tokens": 55,
+            "reported_prompt_tokens": 336,
+            "reported_total_tokens": 391,
+            "skill": "product",
+            "status": "succeeded",
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "usage_reported_calls": 1
+          },
+          "review_0": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "review_0-25a9d203b8625927",
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"},\"evidence",
+            "context_chars": 487,
+            "elapsed_ms": 3.58,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "review_1": {
+            "artifact_id": "review_1-7fb230892236f1dd",
+            "attempts": 1,
+            "backend": "deterministic",
+            "context_chars": 485,
+            "elapsed_ms": 3.89,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model_calls": 0,
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"保湿修护\",\"50g\",\"无香精配方\"],\"price_cents\":12900,\"product_version\":0,\"sku\":\"SK-102\",\"source\":\"product:SK-102@0\",\"stock\":46,\"title\":\"保湿修护面霜\"},\"evidence_",
+            "reported_total_tokens": 0,
+            "skill": "review",
+            "status": "succeeded"
+          },
+          "review_2": {
+            "artifact_id": "review_2-51d24c75aa63d19d",
+            "attempts": 1,
+            "backend": "deterministic",
+            "context_chars": 487,
+            "elapsed_ms": 4.04,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model_calls": 0,
+            "preview": "{\"approved\":true,\"brief\":{\"claims\":[\"SPF50+\",\"50ml\",\"清爽肤感\"],\"price_cents\":9900,\"product_version\":0,\"sku\":\"SK-103\",\"source\":\"product:SK-103@0\",\"stock\":122,\"title\":\"轻薄防晒乳\"},\"evidence",
+            "reported_total_tokens": 0,
+            "skill": "review",
+            "status": "succeeded"
+          },
+          "selection": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "selection-32b67f97a4cecf9b",
+            "preview": "{\"memory_conflicts\":[],\"rationale\":\"已有库存与毛利规则选品；非成交效果预测\",\"skus\":[\"SK-104\",\"SK-102\",\"SK-103\"],\"source\":\"live_business_db\",\"unassessed_preferences\":[]}",
+            "context_chars": 775,
+            "elapsed_ms": 1.6,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "catalog",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          "summary": {
+            "attempts": 1,
+            "status": "succeeded",
+            "artifact_id": "summary-16ccaf2365861dd1",
+            "preview": "{\"approved_briefs\":[{\"claims\":[\"补水精华\",\"30ml\",\"透明质酸配方\"],\"price_cents\":15900,\"product_version\":0,\"sku\":\"SK-104\",\"source\":\"product:SK-104@0\",\"stock\":68,\"title\":\"玻尿酸精华\"},{\"claims\":[\"保湿",
+            "context_chars": 1550,
+            "elapsed_ms": 7.61,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "assemble",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          }
+        },
+        "trace": [
+          {
+            "artifact_id": "selection-91115f20bfa93705",
+            "attempt": 1,
+            "backend": "deterministic",
+            "context_chars": 776,
+            "elapsed_ms": 1.67,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model_calls": 0,
+            "reported_total_tokens": 0,
+            "revision": 1,
+            "role": "merchandiser",
+            "skill": "catalog",
+            "status": "succeeded",
+            "task_id": "selection",
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/selection/1"
+          },
+          {
+            "artifact_id": "brief_1-c7ec5f78687359b1",
+            "attempt": 1,
+            "backend": "model",
+            "context_chars": 491,
+            "elapsed_ms": 728.16,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "completion_tokens": 57,
+                "elapsed_ms": 725.858,
+                "http_status": 200,
+                "outcome": "accepted",
+                "prompt_tokens": 338,
+                "reported_total_tokens": 395
+              }
+            ],
+            "reported_completion_tokens": 57,
+            "reported_prompt_tokens": 338,
+            "reported_total_tokens": 395,
+            "revision": 1,
+            "role": "copywriter",
+            "skill": "product",
+            "status": "succeeded",
+            "task_id": "brief_1",
+            "token_breakdown_calls": 1,
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/brief_1/1",
+            "usage_inconsistent_calls": 0,
+            "usage_reported_calls": 1
+          },
+          {
+            "artifact_id": "brief_2-f0531976d4c22c6f",
+            "attempt": 1,
+            "backend": "model",
+            "context_chars": 492,
+            "elapsed_ms": 786.98,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "completion_tokens": 55,
+                "elapsed_ms": 784.864,
+                "http_status": 200,
+                "outcome": "accepted",
+                "prompt_tokens": 336,
+                "reported_total_tokens": 391
+              }
+            ],
+            "reported_completion_tokens": 55,
+            "reported_prompt_tokens": 336,
+            "reported_total_tokens": 391,
+            "revision": 1,
+            "role": "copywriter",
+            "skill": "product",
+            "status": "succeeded",
+            "task_id": "brief_2",
+            "token_breakdown_calls": 1,
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/brief_2/1",
+            "usage_inconsistent_calls": 0,
+            "usage_reported_calls": 1
+          },
+          {
+            "artifact_id": "brief_0-240c4c5a077d05d4",
+            "attempt": 1,
+            "backend": "model",
+            "context_chars": 493,
+            "elapsed_ms": 913.91,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "completion_tokens": 53,
+                "elapsed_ms": 910.646,
+                "http_status": 200,
+                "outcome": "accepted",
+                "prompt_tokens": 334,
+                "reported_total_tokens": 387
+              }
+            ],
+            "reported_completion_tokens": 53,
+            "reported_prompt_tokens": 334,
+            "reported_total_tokens": 387,
+            "revision": 1,
+            "role": "copywriter",
+            "skill": "product",
+            "status": "succeeded",
+            "task_id": "brief_0",
+            "token_breakdown_calls": 1,
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/brief_0/1",
+            "usage_inconsistent_calls": 0,
+            "usage_reported_calls": 1
+          },
+          {
+            "artifact_id": "review_1-7fb230892236f1dd",
+            "attempt": 1,
+            "backend": "deterministic",
+            "context_chars": 485,
+            "elapsed_ms": 3.89,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model_calls": 0,
+            "reported_total_tokens": 0,
+            "revision": 1,
+            "role": "compliance",
+            "skill": "review",
+            "status": "succeeded",
+            "task_id": "review_1",
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/review_1/1"
+          },
+          {
+            "artifact_id": "review_2-51d24c75aa63d19d",
+            "attempt": 1,
+            "backend": "deterministic",
+            "context_chars": 487,
+            "elapsed_ms": 4.04,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model_calls": 0,
+            "reported_total_tokens": 0,
+            "revision": 1,
+            "role": "compliance",
+            "skill": "review",
+            "status": "succeeded",
+            "task_id": "review_2",
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/review_2/1"
+          },
+          {
+            "artifact_id": "review_0-7ede5c8816b9e5d8",
+            "attempt": 1,
+            "backend": "deterministic",
+            "context_chars": 489,
+            "elapsed_ms": 5.24,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model_calls": 0,
+            "reported_total_tokens": 0,
+            "revision": 1,
+            "role": "compliance",
+            "skill": "review",
+            "status": "succeeded",
+            "task_id": "review_0",
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/review_0/1"
+          },
+          {
+            "artifact_id": "summary-957384aa25712269",
+            "attempt": 1,
+            "backend": "deterministic",
+            "context_chars": 1552,
+            "elapsed_ms": 6.06,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "model_calls": 0,
+            "reported_total_tokens": 0,
+            "revision": 1,
+            "role": "director",
+            "skill": "assemble",
+            "status": "succeeded",
+            "task_id": "summary",
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r1/summary/1"
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r2/selection/1",
+            "revision": 2,
+            "task_id": "selection",
+            "role": "merchandiser",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "selection-32b67f97a4cecf9b",
+            "context_chars": 775,
+            "elapsed_ms": 1.6,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "catalog",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r2/brief_0/1",
+            "revision": 2,
+            "task_id": "brief_0",
+            "role": "copywriter",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "brief_0-6c303c9cc0efe2e0",
+            "context_chars": 492,
+            "elapsed_ms": 1104.63,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "product",
+            "backend": "model",
+            "model": "deepseek-flash",
+            "model_calls": 1,
+            "reported_total_tokens": 389,
+            "reported_prompt_tokens": 335,
+            "reported_completion_tokens": 54,
+            "usage_reported_calls": 1,
+            "token_breakdown_calls": 1,
+            "usage_inconsistent_calls": 0,
+            "provider_attempts": [
+              {
+                "attempt": 1,
+                "outcome": "accepted",
+                "http_status": 200,
+                "reported_total_tokens": 389,
+                "prompt_tokens": 335,
+                "completion_tokens": 54,
+                "elapsed_ms": 1102.997
+              }
+            ]
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r2/review_0/1",
+            "revision": 2,
+            "task_id": "review_0",
+            "role": "compliance",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "review_0-25a9d203b8625927",
+            "context_chars": 487,
+            "elapsed_ms": 3.58,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "review",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          },
+          {
+            "trace_id": "da214f3c-297b-4308-834d-d9ef1be5a317/r2/summary/1",
+            "revision": 2,
+            "task_id": "summary",
+            "role": "director",
+            "attempt": 1,
+            "status": "succeeded",
+            "artifact_id": "summary-16ccaf2365861dd1",
+            "context_chars": 1550,
+            "elapsed_ms": 7.61,
+            "hooks": [
+              "pre_reasoning",
+              "pre_tool_call",
+              "post_tool_call",
+              "post_reasoning"
+            ],
+            "skill": "assemble",
+            "backend": "deterministic",
+            "model_calls": 0,
+            "reported_total_tokens": 0
+          }
+        ],
+        "output_artifact": "summary-16ccaf2365861dd1"
+      },
+      "final_materials": {
+        "approved_briefs": [
+          {
+            "claims": [
+              "补水精华",
+              "30ml",
+              "透明质酸配方"
+            ],
+            "price_cents": 15900,
+            "product_version": 0,
+            "sku": "SK-104",
+            "source": "product:SK-104@0",
+            "stock": 68,
+            "title": "玻尿酸精华"
+          },
+          {
+            "claims": [
+              "保湿修护",
+              "50g",
+              "无香精配方"
+            ],
+            "price_cents": 12900,
+            "product_version": 0,
+            "sku": "SK-102",
+            "source": "product:SK-102@0",
+            "stock": 46,
+            "title": "保湿修护面霜"
+          },
+          {
+            "claims": [
+              "SPF50+",
+              "50ml",
+              "清爽肤感"
+            ],
+            "price_cents": 9900,
+            "product_version": 0,
+            "sku": "SK-103",
+            "source": "product:SK-103@0",
+            "stock": 122,
+            "title": "轻薄防晒乳"
+          }
+        ],
+        "execution_boundary": "材料准备完成不等于已切品、改价或发券；写操作须单独审批",
+        "memory_conflicts": [],
+        "rejected_skus": [],
+        "scope": "field_grounding_and_keyword_checks_not_legal_certification",
+        "status": "ready",
+        "unassessed_preferences": []
+      }
+    }
+  ],
+  "source_sha256": {
+    "liveops/__init__.py": "a41e12776638365aaa61b0059a720c6c2c16f3d427a5959148a154e646310fd1",
+    "liveops/advisor.py": "055095945ba86a494d36b30f502d7f8575d2efe06210ac7cfeb562700ecfc6e5",
+    "liveops/agent.py": "1ee11bcf8be2a85aa5590ee61f10b0d24ddea2456b0a58d87de045fde552331a",
+    "liveops/api.py": "dd66aae19da752e61c576c8e67d93d0c0d6d2f24b8e1dad050318950650fb498",
+    "liveops/article_eval.py": "72568d3e3159f1fbd5aef144e9025070b405a5138d38081453cb570ac5bdfcfb",
+    "liveops/benchmark.py": "81c8286e3537476749906c11b1a609995104e400bc85b64994101493c4b57dd9",
+    "liveops/campaign_demo.py": "35589d6d7662155e94c6676ffb63e3ba5ab77ffc089412eff78acc18060cac09",
+    "liveops/campaigns.py": "61e8e5760e2a04686851178ed0344dfac81f6a1236c730cfc013711c704049f9",
+    "liveops/context.py": "739c4f112931d53e9781b9d4aaaa08859c6d0a7b493264e7a6eb4ced5ce3001a",
+    "liveops/conversation_eval.py": "36388a47f354d6577b891fb17e9972edeb2b291c7498d06a597b99e9e9a84cf3",
+    "liveops/feedback.py": "85f589f2392eb5cbc606848eabf7d27e867ee000e833467eca3251c3ad24ae3b",
+    "liveops/memory.py": "96c53638eb0022d8cf341de238f23e4da0b596c3020e9f116a40aa1e30d81d6d",
+    "liveops/metrics.py": "6783723b528a8bb2bf11c12d9f5bc8d058b64c79611d5335956d65f08b21eec3",
+    "liveops/model_budget.py": "50fc8e22c13a7604b6d03c7e553713ffdd6c5840abd88692b28c87191d6104d2",
+    "liveops/multiagent_eval.py": "a4d7088de8c010d50da09c8f46fa42d2aa3ad7d7a1b6cf09774167021485dd80",
+    "liveops/operations_eval.py": "578f65e53211b0c7bc87123c0d94c2399a23fb35b4772ad384a952d23eb99b8b",
+    "liveops/policy.py": "555b4c81a31003c78ad67d8e05e46b26cdf9dae83ec1520a76142a2b1fbc473c",
+    "liveops/private_config.py": "0d888abd1c236ac3af826ef554f7e5321555da687826b1f407c42a07c7c30c11",
+    "liveops/real_model_eval.py": "b26dfd9c2e934884f2d23c18aa3bde3277202121d521b675d4b1583b2b936eb0",
+    "liveops/real_writer_repeats.py": "8b3aea0c3198a7afbdacf5346a3a56ec1ca317d302cf0a4c9b5f523977dc3821",
+    "liveops/remote.py": "dd1c9f1bad44d15b053ecad4bf7ceabac89264db5fbead9a0bb98d2cd18a5877",
+    "liveops/remote_demo.py": "811de9ffafe18f51234c410387c3d7da2a3e21232a3bbd7fd60c8a57f53e7b7d",
+    "liveops/specialists.py": "7d373af9004a1370be283b94b45ce8f29321df7791a33cd919ab97b06f2d5215",
+    "liveops/store.py": "407e62b3511b9a0cf3e49781fd58c841ed59073ec9c47364e2ff36797666f707",
+    "liveops/tooling.py": "2ae2e5c2d37649af3617213be733077b207cd967a0608ff351d2f8fa1455bb62",
+    "liveops/workspace.py": "9e2bc653a469339f3332f74a9504bdeaf3d33b8a91b2c2408da8393640e6d904"
+  },
+  "provider_total_calls": 10,
+  "reported_total_tokens": 3910,
+  "unknown_usage_calls": 0,
+  "all_checks_passed": true
+}

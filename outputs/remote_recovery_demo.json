@@ -1,0 +1,32 @@
+{
+  "scope": "local_simulated_platform_no_real_taobao",
+  "command_id": "2ecfa2eb-1e0f-44dd-9e72-d468b5d47154",
+  "events": [
+    {
+      "phase": "proposal",
+      "status": "pending_approval"
+    },
+    {
+      "phase": "response_lost",
+      "status": "unknown",
+      "platform_batches": 1,
+      "local_batches": 0
+    },
+    {
+      "phase": "query_after_restart_1",
+      "status": "unknown"
+    },
+    {
+      "phase": "query_after_restart_2",
+      "status": "unknown"
+    },
+    {
+      "phase": "query_after_restart_3",
+      "status": "ok"
+    }
+  ],
+  "platform_submit_calls": 1,
+  "platform_batches": 1,
+  "local_batches": 1,
+  "ledger_rows": 1
+}

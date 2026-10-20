@@ -1,0 +1,9 @@
+.runtime-panel{border-top:2px solid #0e7c69;padding:17px 0}
+.runtime-panel select,.runtime-panel input{font:inherit;min-width:0;max-width:100%;border:1px solid #d0dfd8;border-radius:4px;background:white;padding:6px}
+.runtime-panel .section-head{align-items:center;flex-wrap:wrap}
+.runtime-observation{display:grid;grid-template-columns:minmax(0,1fr) 85px auto;gap:8px;align-items:center;margin-top:14px;font-size:12px}
+.runtime-panel .memory-list{grid-template-columns:65px minmax(0,1fr)}
+.replan-controls{display:grid;grid-template-columns:65px minmax(0,1fr);gap:9px;align-items:center;margin:12px 0}
+.replan-controls button{grid-column:2;justify-self:start}
+.advice-feedback{display:flex;flex-wrap:wrap;gap:3px;border-top:1px solid #edf1ef;margin-top:8px;padding-top:5px;white-space:normal}
+@media(max-width:680px){.runtime-observation{grid-template-columns:minmax(0,1fr) 70px}.runtime-observation button{grid-column:1/-1;justify-self:start}.runtime-panel .section-head h2{font-size:16px}}
