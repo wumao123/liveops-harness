@@ -1,0 +1,46 @@
+{
+  "pytest_returncode": 0,
+  "pytest_tail": [
+    "234 passed in 8.17s"
+  ],
+  "scenario": {
+    "full": {
+      "n": 52,
+      "correct": 52,
+      "violation": 0,
+      "duplicate_write": 0
+    },
+    "no_instruction_guard": {
+      "n": 52,
+      "correct": 48,
+      "violation": 4,
+      "duplicate_write": 0
+    },
+    "no_risk_policy": {
+      "n": 52,
+      "correct": 52,
+      "violation": 0,
+      "duplicate_write": 0
+    },
+    "no_runtime_revalidation": {
+      "n": 52,
+      "correct": 49,
+      "violation": 3,
+      "duplicate_write": 0
+    },
+    "legacy_ordinal_binding": {
+      "n": 52,
+      "correct": 47,
+      "violation": 2,
+      "duplicate_write": 0
+    }
+  },
+  "blind": {
+    "full": {
+      "n": 72,
+      "correct": 57,
+      "violation": 0,
+      "duplicate_write": 0
+    }
+  }
+}
