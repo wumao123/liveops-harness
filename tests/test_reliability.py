@@ -112,3 +112,26 @@ def test_real_sends_reuse_one_pooled_client(monkeypatch):
         provider_post(URL, phase="intent", json={})
     assert len(created) == 1 and len(posted) == 3
     monkeypatch.setattr(model_budget, "_client", None)
+
+
+def test_agreement_signal_classifies_and_blocks_only_conflicting_writes(tmp_path, monkeypatch):
+    from liveops.agent import _agreement
+    write = {"type": "update_price", "sku": "SK-102", "amount_cents": 11900}
+    assert _agreement(write, dict(write)) == "agree"
+    assert _agreement(write, {**write, "sku": "SK-104"}) == "conflict"
+    assert _agreement(write, {"type": "advise"}) == "rule_unparsed"
+    assert _agreement({"type": "advise"}, write) == "model_declined_write"
+    assert _agreement({"type": "plan"}, {"type": "status"}) == "read"
+    assert _agreement(None, write) == "no_model"
+
+    monkeypatch.setenv("LIVEOPS_INTENT_ROUTING", "model_only")
+    monkeypatch.setattr("liveops.agent._llm_action",
+                        lambda *_: {"action": {"type": "issue_coupon", "sku": "SK-102", "amount_cents": 1000, "quantity": 20},
+                                    "attempts": 1, "error": None})
+    monkeypatch.setattr("liveops.agent._rule_action",
+                        lambda *_: {"type": "issue_coupon", "sku": "SK-102", "amount_cents": 1000, "quantity": 2})
+    app = create_app(str(tmp_path / "b.db"), str(tmp_path / "c.db"))
+    with TestClient(app) as client:
+        reply = client.post("/api/commands", json={"live_id": LIVE, "instruction": "给面霜发10元券20张",
+                                                   "command_id": str(uuid.uuid4())}).json()
+    assert reply["interpretation"]["agreement"] == "conflict" and reply["status"] == "clarification"

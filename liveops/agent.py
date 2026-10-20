@@ -93,6 +93,24 @@ PRICE_RE = re.compile(r"改价|价格改|改到|改成|降到|涨到|调到")
 COUPON_RE = re.compile(r"发.*券|发券|来.{0,3}券|券.*发\s*\d+\s*张")
 
 
+_WRITE_KINDS = {"switch_product", "update_price", "issue_coupon"}
+_SLOTS = ("type", "sku", "amount_cents", "quantity")
+
+
+def _agreement(model: dict[str, Any] | None, rule: dict[str, Any]) -> str:
+    """Free second opinion: the rule parse costs ~nothing, so compare it with the model's on every turn."""
+    if not model:
+        return "no_model"
+    if rule.get("type") not in _WRITE_KINDS and model.get("type") not in _WRITE_KINDS:
+        return "read"
+    if rule.get("type") not in _WRITE_KINDS:
+        # Common for colloquial writes; the guard still checks every slot against the user's words.
+        return "rule_unparsed"
+    if model.get("type") not in _WRITE_KINDS:
+        return "model_declined_write"
+    return "agree" if all(model.get(k) == rule.get(k) for k in _SLOTS) else "conflict"
+
+
 def intent_routing() -> str:
     # hybrid: unambiguous rule parses skip the model; model_only: every turn asks the model first.
     routing = os.getenv("LIVEOPS_INTENT_ROUTING", "hybrid")
@@ -503,6 +521,11 @@ class LiveAgent:
             "attempts": model_attempt["attempts"],
             "fallback_error": model_attempt["error"],
         }
+        if model_attempt["action"]:
+            interpretation["agreement"] = _agreement(model_attempt["action"], _rule_action(instruction, snapshot))
+            if interpretation["agreement"] == "conflict":
+                # Two parsers propose different writes; neither is trusted to authorize one.
+                action = {"type": "clarify", "question": "我对这条操作有两种理解，请把商品、金额和数量完整说一遍再执行。"}
         constraint = _scene_constraint((model_attempt["action"] or {}).get("scene_constraint"), instruction, snapshot)
         if constraint:
             interpretation["scene_constraint"] = {**constraint, "source": "model_proposal_checked_against_named_products"}
