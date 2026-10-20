@@ -35,7 +35,8 @@
 
 ```bash
 python3.11 -m venv .venv
-.venv/bin/python -m pip install -e '.[dev]'
+.venv/bin/python -m pip install -r requirements.lock   # 复现实验时使用的精确版本
+.venv/bin/python -m pip install -e '.[dev]' --no-deps
 .venv/bin/python -m uvicorn liveops.api:app --host 127.0.0.1 --port 8765
 ```
 
