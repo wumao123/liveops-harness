@@ -271,23 +271,31 @@ def main():
               "operator": "rubber_stamp_approve_unless_case_says_reject",
               "source_sha256": {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(Path("liveops").glob("*.py"))},
               "variants": {}}
-    with ExitStack() as stack:
-        if provider:
-            stack.enter_context(patch("liveops.model_budget.httpx.post", provider.post))
-            report["provider_calls"] = provider.rows
-        for ablation in args.ablations:
-            for repeat in range(args.repeats):
-                name = ablation if args.repeats == 1 else f"{ablation}#r{repeat + 1}"
-                rows = []
-                for case in cases:
-                    if provider:
-                        provider.label = f"{name}/{case['id']}"
-                    rows.append(grade(case, run_case(case, ablation)))
-                report["variants"][name] = {"summary": summarize(rows), "cases": rows,
-                                            "isolation": "temp_sqlite_per_case_in_process_patch_only"}
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    try:
+        with ExitStack() as stack:
+            if provider:
+                stack.enter_context(patch("liveops.model_budget.httpx.post", provider.post))
+                report["provider_calls"] = provider.rows
+            for ablation in args.ablations:
+                for repeat in range(args.repeats):
+                    name = ablation if args.repeats == 1 else f"{ablation}#r{repeat + 1}"
+                    rows = []
+                    report["variants"][name] = {"cases": rows, "isolation": "temp_sqlite_per_case_in_process_patch_only"}
+                    for case in cases:
+                        if provider:
+                            provider.label = f"{name}/{case['id']}"
+                        rows.append(grade(case, run_case(case, ablation)))
+                    report["variants"][name]["summary"] = summarize(rows)
+    except BaseException as exc:
+        # Spent requests must leave a record even when the run stops early.
+        report["aborted"] = {"error": type(exc).__name__, "message": str(exc)[:200]}
+        for variant in report["variants"].values():
+            variant.setdefault("summary", summarize(variant["cases"]) if variant["cases"] else None)
+        raise
+    finally:
+        output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({name: {k: v["summary"]["all"][k] for k in ("n", "correct", "false_block", "violation", "duplicate_write", "wrong_outcome")}
                       for name, v in report["variants"].items()}, ensure_ascii=False, indent=1))
 
