@@ -20,7 +20,18 @@ EXCLUDE_WORDS = ("先不上", "不上架", "别上", "先不讲", "不讲", "别
 RESTORE_WORDS = ("可以上了", "恢复上架", "重新上", "可以讲了", "可以推了")
 
 
-def exclusion_change(text: str, mentioned: list[str]) -> dict:
+def exclusion_change(text: str, mentioned: list[str], proposed: dict | None = None) -> dict:
+    """Keywords are the offline path; a checked model proposal (already limited to named products) is merged in."""
+    proposed = proposed or {}
+    change = {"exclude_skus": list(proposed.get("exclude_skus", [])), "restore_skus": list(proposed.get("restore_skus", []))}
+    keyword = _keyword_exclusion(text, mentioned)
+    for key in change:
+        change[key] = list(dict.fromkeys(change[key] + keyword.get(key, [])))
+    change["exclude_skus"] = [s for s in change["exclude_skus"] if s not in change["restore_skus"]]
+    return {k: v for k, v in change.items() if v}
+
+
+def _keyword_exclusion(text: str, mentioned: list[str]) -> dict:
     if not mentioned:
         return {}
     if any(w in text for w in RESTORE_WORDS):
@@ -186,7 +197,8 @@ class Workspace:
                 "scene": scene, "status": response["status"], "action_type": action.get("type", "unknown"),
                 "mentioned_skus": mentioned, "sku": action.get("sku"),
                 "listed_skus": listed, "artifact_id": artifact, **({"list": entry} if entry else {}),
-                **(exclusion_change(command["instruction"], mentioned) if action.get("type") not in WRITE_TYPES else {})}}
+                **(exclusion_change(command["instruction"], mentioned, (response.get("interpretation") or {}).get("scene_constraint"))
+                   if action.get("type") not in WRITE_TYPES else {})}}
             self._apply(db, live_id, f"{command['command_id']}:{artifact}", event)
             db.commit()
         return artifact

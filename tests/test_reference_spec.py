@@ -355,3 +355,24 @@ def test_exclusion_change_invalidates_the_previous_list(app):
     assert changed["result"]["spec_change"]["change"] == "scope_or_budget"
     assert changed["result"]["spec_change"]["changed_fields"] == ["exclude_skus"]
     assert [l["status"] for l in lists(app)] == ["superseded", "active"]
+
+
+def test_model_scene_constraint_is_checked_against_named_products_and_write_talk(tmp_path, monkeypatch):
+    from liveops.agent import _scene_constraint
+    snapshot = Store(str(tmp_path / "b.db")).snapshot(LIVE)
+    assert _scene_constraint({"exclude_skus": ["SK-104"]}, "精华这次就不排了", snapshot) == {"exclude_skus": ["SK-104"]}
+    # A model may not exclude a product the user never named, and price/coupon talk is never an exclusion.
+    assert _scene_constraint({"exclude_skus": ["SK-102"]}, "精华这次就不排了", snapshot) is None
+    assert _scene_constraint({"exclude_skus": ["SK-104"]}, "精华先别降价", snapshot) is None
+    assert _scene_constraint({"restore_skus": ["SK-104"]}, "精华又能讲了", snapshot) == {"restore_skus": ["SK-104"]}
+    assert _scene_constraint("SK-104", "精华这次就不排了", snapshot) is None
+
+    app = create_app(str(tmp_path / "a.db"), str(tmp_path / "c.db"))
+    actions = iter([{"type": "advise", "sku": "SK-104", "scene_constraint": {"exclude_skus": ["SK-104"]}},
+                    {"type": "plan", "top_k": 3}])
+    monkeypatch.setattr("liveops.agent._llm_action", lambda *_: {"action": next(actions), "attempts": 1, "error": None})
+    with TestClient(app) as client:
+        first = say(client, "精华这次就不排了")
+        plan = say(client, "推荐三款开场商品")
+    assert first["interpretation"]["scene_constraint"]["exclude_skus"] == ["SK-104"]
+    assert "SK-104" not in plan["result"]["plan"] and len(plan["result"]["plan"]) == 3
