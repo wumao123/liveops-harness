@@ -297,18 +297,17 @@
     "liveops/article_eval.py": "72568d3e3159f1fbd5aef144e9025070b405a5138d38081453cb570ac5bdfcfb",
     "liveops/benchmark.py": "81c8286e3537476749906c11b1a609995104e400bc85b64994101493c4b57dd9",
     "liveops/campaign_demo.py": "35589d6d7662155e94c6676ffb63e3ba5ab77ffc089412eff78acc18060cac09",
-    "liveops/campaigns.py": "c53551bf12e7a8cc4a7c8812e4d9593ae7c1bb95bc5a629f480ee3a34286ba5c",
+    "liveops/campaigns.py": "f748b4a67513e9614ac1eeb43c90bb8f94efe806675cb45bfa67fd971149c84f",
     "liveops/context.py": "6b8ffb4c2f5eb9b3e649f5c23fa82e8e729726af9ff8262d534e742ca7f8ad59",
     "liveops/context_eval.py": "d1da627e9cdd12b01a1891bf25d339df7b991bd9f92d15dfc5560c6506fc78db",
     "liveops/contracts.py": "16dcca336a63a17ba0fc093eab7a9bce9d32a725f3c78ad468d092282f93622b",
     "liveops/conversation_eval.py": "36388a47f354d6577b891fb17e9972edeb2b291c7498d06a597b99e9e9a84cf3",
-    "liveops/db.py": "2548011c9a60a365feadd58388ee9c1d5a148a60515643a22328c4a2107f7560",
     "liveops/feedback.py": "fc03dbb3fd72a6e98b450ac0b1afac1ccffa7e13598df3881308751b427d42b2",
     "liveops/hooks.py": "00b05327fdae6140bd62522b21a4ef6d05371c0af3f8e61e787ed9a8652c0d06",
     "liveops/long_dialogue_eval.py": "41c94c5066207e7578023d4d9674353e6f0f2c434e87a7b2d33eb40c4c91a975",
     "liveops/memory.py": "96c53638eb0022d8cf341de238f23e4da0b596c3020e9f116a40aa1e30d81d6d",
     "liveops/metrics.py": "6783723b528a8bb2bf11c12d9f5bc8d058b64c79611d5335956d65f08b21eec3",
-    "liveops/model_budget.py": "a40fca08badc8d4baaf104efb9679c057480e4d09aceea5cd5cbc63875a0ca1f",
+    "liveops/model_budget.py": "02bdb38426db5420809e056a3d36ad6b88c3c1678d3f0dd530e2f34cc5c3e21b",
     "liveops/multiagent_eval.py": "a4d7088de8c010d50da09c8f46fa42d2aa3ad7d7a1b6cf09774167021485dd80",
     "liveops/operations_eval.py": "578f65e53211b0c7bc87123c0d94c2399a23fb35b4772ad384a952d23eb99b8b",
     "liveops/policy.py": "555b4c81a31003c78ad67d8e05e46b26cdf9dae83ec1520a76142a2b1fbc473c",
@@ -321,7 +320,7 @@
     "liveops/scenario_eval.py": "a2bf6766d67f3fcec32487c380ea06ca168e9b8654339e284e912df568e9afaa",
     "liveops/spec.py": "5e420305c5c910e9c01a725c2e0b1da07f1552f63b53b8507aa6730f43e8f618",
     "liveops/specialists.py": "ccf2196762dccdbd23e24b80965858f145938e17e90f6be854477ffae4c10948",
-    "liveops/store.py": "f29d85c1741e3a92aa267332dcdeddb59902b2b150557818221b1b2ffb165201",
+    "liveops/store.py": "71738e36098eb5fc6ca525ed3e6246ce142f11f4d8ead03d1880149e0588c48f",
     "liveops/tooling.py": "f21e1dc5629406bbf6faaa887e4aad2deb37f717f0d4df0137e567c0004ca149",
     "liveops/web/app.css": "879d55cab68090f4bfbecc0b4033bbe9025dd8a56c21f402d303ca9fb0c037ae",
     "liveops/web/app.js": "1bedc4dd43cc8676190fe99326d4015295fadc2d5750a017629e92c3ea04de72",
@@ -329,5 +328,6 @@
     "liveops/web/index.html": "f4efd996d48f32c5e4934738cf42f0b8225ed85cbbee10066ef607ec044525f1",
     "liveops/worker.py": "f4addc45c1861745d4fd95b27f4ac65cb9f3ca0deabeada1faa0bbd1954fd913",
     "liveops/workspace.py": "086f46f2ba53ae1e47e6402b66edaa90b97eb6db9db5566fbcadaaac07fcb8d7"
-  }
+  },
+  "source_fingerprint_method": "git blobs from source_commit_before_packaging; concurrent unpublished MySQL work excluded"
 }
