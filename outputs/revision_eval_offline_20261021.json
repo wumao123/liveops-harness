@@ -1,0 +1,2185 @@
+{
+  "scope": "injected_faulty_first_drafts_real_model_revisions_not_natural_error_rate",
+  "started_at_utc": "2026-10-21T03:46:46.900603+00:00",
+  "python": "3.11.13",
+  "writer": "deterministic_offline",
+  "thinking": null,
+  "request_budget": null,
+  "faults": [
+    "claim",
+    "price",
+    "stock",
+    "source",
+    "empty",
+    "duplicate",
+    "title",
+    "sku",
+    "version"
+  ],
+  "skus": [
+    "SK-101",
+    "SK-102",
+    "SK-103",
+    "SK-104",
+    "SK-105"
+  ],
+  "source_sha256": {
+    "campaigns.py": "f748b4a67513e9614ac1eeb43c90bb8f94efe806675cb45bfa67fd971149c84f",
+    "specialists.py": "ccf2196762dccdbd23e24b80965858f145938e17e90f6be854477ffae4c10948",
+    "contracts.py": "16dcca336a63a17ba0fc093eab7a9bce9d32a725f3c78ad468d092282f93622b",
+    "revision_eval.py": "c2dab712f3ec78d189263615852efd0d0adc136c906310c5b0f7dd666f8db7b5"
+  },
+  "rows": [
+    {
+      "sku": "SK-101",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 26.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 18.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 18.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 24.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 22.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 27.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 25.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 25.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 23.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 26.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 18.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 24.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 24.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 25.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 15.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 23.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 24.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 25.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 15.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 15.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 21.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 15.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 21.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 20.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 15.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 20.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 14.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 22.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 15.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 24.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 24.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 15.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 25.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 21.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 17.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 21.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 27.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 18.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 21.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 16.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "deterministic"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 21.6,
+      "business_state_unchanged": true
+    }
+  ],
+  "summary": {
+    "control_no_revision": {
+      "runs": 45,
+      "admitted": 0,
+      "review_required": 45,
+      "other_status": 0,
+      "admitted_by_round": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "steps": 180,
+      "business_state_unchanged": true
+    },
+    "revise_up_to_2": {
+      "runs": 45,
+      "admitted": 45,
+      "review_required": 0,
+      "other_status": 0,
+      "admitted_by_round": {
+        "0": 0,
+        "1": 45,
+        "2": 0
+      },
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "steps": 270,
+      "business_state_unchanged": true
+    },
+    "by_fault": {
+      "claim": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "price": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "stock": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "source": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "empty": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "duplicate": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "title": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "sku": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "version": {
+        "admitted": 5,
+        "runs": 5
+      }
+    }
+  },
+  "finished_at_utc": "2026-10-21T03:46:49.307206+00:00"
+}

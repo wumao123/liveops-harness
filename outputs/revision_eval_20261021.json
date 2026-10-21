@@ -1,0 +1,3053 @@
+{
+  "scope": "injected_faulty_first_drafts_real_model_revisions_not_natural_error_rate",
+  "started_at_utc": "2026-10-21T03:47:12.781834+00:00",
+  "python": "3.11.13",
+  "writer": "deepseek-flash",
+  "thinking": "disabled",
+  "request_budget": 150,
+  "faults": [
+    "claim",
+    "price",
+    "stock",
+    "source",
+    "empty",
+    "duplicate",
+    "title",
+    "sku",
+    "version"
+  ],
+  "skus": [
+    "SK-101",
+    "SK-102",
+    "SK-103",
+    "SK-104",
+    "SK-105"
+  ],
+  "source_sha256": {
+    "campaigns.py": "f748b4a67513e9614ac1eeb43c90bb8f94efe806675cb45bfa67fd971149c84f",
+    "specialists.py": "ccf2196762dccdbd23e24b80965858f145938e17e90f6be854477ffae4c10948",
+    "contracts.py": "16dcca336a63a17ba0fc093eab7a9bce9d32a725f3c78ad468d092282f93622b",
+    "revision_eval.py": "c2dab712f3ec78d189263615852efd0d0adc136c906310c5b0f7dd666f8db7b5"
+  },
+  "rows": [
+    {
+      "sku": "SK-101",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 484,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 783.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 471,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 791.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 469,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 770.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 468,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 986.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 472,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1057.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 470,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1190.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 469,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 995.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 467,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 935.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-101",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 471,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1090.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 498,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 934.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 477,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1053.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 484,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 745.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 476,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 821.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 477,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 770.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 25.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 476,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1136.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 21.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 481,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 975.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 481,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 969.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-102",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 483,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 880.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 495,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 702.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 475,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1102.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 21.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 474,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1433.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 477,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 981.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 472,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1019.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 21.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 473,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1038.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 21.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 474,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 871.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 473,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1054.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 32.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-103",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 473,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 987.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 489,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 779.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 472,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 779.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 471,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 894.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 21.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 473,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1540.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 472,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1032.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 475,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1144.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.9,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 470,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 796.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 473,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 953.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 18.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-104",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 469,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 777.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "claim",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 21.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "claim",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "unsupported_claim:保证治愈皮肤疾病",
+          "prohibited_claim:保证治愈皮肤疾病"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 492,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1321.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "price",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 18.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "price",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "price_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 477,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 820.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "stock",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 19.8,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "stock",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "stock_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 476,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1024.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "source",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "source",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "source_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 480,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1034.7,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "empty",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "empty_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.5,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "empty",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "empty_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 474,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 959.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "duplicate",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 21.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "duplicate",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "duplicate_claims"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 476,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 949.6,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "title",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.3,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "title",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "title_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 476,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 1034.4,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "sku",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.1,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "sku",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "sku_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 482,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 914.0,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "version",
+      "max_revisions": 0,
+      "status": "review_required",
+      "admitted": false,
+      "rounds_used": 0,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ]
+      ],
+      "writer_backends": [
+        "fixture"
+      ],
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "failed_tasks": [],
+      "steps": 4,
+      "elapsed_ms": 20.2,
+      "business_state_unchanged": true
+    },
+    {
+      "sku": "SK-105",
+      "fault": "version",
+      "max_revisions": 2,
+      "status": "succeeded",
+      "admitted": true,
+      "rounds_used": 1,
+      "review_issues": [
+        [
+          "version_mismatch"
+        ],
+        []
+      ],
+      "writer_backends": [
+        "fixture",
+        "model"
+      ],
+      "model_calls": 1,
+      "reported_total_tokens": 478,
+      "failed_tasks": [],
+      "steps": 6,
+      "elapsed_ms": 880.5,
+      "business_state_unchanged": true
+    }
+  ],
+  "summary": {
+    "control_no_revision": {
+      "runs": 45,
+      "admitted": 0,
+      "review_required": 45,
+      "other_status": 0,
+      "admitted_by_round": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "model_calls": 0,
+      "reported_total_tokens": 0,
+      "steps": 180,
+      "business_state_unchanged": true
+    },
+    "revise_up_to_2": {
+      "runs": 45,
+      "admitted": 45,
+      "review_required": 0,
+      "other_status": 0,
+      "admitted_by_round": {
+        "0": 0,
+        "1": 45,
+        "2": 0
+      },
+      "model_calls": 45,
+      "reported_total_tokens": 21435,
+      "steps": 270,
+      "business_state_unchanged": true
+    },
+    "by_fault": {
+      "claim": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "price": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "stock": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "source": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "empty": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "duplicate": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "title": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "sku": {
+        "admitted": 5,
+        "runs": 5
+      },
+      "version": {
+        "admitted": 5,
+        "runs": 5
+      }
+    }
+  },
+  "provider_requests": [
+    {
+      "index": 1,
+      "label": "revision/SK-101/claim/max2",
+      "status": 200,
+      "response_id": "0e03b5c1-2ef2-4ade-875a-d493146a5fb0",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 431,
+        "completion_tokens": 53,
+        "total_tokens": 484,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 431
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 749.396
+    },
+    {
+      "index": 2,
+      "label": "revision/SK-101/price/max2",
+      "status": 200,
+      "response_id": "59b101d0-9f87-4905-a042-20fc5d29f5e1",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 53,
+        "total_tokens": 471,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 290
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 758.053
+    },
+    {
+      "index": 3,
+      "label": "revision/SK-101/stock/max2",
+      "status": 200,
+      "response_id": "b322082f-62c1-401d-ad66-8a461422e423",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 416,
+        "completion_tokens": 53,
+        "total_tokens": 469,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 288
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 736.168
+    },
+    {
+      "index": 4,
+      "label": "revision/SK-101/source/max2",
+      "status": 200,
+      "response_id": "62b33473-22ca-4e65-87a5-2e6349646bc0",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 415,
+        "completion_tokens": 53,
+        "total_tokens": 468,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 287
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 952.997
+    },
+    {
+      "index": 5,
+      "label": "revision/SK-101/empty/max2",
+      "status": 200,
+      "response_id": "dde3de03-3dfe-477f-867b-9a2eff5eac21",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 419,
+        "completion_tokens": 53,
+        "total_tokens": 472,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 291
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1011.404
+    },
+    {
+      "index": 6,
+      "label": "revision/SK-101/duplicate/max2",
+      "status": 200,
+      "response_id": "fa865fc4-b5cd-47fc-978d-dfa6e5f72c59",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 417,
+        "completion_tokens": 53,
+        "total_tokens": 470,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 289
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1156.082
+    },
+    {
+      "index": 7,
+      "label": "revision/SK-101/title/max2",
+      "status": 200,
+      "response_id": "ba6f732f-f181-4d8f-8964-25cd4c75d3bd",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 416,
+        "completion_tokens": 53,
+        "total_tokens": 469,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 288
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 963.133
+    },
+    {
+      "index": 8,
+      "label": "revision/SK-101/sku/max2",
+      "status": 200,
+      "response_id": "55bfa87f-349d-4666-86ff-5d91e22ad182",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 414,
+        "completion_tokens": 53,
+        "total_tokens": 467,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 286
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 902.189
+    },
+    {
+      "index": 9,
+      "label": "revision/SK-101/version/max2",
+      "status": 200,
+      "response_id": "d0c2c433-e508-4a09-b0bf-14ad12c4aaeb",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 53,
+        "total_tokens": 471,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 290
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1056.783
+    },
+    {
+      "index": 10,
+      "label": "revision/SK-102/claim/max2",
+      "status": 200,
+      "response_id": "41e808a6-11a0-43e8-add1-f31506677d13",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 441,
+        "completion_tokens": 57,
+        "total_tokens": 498,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 441
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 903.327
+    },
+    {
+      "index": 11,
+      "label": "revision/SK-102/price/max2",
+      "status": 200,
+      "response_id": "812b6985-d1c3-43e7-965e-1243f8f277a0",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 57,
+        "total_tokens": 477,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 292
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1019.679
+    },
+    {
+      "index": 12,
+      "label": "revision/SK-102/stock/max2",
+      "status": 200,
+      "response_id": "fdc82a80-75a5-416f-b55d-e8d8f98df399",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 427,
+        "completion_tokens": 57,
+        "total_tokens": 484,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 299
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 710.558
+    },
+    {
+      "index": 13,
+      "label": "revision/SK-102/source/max2",
+      "status": 200,
+      "response_id": "fd047b16-13b2-41bd-8faa-5a8b79b0f8ed",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 419,
+        "completion_tokens": 57,
+        "total_tokens": 476,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 291
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 790.845
+    },
+    {
+      "index": 14,
+      "label": "revision/SK-102/empty/max2",
+      "status": 200,
+      "response_id": "c60a12e7-fdc3-47ae-b3a5-043ddfc9e3eb",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 57,
+        "total_tokens": 477,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 292
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 733.428
+    },
+    {
+      "index": 15,
+      "label": "revision/SK-102/duplicate/max2",
+      "status": 200,
+      "response_id": "fac331bd-dc51-41b0-bdd1-29e006cdf594",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 419,
+        "completion_tokens": 57,
+        "total_tokens": 476,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 291
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1096.3
+    },
+    {
+      "index": 16,
+      "label": "revision/SK-102/title/max2",
+      "status": 200,
+      "response_id": "8c7e236d-6037-458c-b600-f74593fb552d",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 57,
+        "total_tokens": 481,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 296
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 941.423
+    },
+    {
+      "index": 17,
+      "label": "revision/SK-102/sku/max2",
+      "status": 200,
+      "response_id": "d85abf4a-2ffb-446d-b65d-4dd9364e6a4d",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 57,
+        "total_tokens": 481,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 296
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 932.894
+    },
+    {
+      "index": 18,
+      "label": "revision/SK-102/version/max2",
+      "status": 200,
+      "response_id": "cd3fa0b4-9040-4344-8de4-6e11007c3a08",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 426,
+        "completion_tokens": 57,
+        "total_tokens": 483,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 298
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 848.282
+    },
+    {
+      "index": 19,
+      "label": "revision/SK-103/claim/max2",
+      "status": 200,
+      "response_id": "e7d9ec1c-a391-4412-afd9-86b5809f2225",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 440,
+        "completion_tokens": 55,
+        "total_tokens": 495,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 440
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 665.394
+    },
+    {
+      "index": 20,
+      "label": "revision/SK-103/price/max2",
+      "status": 200,
+      "response_id": "1217a5be-d380-4e86-b92f-c3e75a6b3a1f",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 55,
+        "total_tokens": 475,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 292
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1064.626
+    },
+    {
+      "index": 21,
+      "label": "revision/SK-103/stock/max2",
+      "status": 200,
+      "response_id": "5e6dcb8d-5f5b-4039-806a-a7facf3310f3",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 419,
+        "completion_tokens": 55,
+        "total_tokens": 474,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 291
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1398.827
+    },
+    {
+      "index": 22,
+      "label": "revision/SK-103/source/max2",
+      "status": 200,
+      "response_id": "06b2416e-6414-46f0-a462-f9da9601a789",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 422,
+        "completion_tokens": 55,
+        "total_tokens": 477,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 294
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 945.322
+    },
+    {
+      "index": 23,
+      "label": "revision/SK-103/empty/max2",
+      "status": 200,
+      "response_id": "93eaa025-6175-4612-a0d8-52cebf9f261f",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 417,
+        "completion_tokens": 55,
+        "total_tokens": 472,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 289
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 983.429
+    },
+    {
+      "index": 24,
+      "label": "revision/SK-103/duplicate/max2",
+      "status": 200,
+      "response_id": "687a66fa-d961-4686-b90a-e113b9962898",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 55,
+        "total_tokens": 473,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 290
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1002.039
+    },
+    {
+      "index": 25,
+      "label": "revision/SK-103/title/max2",
+      "status": 200,
+      "response_id": "d3ca4afb-9e9f-4959-8289-b377dbc462ed",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 419,
+        "completion_tokens": 55,
+        "total_tokens": 474,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 291
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 832.6
+    },
+    {
+      "index": 26,
+      "label": "revision/SK-103/sku/max2",
+      "status": 200,
+      "response_id": "03c71d6b-e046-4736-a4bd-91b4acfd721c",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 55,
+        "total_tokens": 473,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 290
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1019.751
+    },
+    {
+      "index": 27,
+      "label": "revision/SK-103/version/max2",
+      "status": 200,
+      "response_id": "80909aba-8e0d-4a36-9a27-89aa5fb36bee",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 55,
+        "total_tokens": 473,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 290
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 950.496
+    },
+    {
+      "index": 28,
+      "label": "revision/SK-104/claim/max2",
+      "status": 200,
+      "response_id": "4cd69655-add8-4b49-a0df-c8843891bf83",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 435,
+        "completion_tokens": 54,
+        "total_tokens": 489,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 435
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 746.295
+    },
+    {
+      "index": 29,
+      "label": "revision/SK-104/price/max2",
+      "status": 200,
+      "response_id": "ed874f27-904c-4c59-87af-062498ad167b",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 54,
+        "total_tokens": 472,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 290
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 742.609
+    },
+    {
+      "index": 30,
+      "label": "revision/SK-104/stock/max2",
+      "status": 200,
+      "response_id": "d0740760-54ef-4502-853f-7efcc6edece0",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 417,
+        "completion_tokens": 54,
+        "total_tokens": 471,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 289
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 858.053
+    },
+    {
+      "index": 31,
+      "label": "revision/SK-104/source/max2",
+      "status": 200,
+      "response_id": "215b1df9-85dd-4d4a-80b8-6939583addc7",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 419,
+        "completion_tokens": 54,
+        "total_tokens": 473,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 291
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1507.78
+    },
+    {
+      "index": 32,
+      "label": "revision/SK-104/empty/max2",
+      "status": 200,
+      "response_id": "ff2f980f-4409-4cf6-93af-89f93339f8d8",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 54,
+        "total_tokens": 472,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 290
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 996.005
+    },
+    {
+      "index": 33,
+      "label": "revision/SK-104/duplicate/max2",
+      "status": 200,
+      "response_id": "76e5aefe-8a94-491b-bf5b-a8ec7d3ca917",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 421,
+        "completion_tokens": 54,
+        "total_tokens": 475,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 293
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1108.565
+    },
+    {
+      "index": 34,
+      "label": "revision/SK-104/title/max2",
+      "status": 200,
+      "response_id": "fda4221c-499c-4825-a5bc-1a4c8068219d",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 416,
+        "completion_tokens": 54,
+        "total_tokens": 470,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 288
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 759.949
+    },
+    {
+      "index": 35,
+      "label": "revision/SK-104/sku/max2",
+      "status": 200,
+      "response_id": "510296b8-048f-436f-a7ba-5c803fc5dad7",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 419,
+        "completion_tokens": 54,
+        "total_tokens": 473,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 291
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 916.971
+    },
+    {
+      "index": 36,
+      "label": "revision/SK-104/version/max2",
+      "status": 200,
+      "response_id": "b3109daa-5c2e-44d1-a77c-e983d85cd89d",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 415,
+        "completion_tokens": 54,
+        "total_tokens": 469,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 287
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 745.698
+    },
+    {
+      "index": 37,
+      "label": "revision/SK-105/claim/max2",
+      "status": 200,
+      "response_id": "950a6e87-b40c-4aba-8f77-69ffc98f8b4f",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 436,
+        "completion_tokens": 56,
+        "total_tokens": 492,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 436
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 1286.83
+    },
+    {
+      "index": 38,
+      "label": "revision/SK-105/price/max2",
+      "status": 200,
+      "response_id": "7fa72bda-5178-4cbb-a52b-bb2362dada4c",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 421,
+        "completion_tokens": 56,
+        "total_tokens": 477,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 293
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 783.824
+    },
+    {
+      "index": 39,
+      "label": "revision/SK-105/stock/max2",
+      "status": 200,
+      "response_id": "7a61118e-be52-44d6-abf2-095a3346d2bc",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 56,
+        "total_tokens": 476,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 292
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 988.728
+    },
+    {
+      "index": 40,
+      "label": "revision/SK-105/source/max2",
+      "status": 200,
+      "response_id": "36ef5b6c-49e7-483a-8a34-8994df36f30a",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 424,
+        "completion_tokens": 56,
+        "total_tokens": 480,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 296
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 998.174
+    },
+    {
+      "index": 41,
+      "label": "revision/SK-105/empty/max2",
+      "status": 200,
+      "response_id": "cd244fa6-667d-44d0-b30b-561126f23122",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 418,
+        "completion_tokens": 56,
+        "total_tokens": 474,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 290
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 923.485
+    },
+    {
+      "index": 42,
+      "label": "revision/SK-105/duplicate/max2",
+      "status": 200,
+      "response_id": "54d3c8a5-04a2-4dac-aad4-c1de24deb68f",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 56,
+        "total_tokens": 476,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 292
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 915.454
+    },
+    {
+      "index": 43,
+      "label": "revision/SK-105/title/max2",
+      "status": 200,
+      "response_id": "6725b1d6-6ee9-41b7-8ac6-74d26d2b161b",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 420,
+        "completion_tokens": 56,
+        "total_tokens": 476,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 292
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 999.225
+    },
+    {
+      "index": 44,
+      "label": "revision/SK-105/sku/max2",
+      "status": 200,
+      "response_id": "31e3f346-c49f-48aa-b394-c81e6c5227db",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 426,
+        "completion_tokens": 56,
+        "total_tokens": 482,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 298
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 878.515
+    },
+    {
+      "index": 45,
+      "label": "revision/SK-105/version/max2",
+      "status": 200,
+      "response_id": "b3e303c2-ba54-473b-b51f-468966634bfd",
+      "model": "deepseek-flash",
+      "usage": {
+        "prompt_tokens": 422,
+        "completion_tokens": 56,
+        "total_tokens": 478,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 294
+      },
+      "finish_reason": "stop",
+      "elapsed_ms": 845.848
+    }
+  ],
+  "usage_summary": {
+    "requests": 45,
+    "responses_with_usage": 45,
+    "requests_without_usage": 0,
+    "reported_prompt_tokens": 18960,
+    "reported_completion_tokens": 2475,
+    "reported_total_tokens": 21435,
+    "reported_cache_hit_tokens": 5120,
+    "actual_currency_cost": null,
+    "note": "Usage returned by provider, not a billing invoice; preflight call excluded."
+  },
+  "finished_at_utc": "2026-10-21T03:47:58.086855+00:00"
+}

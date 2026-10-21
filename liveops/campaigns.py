@@ -92,9 +92,11 @@ class CampaignHarness:
     """SQLite checkpoints + leases fence concurrent runners, not business transactions."""
 
     def __init__(self, store: Store, *, workers: int = 3, max_attempts: int = 2,
-                 max_steps: int = 24, deadline_seconds: float = 30):
-        if not 1 <= workers <= 5 or not 1 <= max_attempts <= 3 or not 1 <= max_steps <= 100 or not 0 < deadline_seconds <= 30:
+                 max_steps: int = 24, deadline_seconds: float = 30, max_revisions: int = 2):
+        if (not 1 <= workers <= 5 or not 1 <= max_attempts <= 3 or not 1 <= max_steps <= 100
+                or not 0 < deadline_seconds <= 30 or not 0 <= max_revisions <= 2):
             raise ValueError("invalid harness limits")
+        self.max_revisions = max_revisions
         self.store = store
         self.model_budget = ModelBudget(store)
         self.workers = workers
@@ -442,6 +444,9 @@ class CampaignHarness:
             "products": public, "dependencies": dependencies,
             "preference": {"value": snapshot["preferences"].get("style", "")[:120], "source": "explicit_user_preference"},
         }
+        feedback = state["tasks"][task.task_id].get("revision_feedback")
+        if task.role == "copywriter" and feedback:
+            result["revision_feedback"] = feedback
         if task.role in {"merchandiser", "director"}:
             from .memory import memory_view
             memory = memory_view(self.store, state["live_id"], "pre_live")
@@ -482,17 +487,24 @@ class CampaignHarness:
             draft = BriefDraft.model_validate(next(iter(context["dependencies"].values())))
             product = context["products"][0]
             allowed = product["features"].split("；")
-            supported = (bool(draft.claims) and len(set(draft.claims)) == len(draft.claims)
-                         and draft.sku == product["sku"] and draft.title == product["title"]
-                         and draft.price_cents == product["price_cents"] and draft.stock == product["stock"]
-                         and draft.product_version == product["version"]
-                         and draft.source == f"product:{product['sku']}@{product['version']}"
-                         and all(c in allowed for c in draft.claims))
-            red_flags = [c for c in draft.claims if any(word in c for word in ("根治", "包治", "保证治愈", "全网最低"))]
-            return {"sku": draft.sku, "approved": supported and not red_flags,
-                    "reason": "field_grounded" if supported and not red_flags else "unsupported_or_prohibited_claim",
-                    "evidence_source": draft.source,
-                    "brief": draft.model_dump() if supported and not red_flags else None}
+            # Issue codes name what to fix; they are feedback for a revision, never a relaxed acceptance rule.
+            issues = [f"{field}_mismatch" for field, ok in (
+                ("sku", draft.sku == product["sku"]), ("title", draft.title == product["title"]),
+                ("price", draft.price_cents == product["price_cents"]), ("stock", draft.stock == product["stock"]),
+                ("version", draft.product_version == product["version"]),
+                ("source", draft.source == f"product:{product['sku']}@{product['version']}")) if not ok]
+            if not draft.claims:
+                issues.append("empty_claims")
+            if len(set(draft.claims)) != len(draft.claims):
+                issues.append("duplicate_claims")
+            issues += [f"unsupported_claim:{c[:40]}" for c in dict.fromkeys(draft.claims) if c not in allowed]
+            issues += [f"prohibited_claim:{c[:40]}" for c in dict.fromkeys(draft.claims)
+                       if any(word in c for word in ("根治", "包治", "保证治愈", "全网最低"))]
+            approved = not issues
+            return {"sku": draft.sku, "approved": approved,
+                    "reason": "field_grounded" if approved else "unsupported_or_prohibited_claim",
+                    "evidence_source": draft.source, "issues": issues[:20],
+                    "brief": draft.model_dump() if approved else None}
         reviews = list(context["dependencies"].values())
         return {"status": "ready" if all(r.get("approved") is True for r in reviews) else "needs_revision",
                 "approved_briefs": [r["brief"] for r in reviews if r.get("approved") is True],
@@ -538,6 +550,30 @@ class CampaignHarness:
             raise
         return {"body": body, "context_chars": len(self._json(context)), "elapsed_ms": round((time.monotonic()-start)*1000, 2),
                 "checks": checks, "skill": skill, **usage}
+
+    def _request_revision(self, state: dict[str, Any], spec: PlanSpec, review: TaskSpec,
+                          body: dict[str, Any], artifact_id: str) -> str:
+        """Send a rejected draft back to its writer with the reviewer's issue codes, a bounded number of times.
+
+        The review is re-run on the new draft with the same checks; a draft that still fails after the last
+        round reaches the summary as rejected and the run ends in review_required."""
+        brief_id = review.dependencies[0]
+        brief = state["tasks"][brief_id]
+        rounds = brief.get("revisions", 0)
+        if rounds >= self.max_revisions or state["steps"] + 2 > self.max_steps:
+            state["trace"][-1]["revision_decision"] = "limit_reached_manual_review"
+            return "state"
+        rejected = brief["artifact_id"]
+        for task_id in (brief_id, review.task_id):
+            item = state["tasks"][task_id]
+            # attempts counts failures within one round; revisions counts rounds, so neither budget hides the other.
+            item.update(status="pending", attempts=0, revisions=rounds + 1)
+            for key in ("artifact_id", "preview"):
+                item.pop(key, None)
+        brief["revision_feedback"] = {"round": rounds + 1, "issues": body["issues"],
+                                      "rejected_draft": rejected, "review": artifact_id}
+        state["trace"][-1]["revision_decision"] = f"revise_round_{rounds + 1}"
+        return "revision_requested"
 
     def post_tool_call(self, task: TaskSpec, body: Any) -> dict[str, Any]:
         if not isinstance(body, dict) or len(self._json(body)) > 32000:
@@ -592,8 +628,10 @@ class CampaignHarness:
                     for future in as_completed(futures):
                         task = futures[future]
                         item = state["tasks"][task.task_id]
-                        trace = {"trace_id": f"{run_id}/r{state['revision']}/{task.task_id}/{item['attempts']}", "revision": state["revision"],
-                                 "task_id": task.task_id, "role": task.role, "attempt": item["attempts"]}
+                        round_ = item.get("revisions", 0)
+                        trace = {"trace_id": f"{run_id}/r{state['revision']}/{task.task_id}/{item['attempts']}" + (f"/v{round_}" if round_ else ""),
+                                 "revision": state["revision"], "task_id": task.task_id, "role": task.role,
+                                 "attempt": item["attempts"], "revision_round": round_}
                         try:
                             result = future.result()
                         except Exception as exc:
@@ -614,7 +652,10 @@ class CampaignHarness:
                                         preview=self._json(body)[:180], **result)
                             trace.update(status="succeeded", artifact_id=artifact_id, **result)
                             state["trace"].append(trace)
-                            self._save(state, owner, [(artifact_id, body)])
+                            event = "state"
+                            if task.role == "compliance" and not body["approved"]:
+                                event = self._request_revision(state, spec, task, body, artifact_id)
+                            self._save(state, owner, [(artifact_id, body)], event=event)
                 waves += 1
                 if max_waves is not None and waves >= max_waves:
                     break

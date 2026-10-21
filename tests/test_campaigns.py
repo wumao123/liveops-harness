@@ -376,3 +376,77 @@ def test_opening_preference_is_not_compared_with_unscoped_later_switches(tmp_pat
         assert memory["conflicts"] == []
         assert memory["unassessed"][0]["reason"] == "opening_event_scope_unavailable"
         assert memory["L1_statement"]["value"] == "开场先讲 SK-101"
+
+
+def _corrupt_first_drafts(harness, monkeypatch, rounds_bad: int):
+    original = harness._perform
+    seen: dict[str, int] = {}
+
+    def propose(task, context):
+        body = original(task, context)
+        if task.role == "copywriter":
+            n = seen[task.task_id] = seen.get(task.task_id, 0) + 1
+            if n <= rounds_bad:
+                body["claims"] = body["claims"] + ["保证治愈皮肤疾病"]
+                body["price_cents"] += 1
+        return body
+
+    monkeypatch.setattr(harness, "_perform", propose)
+    return seen
+
+
+def test_rejected_draft_goes_back_to_the_writer_with_issue_codes(harness, monkeypatch):
+    seen = _corrupt_first_drafts(harness, monkeypatch, rounds_bad=1)
+    captured = []
+    original_context = harness.context
+    monkeypatch.setattr(harness, "context", lambda state, task: captured.append(c := original_context(state, task)) or c)
+    plan = harness.create(LIVE, "生成手卡", top_k=1)
+    done = harness.run(LIVE, plan["run_id"])
+    assert done["status"] == "succeeded"
+    assert seen == {"brief_0": 2}
+    assert done["steps"] == 6
+    assert done["tasks"]["brief_0"]["revisions"] == 1
+    feedback = done["tasks"]["brief_0"]["revision_feedback"]
+    assert "price_mismatch" in feedback["issues"]
+    assert any(i.startswith("prohibited_claim:") for i in feedback["issues"])
+    # Only the writer's second attempt sees the feedback; the reviewer re-checks with no hint.
+    writer_contexts = [c for c in captured if c["role"] == "copywriter"]
+    assert "revision_feedback" not in writer_contexts[0] and writer_contexts[1]["revision_feedback"] == feedback
+    assert all("revision_feedback" not in c for c in captured if c["role"] != "copywriter")
+    # The rejected draft and its review stay auditable.
+    assert harness.artifact(LIVE, plan["run_id"], feedback["rejected_draft"])["price_cents"] != done["tasks"]["review_0"]
+    assert harness.artifact(LIVE, plan["run_id"], feedback["review"])["approved"] is False
+    decisions = [t.get("revision_decision") for t in done["trace"] if t["role"] == "compliance"]
+    assert decisions == ["revise_round_1", None]
+    kinds = [e["kind"] for e in harness.events(LIVE, plan["run_id"], 0)[0]]
+    assert kinds.count("revision_requested") == 1
+
+
+def test_revision_rounds_are_bounded_then_manual_review(harness, monkeypatch):
+    seen = _corrupt_first_drafts(harness, monkeypatch, rounds_bad=99)
+    plan = harness.create(LIVE, "生成手卡", top_k=2)
+    done = harness.run(LIVE, plan["run_id"])
+    assert done["status"] == "review_required"
+    assert seen == {"brief_0": 3, "brief_1": 3}
+    output = harness.artifact(LIVE, plan["run_id"], done["output_artifact"])
+    assert output["approved_briefs"] == [] and len(output["rejected_skus"]) == 2
+    assert [t.get("revision_decision") for t in done["trace"] if t["task_id"] == "review_0"] == [
+        "revise_round_1", "revise_round_2", "limit_reached_manual_review"]
+    assert done["steps"] == 1 + 2 * 2 * 3 + 1
+
+
+def test_revision_respects_the_step_budget(tmp_path, monkeypatch):
+    harness = CampaignHarness(Store(str(tmp_path / "b.db")), max_steps=4)
+    seen = _corrupt_first_drafts(harness, monkeypatch, rounds_bad=99)
+    plan = harness.create(LIVE, "生成手卡", top_k=1)
+    done = harness.run(LIVE, plan["run_id"])
+    # selection, brief, review = 3 steps; a revision would need 2 more, so it goes to the summary instead.
+    assert seen == {"brief_0": 1}
+    assert done["status"] == "review_required" and done["steps"] == 4
+
+
+def test_revisions_can_be_disabled(tmp_path, monkeypatch):
+    harness = CampaignHarness(Store(str(tmp_path / "b.db")), max_revisions=0)
+    seen = _corrupt_first_drafts(harness, monkeypatch, rounds_bad=1)
+    done = harness.run(LIVE, harness.create(LIVE, "生成手卡", top_k=1)["run_id"])
+    assert seen == {"brief_0": 1} and done["status"] == "review_required"

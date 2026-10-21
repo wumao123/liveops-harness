@@ -120,6 +120,8 @@ class SkillContext(BaseModel):
     dependencies: dict[str, Any]
     preference: dict[str, Any]
     memory: dict[str, Any] | None = None
+    # Copywriter only: the reviewer's issue codes for the previous draft of this task.
+    revision_feedback: dict[str, Any] | None = None
 
 
 class SelectionOut(BaseModel):
@@ -149,6 +151,7 @@ class ReviewOut(BaseModel):
     reason: str
     evidence_source: str | None = None
     brief: dict[str, Any] | None
+    issues: list[str] = Field(default_factory=list, max_length=20)
 
 
 class SummaryOut(BaseModel):
