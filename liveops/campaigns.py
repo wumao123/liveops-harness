@@ -83,6 +83,9 @@ class SkillSpec(BaseModel):
 # Derived from the contract catalog so permissions and schemas have one source.
 SKILLS = {name: SkillSpec(name=name, role=c.roles[0], version=c.version) for name, c in SKILL_CONTRACTS.items()}
 ROLE_SKILL = {spec.role: name for name, spec in SKILLS.items()}
+# A run in one of these states never advances again; "blocked" stays retryable by an explicit advance.
+FINISHED = {"succeeded", "review_required", "cancelled"}
+JOB_STATES = ("idle", "queued", "cancel_requested")
 
 
 class CampaignHarness:
@@ -117,11 +120,39 @@ class CampaignHarness:
                     body TEXT NOT NULL,
                     PRIMARY KEY (run_id, artifact_id)
                 );
+                -- Written in the same transaction as the state it describes, so a replay never shows a state that was not saved.
+                CREATE TABLE IF NOT EXISTS campaign_events (
+                    seq INTEGER PRIMARY KEY AUTOINCREMENT,
+                    run_id TEXT NOT NULL,
+                    kind TEXT NOT NULL,
+                    body TEXT NOT NULL,
+                    at REAL NOT NULL
+                );
+                CREATE INDEX IF NOT EXISTS campaign_events_run ON campaign_events (run_id, seq);
             """)
+            columns = {row["name"] for row in db.execute("PRAGMA table_info(campaign_runs)")}
+            # Databases created before background jobs existed get the columns added in place.
+            for name, ddl in (("job_state", "TEXT NOT NULL DEFAULT 'idle'"), ("job_updated", "REAL NOT NULL DEFAULT 0"),
+                              ("job_error", "TEXT")):
+                if name not in columns:
+                    db.execute(f"ALTER TABLE campaign_runs ADD COLUMN {name} {ddl}")
+            db.execute("CREATE INDEX IF NOT EXISTS campaign_runs_job ON campaign_runs (job_state, job_updated)")
+            db.commit()
 
     @staticmethod
     def _json(value: Any) -> str:
         return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+    @staticmethod
+    def _summary(state: dict[str, Any]) -> dict[str, Any]:
+        # Events carry progress only; artifacts and the trace stay behind their own endpoints.
+        return {"status": state["status"], "revision": state["revision"], "steps": state["steps"],
+                "tasks": {name: item["status"] for name, item in state["tasks"].items()},
+                "budget_stop": state.get("budget_stop"), "output_artifact": state.get("output_artifact")}
+
+    def _event(self, db, run_id: str, kind: str, body: dict[str, Any]) -> None:
+        db.execute("INSERT INTO campaign_events (run_id,kind,body,at) VALUES (?,?,?,?)",
+                   (run_id, kind, self._json(body), time.time()))
 
     def create(self, live_id: str, instruction: str, *, run_id: str | None = None,
                skus: list[str] | None = None, top_k: int = 3, model_limits: dict | None = None) -> dict[str, Any]:
@@ -177,6 +208,7 @@ class CampaignHarness:
                 return json.loads(row["state"])
             db.execute("INSERT INTO campaign_runs (run_id,live_id,request_hash,state) VALUES (?,?,?,?)",
                        (run_id, live_id, request_hash, self._json(state)))
+            self._event(db, run_id, "created", self._summary(state))
             db.commit()
         return state
 
@@ -185,6 +217,8 @@ class CampaignHarness:
         owner = str(uuid.uuid4())
         state = self._claim(live_id, run_id, owner)
         try:
+            if state["status"] == "cancelled":
+                raise BusinessError("PLAN_CANCELLED", "计划已取消，请创建新计划")
             if state["revision"] != expected_revision:
                 raise BusinessError("PLAN_REVISION_CONFLICT", "计划版本已变化，请刷新后重规划")
             if state.get("replan_count", 0) >= 2:
@@ -253,17 +287,130 @@ class CampaignHarness:
             db.commit()
         return json.loads(row["state"])
 
-    def _save(self, state: dict[str, Any], owner: str, artifacts: list[tuple[str, dict]] | None = None) -> None:
+    def _save(self, state: dict[str, Any], owner: str, artifacts: list[tuple[str, dict]] | None = None,
+              *, event: str = "state", job_state: str | None = None) -> None:
         with self.store.connection() as db:
             db.execute("BEGIN IMMEDIATE")
-            changed = db.execute("UPDATE campaign_runs SET state=? WHERE run_id=? AND lease_owner=? AND lease_until>?",
-                                 (self._json(state), state["run_id"], owner, time.time())).rowcount
+            # The lease check fences a runner whose lease expired while it was paused or partitioned.
+            changed = db.execute("UPDATE campaign_runs SET state=?,job_state=COALESCE(?,job_state),"
+                                 "job_updated=CASE WHEN ? IS NULL THEN job_updated ELSE ? END "
+                                 "WHERE run_id=? AND lease_owner=? AND lease_until>?",
+                                 (self._json(state), job_state, job_state, time.time(), state["run_id"], owner, time.time())).rowcount
             if changed != 1:
                 raise BusinessError("PLAN_LEASE_LOST", "计划执行租约失效，请读取已保存状态")
             for artifact_id, body in artifacts or []:
                 db.execute("INSERT OR REPLACE INTO campaign_artifacts VALUES (?,?,?)",
                            (state["run_id"], artifact_id, self._json(body)))
+            self._event(db, state["run_id"], event, self._summary(state))
             db.commit()
+
+    def _cancel_requested(self, run_id: str) -> bool:
+        with self.store.connection() as db:
+            row = db.execute("SELECT job_state FROM campaign_runs WHERE run_id=?", (run_id,)).fetchone()
+        return row is not None and row["job_state"] == "cancel_requested"
+
+    def _finish_cancel(self, state: dict[str, Any], owner: str) -> dict[str, Any]:
+        """Called only between waves, so no task of this runner is mid-flight."""
+        if state["status"] in FINISHED:
+            self._save(state, owner, event="cancel_ignored", job_state="idle")
+            return state
+        for item in state["tasks"].values():
+            if item["status"] == "running":
+                # Left by a dead runner; workers are read-only, so an unfinished attempt has no side effect to undo.
+                item["status"] = "pending"
+        state["status"] = "cancelled"
+        state["cancel"] = {"stopped_at": time.time(), "boundary": "between_waves",
+                           "not_started": sorted(n for n, i in state["tasks"].items() if i["status"] == "pending"),
+                           "side_effects": "none_workers_are_read_only"}
+        self._save(state, owner, event="cancelled", job_state="idle")
+        return state
+
+    def start(self, live_id: str, run_id: str) -> dict[str, Any]:
+        """Queue a run for the background worker. Repeating the call queues it once."""
+        with self.store.connection() as db:
+            db.execute("BEGIN IMMEDIATE")
+            row = db.execute("SELECT state,job_state FROM campaign_runs WHERE live_id=? AND run_id=?",
+                             (live_id, run_id)).fetchone()
+            if row is None:
+                raise BusinessError("PLAN_NOT_FOUND", "该直播间下没有此计划")
+            state = json.loads(row["state"])
+            if state["status"] == "cancelled":
+                raise BusinessError("PLAN_CANCELLED", "计划已取消，请创建新计划")
+            job_state = row["job_state"]
+            if job_state == "idle" and state["status"] not in FINISHED:
+                db.execute("UPDATE campaign_runs SET job_state='queued',job_updated=?,job_error=NULL WHERE run_id=?",
+                           (time.time(), run_id))
+                self._event(db, run_id, "job_queued", {"status": state["status"]})
+                job_state = "queued"
+            db.commit()
+        return {"run_id": run_id, "status": state["status"], "job_state": job_state,
+                "events": f"/api/campaigns/{live_id}/{run_id}/events"}
+
+    def cancel(self, live_id: str, run_id: str) -> dict[str, Any]:
+        """Record the request durably first; stop now if no runner holds the lease, otherwise at its next wave boundary."""
+        with self.store.connection() as db:
+            db.execute("BEGIN IMMEDIATE")
+            row = db.execute("SELECT state,job_state FROM campaign_runs WHERE live_id=? AND run_id=?",
+                             (live_id, run_id)).fetchone()
+            if row is None:
+                raise BusinessError("PLAN_NOT_FOUND", "该直播间下没有此计划")
+            state = json.loads(row["state"])
+            if state["status"] in FINISHED:
+                db.rollback()
+                return {"cancel": "stopped" if state["status"] == "cancelled" else "already_finished", **self._summary(state)}
+            if row["job_state"] != "cancel_requested":
+                db.execute("UPDATE campaign_runs SET job_state='cancel_requested',job_updated=? WHERE run_id=?",
+                           (time.time(), run_id))
+                self._event(db, run_id, "cancel_requested", {"status": state["status"]})
+            db.commit()
+        try:
+            state = self.run(live_id, run_id, max_waves=1)
+        except BusinessError as exc:
+            if exc.code != "PLAN_BUSY":
+                raise
+            # The runner holding the lease sees the flag before its next wave.
+            return {"cancel": "requested", **self._summary(self.get(live_id, run_id))}
+        return {"cancel": "stopped" if state["status"] == "cancelled" else "already_finished", **self._summary(state)}
+
+    def job(self, run_id: str) -> dict[str, Any]:
+        with self.store.connection() as db:
+            row = db.execute("SELECT job_state,job_error,lease_owner,lease_until FROM campaign_runs WHERE run_id=?",
+                             (run_id,)).fetchone()
+        return {"state": row["job_state"], "error": row["job_error"],
+                "runner_active": bool(row["lease_owner"]) and row["lease_until"] > time.time()}
+
+    def finish_job(self, run_id: str, error: str | None = None) -> None:
+        """Worker hand-off back to idle; a cancel recorded meanwhile is left for the next pass."""
+        with self.store.connection() as db:
+            db.execute("BEGIN IMMEDIATE")
+            changed = db.execute("UPDATE campaign_runs SET job_state='idle',job_updated=?,job_error=? "
+                                 "WHERE run_id=? AND job_state='queued'", (time.time(), error, run_id)).rowcount
+            if changed:
+                self._event(db, run_id, "job_finished", {"error": error})
+            db.commit()
+
+    def next_job(self) -> tuple[str, str] | None:
+        """A hint only: the lease taken inside run() is what makes one runner win."""
+        with self.store.connection() as db:
+            row = db.execute("SELECT live_id,run_id FROM campaign_runs WHERE job_state IN ('queued','cancel_requested') "
+                             "AND (lease_owner IS NULL OR lease_until<=?) ORDER BY job_updated LIMIT 1",
+                             (time.time(),)).fetchone()
+        return (row["live_id"], row["run_id"]) if row else None
+
+    def events(self, live_id: str, run_id: str, after: int, limit: int = 200) -> tuple[list[dict[str, Any]], bool]:
+        """Events after a sequence number plus whether more can still arrive, read from one snapshot."""
+        with self.store.connection() as db:
+            db.execute("BEGIN")
+            run = db.execute("SELECT job_state,lease_owner,lease_until FROM campaign_runs WHERE live_id=? AND run_id=?",
+                             (live_id, run_id)).fetchone()
+            if run is None:
+                db.rollback()
+                raise BusinessError("PLAN_NOT_FOUND", "该直播间下没有此计划")
+            rows = db.execute("SELECT seq,kind,body FROM campaign_events WHERE run_id=? AND seq>? ORDER BY seq LIMIT ?",
+                              (run_id, after, limit)).fetchall()
+            db.rollback()
+        active = run["job_state"] != "idle" or (bool(run["lease_owner"]) and run["lease_until"] > time.time())
+        return [{"seq": r["seq"], "kind": r["kind"], "body": json.loads(r["body"])} for r in rows], active or len(rows) == limit
 
     def artifact(self, live_id: str, run_id: str, artifact_id: str) -> dict[str, Any]:
         self.get(live_id, run_id)
@@ -405,7 +552,9 @@ class CampaignHarness:
         state = self._claim(live_id, run_id, owner)
         started = time.monotonic()
         try:
-            if state["status"] in {"succeeded", "review_required"}:
+            if self._cancel_requested(run_id):
+                return self._finish_cancel(state, owner)
+            if state["status"] in FINISHED:
                 return state
             if retry_failed:
                 for item in state["tasks"].values():
@@ -430,6 +579,8 @@ class CampaignHarness:
                 if remaining <= 0 or time.monotonic()-started >= self.deadline_seconds:
                     state["budget_stop"] = "step_limit" if remaining <= 0 else "deadline"
                     break
+                if waves and self._cancel_requested(run_id):
+                    return self._finish_cancel(state, owner)
                 wave = ready[:min(self.workers, remaining)]
                 for task in wave:
                     state["tasks"][task.task_id].update(status="running", attempts=state["tasks"][task.task_id]["attempts"]+1)

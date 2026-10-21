@@ -129,6 +129,9 @@ LIVEOPS_COUPON_BACKEND=simulated_remote .venv/bin/python -m uvicorn liveops.api:
 
 - `POST /api/campaigns`：准备目标与最多 5 个 SKU，创建有界计划；支持固定 `run_id` 重放。
 - `POST /api/campaigns/{live_id}/{run_id}/advance`：推进计划，支持 `max_waves` 暂停和 `retry_failed` 有界恢复。
+- `POST /api/campaigns/{live_id}/{run_id}/start`：返回 202，交给进程内后台 worker 推进；关掉页面不影响执行，重复调用只排队一次。`LIVEOPS_CAMPAIGN_WORKER=0` 可关闭 worker。
+- `GET /api/campaigns/{live_id}/{run_id}/events`：SSE 进度流，每个事件带递增 `id`；断线重连用 `Last-Event-ID` 或 `?after=` 只补发之后的事件，计划停止推进后发 `end`。
+- `POST /api/campaigns/{live_id}/{run_id}/cancel`：先持久记录取消请求；空闲计划立即停止，正在执行的计划在下一个阶段边界停止。已完成计划不受影响。
 - `GET /api/campaigns/{live_id}/{run_id}`：读取计划、逐任务状态和 Trace。
 - `GET /api/campaigns/{live_id}/{run_id}/metrics`：汇总已提交 Trace 的模型调用、失败消耗、已知 token 与用量缺失；不提供真实货币账单，也不是崩溃安全的请求前预算账本。
 - `GET /api/campaigns/{live_id}/{run_id}/artifacts/{artifact_id}`：回查完整材料。

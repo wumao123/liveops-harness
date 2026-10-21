@@ -30,6 +30,16 @@ LiveOps Harness 是一个直播运营 Agent 沙箱：模型负责把主播指令
 审批本身不代表业务已成功。只有事务提交后的 `action_committed` 才算执行成功。
 审批默认 300 秒失效；失效后需新 `command_id` 重新确认。业务快照在同一个 SQLite 读事务中生成，只读响应在执行前刷新快照。
 
+## 后台任务、进度流与取消
+
+准备计划（campaign）的生命周期和 HTTP 连接分开：`start` 只把 `campaign_runs.job_state` 改为 `queued` 并返回 202；进程内 `CampaignWorker` 轮询队列，调用已有的 `run()` 推进。抢任务靠 `run()` 内部的租约（`BEGIN IMMEDIATE` + `lease_until`），队列查询只是提示，所以多个进程同时轮询同一个库也只有一个能推进；`_save` 带租约条件，租约过期的旧执行者写不进去。进程被杀后，租约 60 秒过期，下次启动的 worker 接手，`running` 的只读任务按原 task_id 重放。
+
+进度事件写入 `campaign_events`，和对应的状态保存在同一个事务里，所以客户端看到的事件一定对应一个已保存的状态。SSE 用自增 `seq` 作为事件 `id`，重连按 `Last-Event-ID` 补发；事件只带进度摘要，材料正文仍从 artifact 接口读取。
+
+取消先写 `cancel_requested`，再由持有租约的执行者在阶段边界检查。区分三种结果：`requested`（已记录，执行中）、`stopped`（已停止，列出未开始的任务）、`already_finished`。子智能体只读，所以取消没有需要补偿的外部副作用；以后接写操作的步骤，要像发券一样记录实际结果再决定补偿。
+
+边界：worker 在 API 进程内，单机 SQLite；一个阶段内正在执行的任务不会被打断，取消最长等待一个阶段（受 30 秒 deadline 约束）。没有做跨机器部署和压测。
+
 ## 风险策略
 
 | 操作 | 风险等级 | 结果 |
@@ -57,7 +67,7 @@ LiveOps Harness 是一个直播运营 Agent 沙箱：模型负责把主播指令
 
 - `Store` 是本地商品、直播间、库存、价格和优惠券的适配器。接 Medusa 或有授权的电商 API 时替换这一层。
 - `LiveAgent._llm_action` 使用兼容 Chat Completions 的模型，也可换为专用意图模型。
-- 当前前端用浏览器 Fetch 发起请求、刷新操作状态；需要实时推送或主播语音时再接 SSE/WebSocket 与 LiveKit。
+- 准备计划的进度已有 SSE 接口；现有前端仍用 Fetch 轮询，尚未切换。主播语音等双向场景再考虑 WebSocket 与 LiveKit。
 - 审计事件可接 Langfuse 或 OpenTelemetry；安全策略增加到几十条以后可迁入 OPA。
 - Redis 只有在多实例限流、任务队列或热点状态确有测量需求时才加入；商品价格和券发放结果仍以业务数据库为准。
 

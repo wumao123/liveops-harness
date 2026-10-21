@@ -2,13 +2,17 @@
 
 from __future__ import annotations
 
+import asyncio
+import json
 import os
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
 
-from fastapi import FastAPI
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, Header, Query
+from fastapi.concurrency import run_in_threadpool
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
 from .agent import LiveAgent
@@ -19,6 +23,7 @@ from .store import BusinessError, Store
 from .remote import RemoteOperations, SimulatedPlatform
 from .tooling import business_error as describe_business_error
 from .workspace import Workspace
+from .worker import CampaignWorker
 from .feedback import Feedback
 
 
@@ -84,7 +89,8 @@ class RemoteFaultIn(BaseModel):
 
 
 def create_app(db_path: str | None = None, checkpoint_path: str | None = None,
-               coupon_backend: str | None = None, remote_path: str | None = None) -> FastAPI:
+               coupon_backend: str | None = None, remote_path: str | None = None,
+               background_worker: bool | None = None) -> FastAPI:
     store = Store(db_path or os.getenv("LIVEOPS_DB_PATH", "data/liveops.db"))
     backend = coupon_backend or os.getenv("LIVEOPS_COUPON_BACKEND", "local")
     if backend not in {"local", "simulated_remote"}:
@@ -97,12 +103,19 @@ def create_app(db_path: str | None = None, checkpoint_path: str | None = None,
     feedback = Feedback(store)
     campaigns = CampaignHarness(store)
     agent = LiveAgent(store, checkpoint_path or os.getenv("LIVEOPS_CHECKPOINT_PATH", "data/checkpoints.db"), remote_operations, campaigns, workspace)
+    if background_worker is None:
+        background_worker = os.getenv("LIVEOPS_CAMPAIGN_WORKER", "1") != "0"
+    worker = CampaignWorker(campaigns)
 
     @asynccontextmanager
     async def lifespan(_app: FastAPI):
+        if background_worker:
+            # Jobs left queued by a previous process are picked up here once their lease has expired.
+            worker.start()
         try:
             yield
         finally:
+            worker.stop()
             agent.close()
 
     app = FastAPI(title="LiveOps Harness", version="0.1.0", lifespan=lifespan)
@@ -111,10 +124,10 @@ def create_app(db_path: str | None = None, checkpoint_path: str | None = None,
     app.state.remote_operations = remote_operations
     app.state.campaigns = campaigns
     app.state.workspace = workspace
+    app.state.worker = worker
 
     @app.exception_handler(BusinessError)
     async def business_error(_, exc: BusinessError):
-        from fastapi.responses import JSONResponse
         return JSONResponse(status_code=409, content={
             "code": exc.code,
             "detail": exc.message,
@@ -210,7 +223,6 @@ def create_app(db_path: str | None = None, checkpoint_path: str | None = None,
         store.live(live_id)
         with store.connection() as db:
             rows = db.execute("SELECT state FROM campaign_runs WHERE live_id=? ORDER BY rowid DESC LIMIT 20", (live_id,)).fetchall()
-        import json
         return [{k: value for k, value in json.loads(row["state"]).items()
                  if k in {"run_id", "status", "instruction", "selected_skus", "created_at"}} for row in rows]
 
@@ -222,7 +234,47 @@ def create_app(db_path: str | None = None, checkpoint_path: str | None = None,
     @app.get("/api/campaigns/{live_id}/{run_id}")
     def get_campaign(live_id: str, run_id: str):
         result = campaigns.get(live_id, run_id)
-        return {**result, "freshness": campaigns.freshness(result)}
+        return {**result, "freshness": campaigns.freshness(result), "job": campaigns.job(run_id)}
+
+    @app.post("/api/campaigns/{live_id}/{run_id}/start", status_code=202)
+    def start_campaign(live_id: str, run_id: str):
+        # Returns at once; progress comes from /events or GET, and closing the client does not stop the run.
+        return campaigns.start(live_id, run_id)
+
+    @app.post("/api/campaigns/{live_id}/{run_id}/cancel")
+    def cancel_campaign(live_id: str, run_id: str):
+        return campaigns.cancel(live_id, run_id)
+
+    @app.get("/api/campaigns/{live_id}/{run_id}/events")
+    async def campaign_events(live_id: str, run_id: str, after: int | None = Query(default=None, ge=0),
+                              last_event_id: str | None = Header(default=None)):
+        # EventSource resends the last seen id as Last-Event-ID on reconnect; ?after= serves fetch-based clients.
+        cursor = after if after is not None else int(last_event_id) if (last_event_id or "").isdigit() else 0
+        await run_in_threadpool(campaigns.get, live_id, run_id)  # 409 PLAN_NOT_FOUND before the stream opens
+
+        async def stream():
+            position, idle_since, opened = cursor, time.monotonic(), time.monotonic()
+            yield "retry: 2000\n\n"
+            while True:
+                rows, active = await run_in_threadpool(campaigns.events, live_id, run_id, position)
+                for row in rows:
+                    position = row["seq"]
+                    yield f"id: {row['seq']}\nevent: {row['kind']}\ndata: {json.dumps(row['body'], ensure_ascii=False)}\n\n"
+                if rows:
+                    idle_since = time.monotonic()
+                elif not active:
+                    yield "event: end\ndata: {}\n\n"
+                    return
+                elif time.monotonic() - idle_since > 15:
+                    yield ": keep-alive\n\n"
+                    idle_since = time.monotonic()
+                if time.monotonic() - opened > 300:
+                    # Bounded connection; the client reconnects with Last-Event-ID and loses nothing.
+                    return
+                await asyncio.sleep(0.25)
+
+        return StreamingResponse(stream(), media_type="text/event-stream",
+                                 headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
     @app.get("/api/campaigns/{live_id}/{run_id}/metrics")
     def get_campaign_metrics(live_id: str, run_id: str):
