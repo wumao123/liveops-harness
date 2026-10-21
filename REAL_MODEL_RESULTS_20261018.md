@@ -19,7 +19,7 @@
 
 ## 1 意图理解怎么测
 
-数据：[24条标注用例](/Users/wumao/Downloads/项目报告汇总/liveops-harness/data/intent_eval_20261018.json)。16条普通指令、8条否定/条件/缺参数/口语等挑战指令。它是人工编写的开发回归集，不是独立盲测，也不代表真实用户分布。
+数据：[24条标注用例](data/intent_eval_20261018.json)。16条普通指令、8条否定/条件/缺参数/口语等挑战指令。它是人工编写的开发回归集，不是独立盲测，也不代表真实用户分布。
 
 预置相同业务快照：当前SK-101、上一款SK-103。规则组调用现有规则解析；模型组调用现有模型解析，再执行相同规范化与风险检查。**没有真正执行交易。**
 
@@ -126,10 +126,10 @@ cd "/Users/wumao/Downloads/项目报告汇总/liveops-harness"
 
 ## 6 原始证据与复现
 
-- [首次真实模型记录，含逐题错误与逐请求usage](/Users/wumao/Downloads/项目报告汇总/liveops-harness/outputs/real_model_eval_20261018.json)。
-- [额外四组真实模型配对记录，含合并用量](/Users/wumao/Downloads/项目报告汇总/liveops-harness/outputs/real_writer_repeats_20261018.json)。
-- [本轮离线机制实验](/Users/wumao/Downloads/项目报告汇总/liveops-harness/outputs/multiagent_eval_20261018.json)。
-- [真实评测脚本](/Users/wumao/Downloads/项目报告汇总/liveops-harness/liveops/real_model_eval.py)、[配对复测脚本](/Users/wumao/Downloads/项目报告汇总/liveops-harness/liveops/real_writer_repeats.py)。
+- [首次真实模型记录，含逐题错误与逐请求usage](outputs/real_model_eval_20261018.json)。
+- [额外四组真实模型配对记录，含合并用量](outputs/real_writer_repeats_20261018.json)。
+- [本轮离线机制实验](outputs/multiagent_eval_20261018.json)。
+- [真实评测脚本](liveops/real_model_eval.py)、[配对复测脚本](liveops/real_writer_repeats.py)。
 
 脚本保留源码/数据摘要与时间戳。原始报告保持不改；以后业务逻辑修改后，不要求旧指纹与新代码一致。首次脚本再次运行会调用API并覆盖同名报告；不要无意重复执行。额外配对脚本发现已有文件会拒绝再次花费。
 

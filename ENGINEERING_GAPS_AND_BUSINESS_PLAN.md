@@ -282,6 +282,6 @@ A：先证明手卡准备更省时间、修改更少、操作不乱执行。没�
 
 ## 复现与边界
 
-运行 `.venv/bin/python -m liveops.operations_eval` 生成 [原始数据](/Users/wumao/Downloads/项目报告汇总/liveops-harness/outputs/operations_eval_20261017.json)。其中容量是本地真实执行，模型账务是明确标记的Mock响应；真实供应商调用为0。
+运行 `.venv/bin/python -m liveops.operations_eval` 生成 [原始数据](outputs/operations_eval_20261017.json)。其中容量是本地真实执行，模型账务是明确标记的Mock响应；真实供应商调用为0。
 
-新增测试在 [test_campaign_metrics.py](/Users/wumao/Downloads/项目报告汇总/liveops-harness/tests/test_campaign_metrics.py)，用量汇总在 [metrics.py](/Users/wumao/Downloads/项目报告汇总/liveops-harness/liveops/metrics.py)。不输出供应商密钥、原始Prompt或虚构账单金额。
+新增测试在 [test_campaign_metrics.py](tests/test_campaign_metrics.py)，用量汇总在 [metrics.py](liveops/metrics.py)。不输出供应商密钥、原始Prompt或虚构账单金额。

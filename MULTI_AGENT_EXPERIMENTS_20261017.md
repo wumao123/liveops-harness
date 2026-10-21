@@ -13,7 +13,7 @@
 - 当前角色为选品、文案、审核、汇总。默认主要是确定性实现，文案可选接模型。因此严格说，本次测试的是**多角色/子任务 Harness**，不是多个自主推理模型之间的智力竞赛。
 - 只新增评测脚本与测试，不改变业务逻辑。所有业务数据在临时数据库里，实验关闭在线模型配置。
 
-结果文件：[完整 JSON](/Users/wumao/Downloads/项目报告汇总/liveops-harness/outputs/multiagent_eval_20261017.json)。其中保留逐条记录、配置、运行环境和源码 SHA256。
+结果文件：[完整 JSON](outputs/multiagent_eval_20261017.json)。其中保留逐条记录、配置、运行环境和源码 SHA256。
 
 ## 二 实验总表
 
@@ -207,7 +207,7 @@
 
 ## 七 如何复现
 
-评测脚本：[multiagent_eval.py](/Users/wumao/Downloads/项目报告汇总/liveops-harness/liveops/multiagent_eval.py)。新测试：[test_multiagent_eval.py](/Users/wumao/Downloads/项目报告汇总/liveops-harness/tests/test_multiagent_eval.py)。
+评测脚本：[multiagent_eval.py](liveops/multiagent_eval.py)。新测试：[test_multiagent_eval.py](tests/test_multiagent_eval.py)。
 
 ```sh
 cd "/Users/wumao/Downloads/项目报告汇总/liveops-harness"

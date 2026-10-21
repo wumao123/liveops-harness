@@ -7,9 +7,16 @@ build/
 dist/
 *.egg-info/
 .env
+.env.*
+!.env.example
+*.pem
+*.key
 data/*.db
 data/*.db-*
 # Local runtime artifacts and pre-git manual backups
 data/*.log
 data/backups/
 .claude/settings.local.json
+# Release checks use temporary databases; do not commit their runtime state.
+data/**/*.db
+data/**/*.db-*

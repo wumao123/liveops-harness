@@ -1,14 +1,16 @@
 # LiveOps Harness
 
+发布前验证（2026-10-21）：**248 项测试通过，19 项真实 HTTP 检查通过**，包含进程重启、审批恢复、模拟远端回执对账、后台任务和 SSE。场景集离线 52/52；原盲测集离线重跑 57/72，违规执行和重复写入均为 0。详见 [发布验证报告](RELEASE_VERIFICATION_20261021.md)。GitHub Actions 会在推送和 PR 时运行离线回归与 HTTP 检查。
+
 一个可本地运行的直播运营 Agent 项目。它使用 LangGraph 组织指令处理流程，用持久化 Checkpoint 暂停和恢复高风险操作，用 SQLite 模拟直播间业务状态，并在数据库事务中完成幂等写入与审计。默认离线运行，无需淘宝账号或模型 API Key。
 
 新增 **LiveOps Multi-Agent Harness** 商品准备链：选品、手卡、合规、汇总四种角色通过只读 DAG 协作，支持同层并行、角色隔离、材料外置、任务断点和失败分支恢复。与原审批写入链分开，不自动执行材料中的改价或发券建议。详见 [升级设计、文章对照和面试说明](HARNESS_UPGRADE.md)。
 
 面试重点、真实自检缺陷、解决方案和替代方案取舍，见 [亮点难点与方案取舍](HIGHLIGHTS_AND_TRADEOFFS.md)。
 
-2026-10-17 补充：[多角色受控实验](/Users/wumao/Downloads/项目报告汇总/liveops-harness/MULTI_AGENT_EXPERIMENTS_20261017.md) 与 [业务落地、成本和延迟缺陷审查](/Users/wumao/Downloads/项目报告汇总/liveops-harness/ENGINEERING_GAPS_AND_BUSINESS_PLAN.md)。新增失败模型调用的用量留存与只读指标接口；仍缺生产鉴权、全局费用预算与真实平台验证，仅适合本地沙箱。
+2026-10-17 补充：[多角色受控实验](MULTI_AGENT_EXPERIMENTS_20261017.md) 与 [业务落地、成本和延迟缺陷审查](ENGINEERING_GAPS_AND_BUSINESS_PLAN.md)。新增失败模型调用的用量留存与只读指标接口；仍缺生产鉴权、全局费用预算与真实平台验证，仅适合本地沙箱。
 
-2026-10-18 新增 [真实DeepSeek实验结果](/Users/wumao/Downloads/项目报告汇总/liveops-harness/REAL_MODEL_RESULTS_20261018.md)：24条意图开发题、串并行各5次真实模型准备、54次正式请求的供应商usage，以及8类本地记忆契约。保留4个意图失败，不代表线上泛化效果。
+2026-10-18 新增 [真实DeepSeek实验结果](REAL_MODEL_RESULTS_20261018.md)：24条意图开发题、串并行各5次真实模型准备、54次正式请求的供应商usage，以及8类本地记忆契约。保留4个意图失败，不代表线上泛化效果。
 
 2026-10-19 新增 [对话能力与可操作 Harness 工作台](CONVERSATION_UPGRADE_20261019.md)：DeepSeek 自然语言建议与口播、近期四轮上下文、推荐顺序与指代绑定、缺参澄清、带来源的草稿、网页备播阶段推进/恢复、偏好删除与远端回执对账。自动化回归增至125项；最终10条真实开发对话的9项流程检查通过。调试中观察到生成价格被检查拦截后的事实回退，流程通过不代表回答质量100%正确。
 
@@ -82,6 +84,8 @@ LIVEOPS_LLM_MODEL=your-model
 
 ```bash
 .venv/bin/python -m pytest -q
+.venv/bin/python tools/http_smoke.py       # 启动真实 HTTP 服务；临时数据库；无模型调用
+.venv/bin/python tools/regression_gate.py  # 全量测试＋场景／原盲测集回归；无模型调用
 .venv/bin/python -m liveops.benchmark --requests 100 --workers 1 4 8
 .venv/bin/python -m liveops.remote_demo
 .venv/bin/python -m liveops.campaign_demo

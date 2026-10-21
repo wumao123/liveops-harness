@@ -2,11 +2,11 @@
 
 ## 2026-10-18 真实模型补充
 
-当前89项工程测试。真实DeepSeek正式请求54次：24次意图、30次文案。24条手写开发题中规则匹配19、模型匹配20，保留两条偏好字段失败及两条条件/缺参数失败。真实三商品串/并行各5次的中位数为2995.448/1069.633ms；另跑8类本地记忆契约和2026-10-18离线机制复测。详见 [原始结果与评测边界](/Users/wumao/Downloads/项目报告汇总/liveops-harness/REAL_MODEL_RESULTS_20261018.md)。真实API不在pytest里调用，不能将89项工程通过当作模型准确率。
+当前89项工程测试。真实DeepSeek正式请求54次：24次意图、30次文案。24条手写开发题中规则匹配19、模型匹配20，保留两条偏好字段失败及两条条件/缺参数失败。真实三商品串/并行各5次的中位数为2995.448/1069.633ms；另跑8类本地记忆契约和2026-10-18离线机制复测。详见 [原始结果与评测边界](REAL_MODEL_RESULTS_20261018.md)。真实API不在pytest里调用，不能将89项工程通过当作模型准确率。
 
 ## 2026-10-17 更新
 
-当前共83项工程测试。新增2项实验脚本测试和10项用量/指标测试；下文71项为前一版基线。多角色受控实验见 [实验报告](/Users/wumao/Downloads/项目报告汇总/liveops-harness/MULTI_AGENT_EXPERIMENTS_20261017.md)，业务与容量补强见 [工程审查](/Users/wumao/Downloads/项目报告汇总/liveops-harness/ENGINEERING_GAPS_AND_BUSINESS_PLAN.md)。
+当前共83项工程测试。新增2项实验脚本测试和10项用量/指标测试；下文71项为前一版基线。多角色受控实验见 [实验报告](MULTI_AGENT_EXPERIMENTS_20261017.md)，业务与容量补强见 [工程审查](ENGINEERING_GAPS_AND_BUSINESS_PLAN.md)。
 
 `.venv/bin/python -m liveops.operations_eval` 轮换1/4/8并发各三轮、每轮100次本地离线调用，另用Mock核验坏JSON最终失败仍保留两次调用与已知240 token、三商品嵌套重试共12次请求且用量未知。结果在 `outputs/operations_eval_20261017.json`。HTTP排队、真实模型费用、公开部署安全均不在这批实测范围。
 

@@ -1,6 +1,6 @@
 # 直播运营 Agent 亮点难点与方案取舍
 
-2026-10-17更新：当前83项工程测试；本文71项指2026-10-16基线。新增 [多角色实验](/Users/wumao/Downloads/项目报告汇总/liveops-harness/MULTI_AGENT_EXPERIMENTS_20261017.md) 和 [业务落地与成本/延迟补强](/Users/wumao/Downloads/项目报告汇总/liveops-harness/ENGINEERING_GAPS_AND_BUSINESS_PLAN.md)。已有受控调度实验，不再只有Barrier验证，但尚无真实模型质量提升结论。
+2026-10-17更新：当前83项工程测试；本文71项指2026-10-16基线。新增 [多角色实验](MULTI_AGENT_EXPERIMENTS_20261017.md) 和 [业务落地与成本/延迟补强](ENGINEERING_GAPS_AND_BUSINESS_PLAN.md)。已有受控调度实验，不再只有Barrier验证，但尚无真实模型质量提升结论。
 
 ## 先记住这段介绍
 
